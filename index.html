@@ -1,0 +1,1533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mishy Naturals - Pure Organic Cashews & Honey</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6B4E3D;
+            --secondary: #8B6F47;
+            --accent: #D4AF37;
+            --light: #F5F1E8;
+            --cream: #FAF7F0;
+            --dark: #3C2E23;
+            --text: #4A3728;
+            --hover: #5A3E2D;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background-color: var(--cream);
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(107, 78, 61, 0.1) 0%, transparent 50%);
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, var(--cream) 0%, rgba(245, 241, 232, 0.95) 100%);
+            box-shadow: 0 4px 20px rgba(107, 78, 61, 0.15);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 3px solid var(--accent);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 12px;
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(107, 78, 61, 0.3);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 2rem;
+            position: relative;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: linear-gradient(90deg, var(--accent), var(--primary));
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+        
+        .cart-icon {
+            position: relative;
+            margin-left: 2rem;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+        
+        .cart-icon:hover {
+            color: var(--accent);
+            transform: scale(1.1);
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: linear-gradient(135deg, var(--accent) 0%, #DAB85A 100%);
+            color: var(--dark);
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 0.7rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(212, 175, 55, 0.4);
+        }
+        
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+        }
+        
+        /* Hero Section with Video Background */
+        .hero {
+            position: relative;
+            padding: 6rem 0;
+            text-align: center;
+            border-radius: 0 0 50px 50px;
+            margin: 0 1rem;
+            overflow: hidden;
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .hero-video-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0.85;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, 
+                rgba(107, 78, 61, 0.4) 0%, 
+                rgba(139, 111, 71, 0.3) 50%, 
+                rgba(107, 78, 61, 0.4) 100%);
+            z-index: -1;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 50px,
+                rgba(212, 175, 55, 0.05) 50px,
+                rgba(212, 175, 55, 0.05) 52px
+            );
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 2rem;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 8px 30px rgba(107, 78, 61, 0.4);
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .hero-logo img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--cream);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            color: var(--light);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--cream);
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(107, 78, 61, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+            z-index: 1;
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .btn:hover {
+            background: linear-gradient(135deg, var(--hover) 0%, var(--primary) 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(107, 78, 61, 0.4);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            box-shadow: 0 4px 15px rgba(107, 78, 61, 0.2);
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary);
+            color: var(--cream);
+        }
+        
+        .explore-btn {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 25px rgba(107, 78, 61, 0.5);
+        }
+        
+        .explore-btn:hover {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--accent) 100%);
+            box-shadow: 0 12px 30px rgba(107, 78, 61, 0.6);
+        }
+        
+        /* Section Styling */
+        .section {
+            padding: 5rem 0;
+            margin: 2rem 1rem;
+            border-radius: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section-bg-primary {
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.95) 0%, 
+                rgba(250, 247, 240, 0.9) 100%);
+            box-shadow: 0 10px 40px rgba(107, 78, 61, 0.1);
+        }
+        
+        .section-bg-secondary {
+            background: linear-gradient(135deg, 
+                rgba(245, 241, 232, 0.95) 0%, 
+                rgba(250, 247, 240, 0.9) 100%);
+            box-shadow: 0 10px 40px rgba(107, 78, 61, 0.1);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 1rem;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--primary));
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .section-title::before {
+            content: '🌳';
+            font-size: 2rem;
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-150%);
+            opacity: 0.3;
+        }
+        
+        .section-title::after {
+            content: '🍯';
+            font-size: 2rem;
+            position: absolute;
+            top: -10px;
+            right: 50%;
+            transform: translateX(150%);
+            opacity: 0.3;
+        }
+        
+        /* Products Section with NEW Video Background - UPDATED */
+        .products-section {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .products-video-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0.6; /* Increased opacity for better visibility */
+        }
+        
+        .products-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, 
+                rgba(107, 78, 61, 0.5) 0%, /* Darker brown for better blend */
+                rgba(139, 111, 71, 0.4) 100%);
+            z-index: -1;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .product-card {
+            background: linear-gradient(135deg, var(--cream) 0%, rgba(250, 247, 240, 0.8) 100%);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(107, 78, 61, 0.15);
+            transition: all 0.4s ease;
+            position: relative;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--primary));
+        }
+        
+        .product-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(107, 78, 61, 0.25);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 1.5rem;
+            left: 1.5rem;
+            background: linear-gradient(135deg, var(--accent) 0%, #DAB85A 100%);
+            color: var(--dark);
+            padding: 0.4rem 1rem;
+            border-radius: 25px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 10;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+        }
+        
+        .product-img {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .product-img::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                45deg,
+                transparent 30%,
+                rgba(212, 175, 55, 0.1) 50%,
+                transparent 70%
+            );
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .product-card:hover .product-img::after {
+            opacity: 1;
+        }
+        
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .product-card:hover .product-img img {
+            transform: scale(1.1);
+        }
+        
+        .product-content {
+            padding: 2rem;
+        }
+        
+        .product-content h3 {
+            font-size: 1.6rem;
+            margin-bottom: 0.8rem;
+            color: var(--primary);
+        }
+        
+        .product-price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin: 1.5rem 0;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        .product-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            background: var(--light);
+            border: 2px solid rgba(107, 78, 61, 0.2);
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .quantity-btn {
+            background: transparent;
+            border: none;
+            width: 35px;
+            height: 35px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+        
+        .quantity-btn:hover {
+            background: var(--accent);
+            color: var(--dark);
+        }
+        
+        .quantity-input {
+            width: 35px;
+            text-align: center;
+            border: none;
+            background: transparent;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        /* Benefits Section with alternating backgrounds */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .benefit-card {
+            text-align: center;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(107, 78, 61, 0.1);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Alternating backgrounds for benefit cards */
+        .benefit-card:nth-child(odd) {
+            background: linear-gradient(135deg, rgba(107, 78, 61, 0.1) 0%, rgba(139, 111, 71, 0.05) 100%);
+        }
+        
+        .benefit-card:nth-child(even) {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, var(--cream) 100%);
+        }
+        
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .benefit-card:hover::before {
+            left: 100%;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(107, 78, 61, 0.2);
+        }
+        
+        .benefit-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .benefit-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        /* Reviews Section */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .review-card {
+            background: linear-gradient(135deg, var(--cream) 0%, rgba(250, 247, 240, 0.8) 100%);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(107, 78, 61, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+        
+        .review-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .review-text {
+            font-style: italic;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .review-text:before {
+            content: """;
+            font-size: 4rem;
+            color: var(--accent);
+            position: absolute;
+            top: -1.5rem;
+            left: -0.5rem;
+            opacity: 0.4;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .reviewer {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.3rem;
+        }
+        
+        .reviewer-location {
+            font-size: 0.9rem;
+            color: var(--text);
+        }
+        
+        .stars {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        /* About Section */
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 3rem;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 320px;
+            padding: 2rem;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 320px;
+            padding: 2rem;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(107, 78, 61, 0.2);
+        }
+        
+        .features {
+            margin: 2rem 0;
+        }
+        
+        .feature {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            padding: 0.5rem 0;
+        }
+        
+        .feature i {
+            margin-right: 15px;
+            color: var(--accent);
+            font-size: 1.1rem;
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+        
+        .modal-content {
+            background: linear-gradient(135deg, var(--cream) 0%, rgba(255, 255, 255, 0.95) 100%);
+            padding: 2.5rem;
+            border-radius: 20px;
+            max-width: 550px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .close-modal:hover {
+            background: var(--accent);
+            color: var(--dark);
+        }
+        
+        .modal-title {
+            margin-bottom: 2rem;
+            text-align: center;
+            color: var(--primary);
+            font-size: 1.8rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.8rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid rgba(107, 78, 61, 0.2);
+            border-radius: 10px;
+            font-family: 'Montserrat', sans-serif;
+            background: rgba(255, 255, 255, 0.8);
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+        }
+        
+        .order-summary {
+            background: linear-gradient(135deg, var(--light) 0%, rgba(245, 241, 232, 0.5) 100%);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        
+        .order-summary h4 {
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.8rem;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(107, 78, 61, 0.1);
+        }
+        
+        .summary-total {
+            border-top: 2px solid var(--accent) !important;
+            padding-top: 1rem !important;
+            margin-top: 1rem;
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 100%);
+            color: var(--cream);
+            padding: 4rem 0 2rem;
+            text-align: center;
+            margin-top: 3rem;
+            position: relative;
+        }
+        
+        .footer-content {
+            margin-bottom: 3rem;
+        }
+        
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--cream);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .footer-tagline {
+            font-style: italic;
+            margin-bottom: 2rem;
+            color: var(--accent);
+            font-size: 1.1rem;
+        }
+        
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: linear-gradient(135deg, var(--cream) 0%, rgba(255, 255, 255, 0.98) 100%);
+                box-shadow: 0 10px 30px rgba(107, 78, 61, 0.2);
+                padding: 1.5rem 0;
+                border-radius: 0 0 20px 20px;
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 0;
+                padding: 1rem 2rem;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            .hero-logo {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .hero-logo img {
+                width: 85px;
+                height: 85px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .hero-logo {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .hero-logo img {
+                width: 70px;
+                height: 70px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .btn {
+                padding: 0.8rem 2rem;
+                font-size: 0.9rem;
+            }
+            
+            .product-actions {
+                flex-direction: column;
+                gap: 1.5rem;
+                align-items: stretch;
+            }
+            
+            .logo {
+                font-size: 1.4rem;
+            }
+            
+            .logo img {
+                height: 40px;
+            }
+            
+            .section {
+                margin: 1rem 0.5rem;
+                padding: 3rem 0;
+            }
+            
+            .hero-logo {
+                width: 70px;
+                height: 70px;
+                margin-bottom: 1.5rem;
+            }
+            
+            .hero-logo img {
+                width: 60px;
+                height: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <img src="https://res.cloudinary.com/dnxtuowlp/image/upload/v1757243399/Logo_uooydv.jpg" alt="Mishy Naturals Logo">
+                MISHY NATURALS
+            </div>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#benefits">Benefits</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">0</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section with Video Background -->
+    <section class="hero" id="home">
+        <video class="hero-video-bg" autoplay muted loop playsinline>
+            <source src="https://res.cloudinary.com/dnxtuowlp/video/upload/v1757333999/medium-vecteezy_closeup-of-cashews-nut-texture-background_48578419_medium_do9ucw.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="container hero-content">
+            <div class="hero-logo">
+                <img src="https://res.cloudinary.com/dnxtuowlp/image/upload/v1757243399/Logo_uooydv.jpg" alt="Mishy Naturals Logo">
+            </div>
+            <h1>Pure Goodness in Every Drop & Bite</h1>
+            <p>100% Natural Organic Cashews and Honey imported directly from Tanzania. Boost your immunity, aid digestion, and enjoy perfect flavor for all ages.</p>
+            <a href="#products" class="btn explore-btn">Explore Products</a>
+        </div>
+    </section>
+
+    <!-- Products Section with NEW Video Background - UPDATED -->
+    <section class="section products-section" id="products">
+        <video class="products-video-bg" autoplay muted loop playsinline>
+            <source src="https://res.cloudinary.com/dnxtuowlp/video/upload/v1757333998/small-vecteezy_super-slow-motion-of-a-rotating-oil-liquid_50102806_small_1_gwqfxs.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Products</h2>
+                <p>Discover our range of organic, nutrient-rich products</p>
+            </div>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-badge">Bestseller</div>
+                    <div class="product-img">
+                        <img src="https://res.cloudinary.com/dnxtuowlp/image/upload/v1757243398/Cashew_nuts_r4lyk1.jpg" alt="Salted Cashews">
+                    </div>
+                    <div class="product-content">
+                        <h3>Salted Cashews</h3>
+                        <p>Rich in flavor, lightly salted, and full of nutrients. Perfect for snacking or adding to your favorite dishes.</p>
+                        <div class="product-price">Ksh 850 / pack</div>
+                        <div class="product-actions">
+                            <div class="quantity-selector">
+                                <button class="quantity-btn minus">-</button>
+                                <input type="text" class="quantity-input" value="1" readonly>
+                                <button class="quantity-btn plus">+</button>
+                            </div>
+                            <button class="btn add-to-cart" data-product="Salted Cashews" data-price="850">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-badge">Popular</div>
+                    <div class="product-img">
+                        <img src="https://res.cloudinary.com/dnxtuowlp/image/upload/v1757243398/Cashew_nuts_r4lyk1.jpg" alt="Chilli Cashews">
+                    </div>
+                    <div class="product-content">
+                        <h3>Chilli Cashews</h3>
+                        <p>Spicy, crunchy, and packed with organic goodness. A flavorful kick for those who love heat.</p>
+                        <div class="product-price">Ksh 850 / pack</div>
+                        <div class="product-actions">
+                            <div class="quantity-selector">
+                                <button class="quantity-btn minus">-</button>
+                                <input type="text" class="quantity-input" value="1" readonly>
+                                <button class="quantity-btn plus">+</button>
+                            </div>
+                            <button class="btn add-to-cart" data-product="Chilli Cashews" data-price="850">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-badge">New</div>
+                    <div class="product-img">
+                        <img src="https://res.cloudinary.com/dnxtuowlp/image/upload/v1757243399/Honey_lrr93q.jpg" alt="Pure Organic Honey">
+                    </div>
+                    <div class="product-content">
+                        <h3>Pure Organic Honey</h3>
+                        <p>Golden sweetness from the heart of Tanzania. 100% natural with no additives or preservatives.</p>
+                        <div class="product-price">Ksh 950 / jar</div>
+                        <div class="product-actions">
+                            <div class="quantity-selector">
+                                <button class="quantity-btn minus">-</button>
+                                <input type="text" class="quantity-input" value="1" readonly>
+                                <button class="quantity-btn plus">+</button>
+                            </div>
+                            <button class="btn add-to-cart" data-product="Pure Organic Honey" data-price="950">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem;">
+                <!-- UPDATED: Added explore-btn class to match the explore button -->
+                <button class="btn explore-btn" id="view-cart">View Cart & Checkout</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="section section-bg-secondary" id="benefits">
+        <div class="container">
+            <div class="section-title">
+                <h2>Health Benefits</h2>
+                <p>Why our natural products are good for you</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Boosts Immunity</h3>
+                    <p>Our organic products are rich in antioxidants that help strengthen your immune system naturally.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Aids Digestion</h3>
+                    <p>Natural enzymes in our honey and fiber in cashews promote healthy digestion and gut wellness.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>100% Natural</h3>
+                    <p>No additives, preservatives, or artificial ingredients. Pure nature in every bite and drop.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>For All Ages</h3>
+                    <p>Safe and beneficial for children and adults alike. A healthy choice for the whole family.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="section section-bg-primary" id="reviews">
+        <div class="container">
+            <div class="section-title">
+                <h2>Customer Reviews</h2>
+                <p>What our customers are saying about us</p>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="review-text">
+                        <p>The honey is absolutely divine! I've been using it in my tea every morning and my digestion has improved significantly. Will definitely order again!</p>
+                    </div>
+                    <div class="reviewer">Jane N.</div>
+                    <div class="reviewer-location">Nairobi</div>
+                </div>
+                
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <div class="review-text">
+                        <p>The chili cashews are addictive! Perfect balance of spice and crunch. The M-Pesa payment was super convenient too.</p>
+                    </div>
+                    <div class="reviewer">Michael K.</div>
+                    <div class="reviewer-location">Mombasa</div>
+                </div>
+                
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="review-text">
+                        <p>I love that these products are 100% natural. My kids enjoy the cashews as a healthy snack, and I feel good about giving it to them.</p>
+                    </div>
+                    <div class="reviewer">Sarah W.</div>
+                    <div class="reviewer-location">Kisumu</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section section-bg-secondary" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Mishy Naturals</h2>
+                <p>Our story and commitment to quality</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>We are an online store specializing in purely organic cashew nuts and honey, imported directly from Tanzania. Our products represent the perfect harmony between nature's tree-grown treasures and the golden sweetness of beehives.</p>
+                    
+                    <div class="features">
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Very nutritious and packed with health benefits</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Available in different flavors: salted, non-salted, and chili</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Presented in elegant packaging perfect for gifts</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Sourced from trusted farmers in Tanzania</span>
+                        </div>
+                    </div>
+                    
+                    <p>At Mishy Naturals, we believe in providing our customers with the purest, most natural products while supporting sustainable farming practices. Like the strong tree that provides shelter and the busy bees that create liquid gold, we work tirelessly to bring you nature's finest.</p>
+                    
+                    <div style="margin-top: 2rem;">
+                        <a href="#contact" class="btn">Get In Touch</a>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <!-- Updated image as requested -->
+                    <img src="https://res.cloudinary.com/dnxtuowlp/image/upload/v1757243399/mish_natural_okfakf.jpg" alt="About Mishy Naturals">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Modal -->
+    <div class="modal" id="orderModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3 class="modal-title">Complete Your Order</h3>
+            
+            <form id="orderForm">
+                <div class="form-group">
+                    <label for="customerName">Full Name</label>
+                    <input type="text" id="customerName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="customerEmail">Email Address</label>
+                    <input type="email" id="customerEmail" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="customerPhone">Phone Number</label>
+                    <input type="tel" id="customerPhone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="customerAddress">Delivery Address</label>
+                    <textarea id="customerAddress" rows="3" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="paymentMethod">Payment Method</label>
+                    <select id="paymentMethod" required>
+                        <option value="">Select Payment Method</option>
+                        <option value="mpesa">M-Pesa</option>
+                        <option value="paypal">PayPal</option>
+                        <option value="card">Credit/Debit Card</option>
+                        <option value="cash">Cash on Delivery</option>
+                    </select>
+                </div>
+                
+                <div class="order-summary">
+                    <h4>Order Summary</h4>
+                    <div id="orderSummary">
+                        <!-- Order items will be inserted here -->
+                    </div>
+                    <div class="summary-item summary-total">
+                        <span>Total:</span>
+                        <span id="orderTotal">Ksh 0</span>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn">Place Order</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div class="modal" id="confirmationModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div style="text-align: center;">
+                <i class="fas fa-check-circle" style="font-size: 4rem; color: var(--accent); margin-bottom: 1rem;"></i>
+                <h3 class="modal-title">Order Confirmed!</h3>
+                <p>Thank you for your order. We'll process it and contact you shortly for confirmation.</p>
+                <p>Your order ID: <strong>MN2023-<span id="orderId"></span></strong></p>
+                <button class="btn" id="continueShopping">Continue Shopping</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">MISHY NATURALS</div>
+                <div class="footer-tagline">Pure Goodness in Every Drop | Where Nature Meets Flavour</div>
+                
+                <div style="margin: 2rem 0;">
+                    <a href="https://wa.me/254743808612" class="btn" style="margin: 0.5rem;">
+                        <i class="fab fa-whatsapp"></i> Order via WhatsApp
+                    </a>
+                    <a href="tel:0743808612" class="btn btn-outline" style="margin: 0.5rem;">
+                        <i class="fas fa-phone"></i> Call Us
+                    </a>
+                </div>
+                
+                <div>
+                    <p><i class="fas fa-envelope"></i> info@mishynaturals.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Mishy Naturals. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Cart functionality
+        let cart = [];
+        const cartCount = document.querySelector('.cart-count');
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        const viewCartButton = document.getElementById('view-cart');
+        const orderModal = document.getElementById('orderModal');
+        const confirmationModal = document.getElementById('confirmationModal');
+        const orderSummary = document.getElementById('orderSummary');
+        const orderTotal = document.getElementById('orderTotal');
+        const orderForm = document.getElementById('orderForm');
+        const closeModalButtons = document.querySelectorAll('.close-modal');
+        const continueShoppingButton = document.getElementById('continueShopping');
+        
+        // Add to cart functionality
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const product = this.getAttribute('data-product');
+                const price = parseInt(this.getAttribute('data-price'));
+                const quantity = parseInt(this.parentElement.querySelector('.quantity-input').value);
+                
+                // Check if product already in cart
+                const existingItem = cart.find(item => item.product === product);
+                
+                if (existingItem) {
+                    existingItem.quantity += quantity;
+                } else {
+                    cart.push({
+                        product,
+                        price,
+                        quantity
+                    });
+                }
+                
+                updateCartCount();
+                
+                // Show confirmation
+                alert(`${quantity} ${product} added to cart!`);
+            });
+        });
+        
+        // Quantity buttons
+        const quantityButtons = document.querySelectorAll('.quantity-btn');
+        quantityButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const input = this.parentElement.querySelector('.quantity-input');
+                let value = parseInt(input.value);
+                
+                if (this.classList.contains('plus')) {
+                    value++;
+                } else if (this.classList.contains('minus') && value > 1) {
+                    value--;
+                }
+                
+                input.value = value;
+            });
+        });
+        
+        // Update cart count
+        function updateCartCount() {
+            const count = cart.reduce((total, item) => total + item.quantity, 0);
+            cartCount.textContent = count;
+        }
+        
+        // View cart button
+        viewCartButton.addEventListener('click', function() {
+            if (cart.length === 0) {
+                alert('Your cart is empty!');
+                return;
+            }
+            
+            // Update order summary
+            orderSummary.innerHTML = '';
+            let total = 0;
+            
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                
+                const summaryItem = document.createElement('div');
+                summaryItem.classList.add('summary-item');
+                summaryItem.innerHTML = `
+                    <span>${item.product} (x${item.quantity})</span>
+                    <span>Ksh ${itemTotal}</span>
+                `;
+                
+                orderSummary.appendChild(summaryItem);
+            });
+            
+            orderTotal.textContent = `Ksh ${total}`;
+            
+            // Show order modal
+            orderModal.style.display = 'flex';
+        });
+        
+        // Close modals
+        closeModalButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                orderModal.style.display = 'none';
+                confirmationModal.style.display = 'none';
+            });
+        });
+        
+        // Continue shopping button
+        continueShoppingButton.addEventListener('click', function() {
+            confirmationModal.style.display = 'none';
+            cart = [];
+            updateCartCount();
+        });
+        
+        // Order form submission
+        orderForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Generate random order ID
+            const orderId = Math.floor(1000 + Math.random() * 9000);
+            document.getElementById('orderId').textContent = orderId;
+            
+            // Hide order modal and show confirmation
+            orderModal.style.display = 'none';
+            confirmationModal.style.display = 'flex';
+            
+            // In a real application, you would send the order data to a server here
+            console.log('Order placed:', {
+                customer: {
+                    name: document.getElementById('customerName').value,
+                    email: document.getElementById('customerEmail').value,
+                    phone: document.getElementById('customerPhone').value,
+                    address: document.getElementById('customerAddress').value
+                },
+                paymentMethod: document.getElementById('paymentMethod').value,
+                items: cart,
+                total: orderTotal.textContent
+            });
+            
+            // Reset form
+            this.reset();
+        });
+        
+        // Close modal if clicked outside
+        window.addEventListener('click', function(e) {
+            if (e.target === orderModal) {
+                orderModal.style.display = 'none';
+            }
+            if (e.target === confirmationModal) {
+                confirmationModal.style.display = 'none';
+            }
+        });
+        
+        // Mobile Menu Toggle
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('show');
+        });
+        
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.querySelector('nav ul').classList.remove('show');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
