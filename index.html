@@ -3,1531 +3,2196 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mishy Naturals - Pure Organic Cashews & Honey</title>
+    <title>Terracore Spatial Consultants Ltd - Precision Geospatial Solutions</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #6B4E3D;
-            --secondary: #8B6F47;
-            --accent: #D4AF37;
-            --light: #F5F1E8;
-            --cream: #FAF7F0;
-            --dark: #3C2E23;
-            --text: #4A3728;
-            --hover: #5A3E2D;
+            --primary: #1a3c34;      /* Deep green - earth/land */
+            --secondary: #d4af37;    /* Gold - premium quality */
+            --accent: #2c5530;       /* Medium green */
+            --light: #f8f9fa;        /* Light background */
+            --dark: #2d3748;         /* Dark text */
+            --transition: all 0.3s ease;
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         body {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--text);
             line-height: 1.6;
-            background-color: var(--cream);
-            background-image: 
-                radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(107, 78, 61, 0.1) 0%, transparent 50%);
-        }
-        
-        h1, h2, h3, h4, h5 {
-            font-family: 'Playfair Display', serif;
             color: var(--dark);
-            margin-bottom: 1rem;
+            background-color: var(--light);
+            overflow-x: hidden;
         }
         
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
+        /* Header */
+        .header {
+            position: fixed;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            padding: 0.8rem 0;
         }
         
-        /* Header & Navigation */
-        header {
-            background: linear-gradient(135deg, var(--cream) 0%, rgba(245, 241, 232, 0.95) 100%);
-            box-shadow: 0 4px 20px rgba(107, 78, 61, 0.15);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 3px solid var(--accent);
-        }
-        
-        .header-content {
+        .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
         }
         
         .logo {
             display: flex;
             align-items: center;
-            font-family: 'Playfair Display', serif;
-            font-size: 1.6rem;
-            font-weight: 700;
+            font-weight: bold;
+            font-size: 1.2rem;
             color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 1px;
         }
         
         .logo img {
             height: 50px;
-            margin-right: 12px;
-            border-radius: 50%;
-            box-shadow: 0 4px 15px rgba(107, 78, 61, 0.3);
+            margin-right: 10px;
         }
         
-        nav ul {
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .company-name {
+            font-weight: 700;
+            font-size: 1.3rem;
+            line-height: 1.2;
+        }
+        
+        .company-tagline {
+            font-size: 0.8rem;
+            font-weight: 400;
+            color: var(--accent);
+        }
+        
+        .nav-menu {
             display: flex;
             list-style: none;
+            gap: 1.5rem;
         }
         
-        nav ul li {
-            margin-left: 2rem;
-            position: relative;
-        }
-        
-        nav ul li a {
+        .nav-menu li a {
             text-decoration: none;
             color: var(--dark);
             font-weight: 500;
-            transition: all 0.3s ease;
-            padding: 0.5rem 0;
+            transition: var(--transition);
+            padding: 5px 0;
             position: relative;
         }
         
-        nav ul li a:hover {
-            color: var(--primary);
-        }
-        
-        nav ul li a:after {
+        .nav-menu li a:after {
             content: '';
             position: absolute;
             width: 0;
             height: 2px;
-            bottom: -5px;
+            bottom: 0;
             left: 0;
-            background: linear-gradient(90deg, var(--accent), var(--primary));
-            transition: width 0.3s ease;
+            background-color: var(--secondary);
+            transition: var(--transition);
         }
         
-        nav ul li a:hover:after {
+        .nav-menu li a:hover:after {
             width: 100%;
         }
         
-        .cart-icon {
-            position: relative;
-            margin-left: 2rem;
-            font-size: 1.2rem;
-            cursor: pointer;
+        .nav-menu li a:hover {
             color: var(--primary);
-            transition: all 0.3s ease;
         }
         
-        .cart-icon:hover {
-            color: var(--accent);
-            transform: scale(1.1);
-        }
-        
-        .cart-count {
-            position: absolute;
-            top: -8px;
-            right: -8px;
-            background: linear-gradient(135deg, var(--accent) 0%, #DAB85A 100%);
-            color: var(--dark);
-            border-radius: 50%;
-            width: 18px;
-            height: 18px;
-            font-size: 0.7rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        .contact-btn {
+            background: var(--primary);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
             font-weight: 600;
-            box-shadow: 0 2px 8px rgba(212, 175, 55, 0.4);
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
         }
         
-        .menu-toggle {
+        .contact-btn:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(26, 60, 52, 0.3);
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu {
             display: none;
-            font-size: 1.5rem;
+            flex-direction: column;
             cursor: pointer;
-            color: var(--primary);
+        }
+        
+        .mobile-menu span {
+            height: 3px;
+            width: 25px;
+            background: var(--primary);
+            margin-bottom: 4px;
+            border-radius: 3px;
+            transition: var(--transition);
         }
         
         /* Hero Section with Video Background */
         .hero {
             position: relative;
-            padding: 6rem 0;
-            text-align: center;
-            border-radius: 0 0 50px 50px;
-            margin: 0 1rem;
-            overflow: hidden;
             height: 100vh;
-            min-height: 600px;
             display: flex;
             align-items: center;
             justify-content: center;
+            color: white;
+            text-align: center;
+            overflow: hidden;
+            padding: 0 20px;
         }
         
-        .hero-video-bg {
+        .video-background {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+            overflow: hidden;
+        }
+        
+        .video-background video {
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             object-fit: cover;
-            z-index: -1;
-            opacity: 0.85;
         }
         
-        .hero::after {
-            content: '';
+        .video-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, 
-                rgba(107, 78, 61, 0.4) 0%, 
-                rgba(139, 111, 71, 0.3) 50%, 
-                rgba(107, 78, 61, 0.4) 100%);
-            z-index: -1;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: repeating-linear-gradient(
-                45deg,
-                transparent,
-                transparent 50px,
-                rgba(212, 175, 55, 0.05) 50px,
-                rgba(212, 175, 55, 0.05) 52px
-            );
-            pointer-events: none;
-            z-index: 0;
+            background: linear-gradient(to bottom, rgba(26, 60, 52, 0.8), rgba(26, 60, 52, 0.6));
         }
         
         .hero-content {
             max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .hero-logo {
-            width: 120px;
-            height: 120px;
-            margin: 0 auto 2rem;
-            border-radius: 50%;
-            background: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            box-shadow: 0 8px 30px rgba(107, 78, 61, 0.4);
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        .hero-logo img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+            z-index: 10;
         }
         
         .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            color: var(--cream);
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
         
         .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2.5rem;
-            color: var(--light);
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
         }
         
-        .btn {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: var(--cream);
-            padding: 1rem 2.5rem;
-            border: none;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 600;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 6px 20px rgba(107, 78, 61, 0.3);
-            position: relative;
-            overflow: hidden;
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
         }
         
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s;
-            z-index: 1;
-        }
-        
-        .btn:hover::before {
-            left: 100%;
-        }
-        
-        .btn:hover {
-            background: linear-gradient(135deg, var(--hover) 0%, var(--primary) 100%);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(107, 78, 61, 0.4);
-        }
-        
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--primary);
-            color: var(--primary);
-            box-shadow: 0 4px 15px rgba(107, 78, 61, 0.2);
-        }
-        
-        .btn-outline:hover {
-            background: var(--primary);
-            color: var(--cream);
-        }
-        
-        .explore-btn {
-            background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 8px 25px rgba(107, 78, 61, 0.5);
-        }
-        
-        .explore-btn:hover {
-            background: linear-gradient(135deg, var(--secondary) 0%, var(--accent) 100%);
-            box-shadow: 0 12px 30px rgba(107, 78, 61, 0.6);
-        }
-        
-        /* Section Styling */
-        .section {
-            padding: 5rem 0;
-            margin: 2rem 1rem;
+        .cta-btn {
+            padding: 0.9rem 2rem;
             border-radius: 30px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .section-bg-primary {
-            background: linear-gradient(135deg, 
-                rgba(255, 255, 255, 0.95) 0%, 
-                rgba(250, 247, 240, 0.9) 100%);
-            box-shadow: 0 10px 40px rgba(107, 78, 61, 0.1);
-        }
-        
-        .section-bg-secondary {
-            background: linear-gradient(135deg, 
-                rgba(245, 241, 232, 0.95) 0%, 
-                rgba(250, 247, 240, 0.9) 100%);
-            box-shadow: 0 10px 40px rgba(107, 78, 61, 0.1);
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 4rem;
-            position: relative;
-        }
-        
-        .section-title h2 {
-            font-size: 2.5rem;
-            position: relative;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
             display: inline-block;
-            padding-bottom: 1rem;
         }
         
-        .section-title h2:after {
+        .cta-primary {
+            background: var(--secondary);
+            color: var(--primary);
+        }
+        
+        .cta-primary:hover {
+            background: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .cta-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid var(--secondary);
+        }
+        
+        .cta-secondary:hover {
+            background: var(--secondary);
+            color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Services Banner */
+        .services-banner {
+            background: var(--primary);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .services-banner-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .services-banner h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--secondary);
+        }
+        
+        .services-grid-banner {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .service-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            transition: var(--transition);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            cursor: pointer;
+        }
+        
+        .service-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+            border-color: var(--secondary);
+        }
+        
+        .service-item i {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .service-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Service Category Sections */
+        .service-category {
+            padding: 5rem 2rem;
+            background-color: white;
+        }
+        
+        .category-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .category-title {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            position: relative;
+        }
+        
+        .category-title:after {
             content: '';
             position: absolute;
             width: 80px;
             height: 4px;
-            background: linear-gradient(90deg, var(--accent), var(--primary));
-            bottom: 0;
+            background-color: var(--secondary);
+            bottom: -15px;
             left: 50%;
             transform: translateX(-50%);
-            border-radius: 2px;
         }
         
-        .section-title::before {
-            content: '🌳';
-            font-size: 2rem;
-            position: absolute;
-            top: -10px;
-            left: 50%;
-            transform: translateX(-150%);
-            opacity: 0.3;
+        .category-description {
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--dark);
+            font-size: 1.1rem;
+            line-height: 1.6;
         }
         
-        .section-title::after {
-            content: '🍯';
-            font-size: 2rem;
-            position: absolute;
-            top: -10px;
-            right: 50%;
-            transform: translateX(150%);
-            opacity: 0.3;
-        }
-        
-        /* Products Section with NEW Video Background - UPDATED */
-        .products-section {
+        /* Slideshow Container */
+        .slideshow-container {
+            max-width: 1000px;
             position: relative;
+            margin: auto;
+            margin-top: 3rem;
+            border-radius: 10px;
             overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            height: 400px;
         }
         
-        .products-video-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            height: 100%;
+        }
+        
+        .slide {
+            min-width: 100%;
+            position: relative;
+            height: 100%;
+        }
+        
+        .slide img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            z-index: -1;
-            opacity: 0.6; /* Increased opacity for better visibility */
         }
         
-        .products-section::after {
-            content: '';
+        .slide-caption {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, 
-                rgba(107, 78, 61, 0.5) 0%, /* Darker brown for better blend */
-                rgba(139, 111, 71, 0.4) 100%);
-            z-index: -1;
-        }
-        
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-        }
-        
-        .product-card {
-            background: linear-gradient(135deg, var(--cream) 0%, rgba(250, 247, 240, 0.8) 100%);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(107, 78, 61, 0.15);
-            transition: all 0.4s ease;
-            position: relative;
-            border: 1px solid rgba(212, 175, 55, 0.2);
-        }
-        
-        .product-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--accent), var(--primary));
-        }
-        
-        .product-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 20px 40px rgba(107, 78, 61, 0.25);
-        }
-        
-        .product-badge {
-            position: absolute;
-            top: 1.5rem;
-            left: 1.5rem;
-            background: linear-gradient(135deg, var(--accent) 0%, #DAB85A 100%);
-            color: var(--dark);
-            padding: 0.4rem 1rem;
-            border-radius: 25px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            z-index: 10;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
-        }
-        
-        .product-img {
-            height: 220px;
-            overflow: hidden;
-            position: relative;
-        }
-        
-        .product-img::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
             bottom: 0;
-            background: linear-gradient(
-                45deg,
-                transparent 30%,
-                rgba(212, 175, 55, 0.1) 50%,
-                transparent 70%
-            );
-            opacity: 0;
-            transition: opacity 0.3s ease;
+            left: 0;
+            right: 0;
+            background: rgba(26, 60, 52, 0.8);
+            color: white;
+            padding: 1rem;
+            text-align: center;
         }
         
-        .product-card:hover .product-img::after {
-            opacity: 1;
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+            transition: 0.3s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 10;
         }
         
-        .product-img img {
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+        
+        .prev:hover, .next:hover {
+            background-color: rgba(212, 175, 55, 0.8);
+        }
+        
+        .dots-container {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 5px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+        
+        .dot.active, .dot:hover {
+            background-color: var(--secondary);
+        }
+        
+        /* Project Portfolio Section */
+        .project-portfolio {
+            padding: 6rem 2rem;
+            background-color: var(--light);
+        }
+        
+        .portfolio-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .portfolio-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .portfolio-title {
+            font-size: 2.8rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            position: relative;
+        }
+        
+        .portfolio-title:after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 4px;
+            background-color: var(--secondary);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .portfolio-description {
+            max-width: 800px;
+            margin: 2rem auto 0;
+            color: var(--dark);
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        /* Project Filter */
+        .project-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+        
+        .filter-btn {
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            color: var(--dark);
+            padding: 0.7rem 1.5rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+        
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--secondary);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+        
+        /* Project Cards Layout */
+        .projects-grid-portfolio {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .project-card-portfolio {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        
+        .project-card-portfolio:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(26, 60, 52, 0.2);
+            border-color: var(--secondary);
+        }
+        
+        .project-media {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .project-media img,
+        .project-media video {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            transition: var(--transition);
         }
         
-        .product-card:hover .product-img img {
-            transform: scale(1.1);
+        .project-card-portfolio:hover .project-media img,
+        .project-card-portfolio:hover .project-media video {
+            transform: scale(1.05);
         }
         
-        .product-content {
-            padding: 2rem;
-        }
-        
-        .product-content h3 {
-            font-size: 1.6rem;
-            margin-bottom: 0.8rem;
-            color: var(--primary);
-        }
-        
-        .product-price {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--accent);
-            margin: 1.5rem 0;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-        }
-        
-        .product-actions {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 1rem;
-        }
-        
-        .quantity-selector {
-            display: flex;
-            align-items: center;
-            background: var(--light);
-            border: 2px solid rgba(107, 78, 61, 0.2);
-            border-radius: 25px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .quantity-btn {
-            background: transparent;
-            border: none;
-            width: 35px;
-            height: 35px;
-            cursor: pointer;
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--primary);
-            transition: all 0.3s ease;
-        }
-        
-        .quantity-btn:hover {
-            background: var(--accent);
-            color: var(--dark);
-        }
-        
-        .quantity-input {
-            width: 35px;
-            text-align: center;
-            border: none;
-            background: transparent;
-            font-weight: 600;
-            color: var(--primary);
-        }
-        
-        /* Benefits Section with alternating backgrounds */
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
-        }
-        
-        .benefit-card {
-            text-align: center;
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 8px 25px rgba(107, 78, 61, 0.1);
-            transition: all 0.4s ease;
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        /* Alternating backgrounds for benefit cards */
-        .benefit-card:nth-child(odd) {
-            background: linear-gradient(135deg, rgba(107, 78, 61, 0.1) 0%, rgba(139, 111, 71, 0.05) 100%);
-        }
-        
-        .benefit-card:nth-child(even) {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, var(--cream) 100%);
-        }
-        
-        .benefit-card::before {
-            content: '';
+        .media-indicator {
             position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
-            transition: left 0.6s ease;
-        }
-        
-        .benefit-card:hover::before {
-            left: 100%;
-        }
-        
-        .benefit-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(107, 78, 61, 0.2);
-        }
-        
-        .benefit-icon {
-            font-size: 3rem;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .benefit-card h3 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-        
-        /* Reviews Section */
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-        }
-        
-        .review-card {
-            background: linear-gradient(135deg, var(--cream) 0%, rgba(250, 247, 240, 0.8) 100%);
-            padding: 2.5rem;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(26, 60, 52, 0.8);
+            color: white;
+            padding: 0.3rem 0.8rem;
             border-radius: 20px;
-            box-shadow: 0 8px 25px rgba(107, 78, 61, 0.1);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            position: relative;
-            transition: transform 0.3s ease;
-        }
-        
-        .review-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .review-text {
-            font-style: italic;
-            margin-bottom: 2rem;
-            position: relative;
-            padding-left: 1.5rem;
-        }
-        
-        .review-text:before {
-            content: """;
-            font-size: 4rem;
-            color: var(--accent);
-            position: absolute;
-            top: -1.5rem;
-            left: -0.5rem;
-            opacity: 0.4;
-            font-family: 'Playfair Display', serif;
-        }
-        
-        .reviewer {
-            font-weight: 600;
-            color: var(--primary);
-            margin-bottom: 0.3rem;
-        }
-        
-        .reviewer-location {
-            font-size: 0.9rem;
-            color: var(--text);
-        }
-        
-        .stars {
-            color: var(--accent);
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
-        
-        /* About Section */
-        .about-content {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-            gap: 3rem;
-        }
-        
-        .about-text {
-            flex: 1;
-            min-width: 320px;
-            padding: 2rem;
-        }
-        
-        .about-image {
-            flex: 1;
-            min-width: 320px;
-            padding: 2rem;
-        }
-        
-        .about-image img {
-            width: 100%;
-            border-radius: 20px;
-            box-shadow: 0 15px 40px rgba(107, 78, 61, 0.2);
-        }
-        
-        .features {
-            margin: 2rem 0;
-        }
-        
-        .feature {
-            margin-bottom: 1rem;
+            font-size: 0.8rem;
             display: flex;
             align-items: center;
-            padding: 0.5rem 0;
+            gap: 0.3rem;
         }
         
-        .feature i {
-            margin-right: 15px;
-            color: var(--accent);
-            font-size: 1.1rem;
-        }
-        
-        /* Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-            padding: 1rem;
-        }
-        
-        .modal-content {
-            background: linear-gradient(135deg, var(--cream) 0%, rgba(255, 255, 255, 0.95) 100%);
-            padding: 2.5rem;
-            border-radius: 20px;
-            max-width: 550px;
-            width: 100%;
-            max-height: 90vh;
-            overflow-y: auto;
-            position: relative;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-        }
-        
-        .close-modal {
+        .play-btn {
             position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--text);
-            width: 30px;
-            height: 30px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(212, 175, 55, 0.9);
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s ease;
-        }
-        
-        .close-modal:hover {
-            background: var(--accent);
-            color: var(--dark);
-        }
-        
-        .modal-title {
-            margin-bottom: 2rem;
-            text-align: center;
             color: var(--primary);
-            font-size: 1.8rem;
+            font-size: 1.5rem;
+            opacity: 0;
+            transition: var(--transition);
+            cursor: pointer;
         }
         
-        .form-group {
-            margin-bottom: 1.8rem;
+        .project-card-portfolio:hover .play-btn {
+            opacity: 1;
         }
         
-        .form-group label {
-            display: block;
-            margin-bottom: 0.8rem;
-            font-weight: 600;
-            color: var(--primary);
-        }
-        
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 1rem;
-            border: 2px solid rgba(107, 78, 61, 0.2);
-            border-radius: 10px;
-            font-family: 'Montserrat', sans-serif;
-            background: rgba(255, 255, 255, 0.8);
-            transition: border-color 0.3s ease;
-        }
-        
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
-        }
-        
-        .order-summary {
-            background: linear-gradient(135deg, var(--light) 0%, rgba(245, 241, 232, 0.5) 100%);
+        .project-info {
             padding: 1.5rem;
-            border-radius: 15px;
-            margin: 2rem 0;
-            border: 1px solid rgba(212, 175, 55, 0.3);
         }
         
-        .order-summary h4 {
-            margin-bottom: 1.5rem;
+        .project-category {
+            color: var(--secondary);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-title {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
             color: var(--primary);
         }
         
-        .summary-item {
+        .project-location {
             display: flex;
-            justify-content: space-between;
-            margin-bottom: 0.8rem;
-            padding: 0.5rem 0;
-            border-bottom: 1px solid rgba(107, 78, 61, 0.1);
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
         }
         
-        .summary-total {
-            border-top: 2px solid var(--accent) !important;
-            padding-top: 1rem !important;
-            margin-top: 1rem;
-            font-weight: 700;
+        .project-location i {
+            color: var(--secondary);
+        }
+        
+        .project-description {
+            color: var(--dark);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+        }
+        
+        .project-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature-tag {
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--secondary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .project-link:hover {
+            gap: 0.8rem;
             color: var(--primary);
-            font-size: 1.1rem;
         }
         
-        /* Footer */
-        footer {
-            background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 100%);
-            color: var(--cream);
-            padding: 4rem 0 2rem;
+        /* Team Section */
+        .team-section {
+            padding: 6rem 2rem;
+            background-color: white;
+        }
+        
+        .section-header {
             text-align: center;
-            margin-top: 3rem;
+            margin-bottom: 4rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
             position: relative;
         }
         
-        .footer-content {
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--dark);
             margin-bottom: 3rem;
-        }
-        
-        .footer-logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--cream);
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .footer-tagline {
-            font-style: italic;
-            margin-bottom: 2rem;
-            color: var(--accent);
             font-size: 1.1rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
-        .footer-bottom {
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+        }
+        
+        .team-member {
+            background: var(--light);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(26, 60, 52, 0.2);
+            border-color: var(--secondary);
+        }
+        
+        .member-photo {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+        }
+        
+        .member-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .team-member:hover .member-photo img {
+            transform: scale(1.05);
+        }
+        
+        .member-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(26, 60, 52, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .team-member:hover .member-overlay {
+            opacity: 1;
+        }
+        
+        .member-overlay .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .member-overlay .social-link {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--secondary);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .member-overlay .social-link:hover {
+            background: white;
+            transform: translateY(-3px);
+        }
+        
+        .member-info {
+            padding: 2rem;
+        }
+        
+        .member-name {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .member-position {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+        
+        .member-bio {
+            color: var(--dark);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+        
+        .member-expertise {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .expertise-tag {
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--secondary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .team-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+            padding: 3rem;
+            background: var(--light);
+            border-radius: 15px;
+            text-align: center;
+        }
+        
+        .team-stats .stat-item {
+            padding: 1rem;
+        }
+        
+        .team-stats .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .team-stats .stat-label {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .team-cta {
+            text-align: center;
+            padding: 3rem;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 15px;
+            color: white;
+        }
+        
+        .team-cta h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        
+        .team-cta p {
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .team-cta .cta-btn {
+            background: var(--secondary);
+            color: var(--primary);
+        }
+        
+        .team-cta .cta-btn:hover {
+            background: white;
+        }
+        
+        /* Careers Section */
+        .careers-section {
+            padding: 6rem 2rem;
+            background-color: var(--light);
+        }
+        
+        .careers-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+        
+        .careers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .career-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        
+        .career-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(26, 60, 52, 0.2);
+            border-color: var(--secondary);
+        }
+        
+        .career-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .career-card h3 {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .career-card p {
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .career-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+        
+        .career-features li {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .career-features i {
+            color: var(--secondary);
+        }
+        
+        .career-apply-btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            width: 100%;
+            text-align: center;
+        }
+        
+        .career-apply-btn:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        .benefits-section {
+            margin-top: 4rem;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .benefit-item {
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .benefit-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary);
+            font-size: 2rem;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .benefit-item h4 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .benefit-item p {
+            color: var(--dark);
+        }
+        
+        /* Blog Section */
+        .blog {
+            padding: 6rem 2rem;
+            background-color: white;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .blog-card {
+            background: var(--light);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(26, 60, 52, 0.2);
+            border-color: var(--secondary);
+        }
+        
+        .blog-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .blog-card:hover img {
+            transform: scale(1.05);
+        }
+        
+        .blog-card h4 {
+            color: var(--primary);
+            margin: 1rem 1rem 0.5rem;
+        }
+        
+        .blog-card p {
+            color: var(--dark);
+            margin: 0 1rem 1rem;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 6rem 2rem;
+            background-color: var(--light);
+        }
+        
+        .contact-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+        
+        .contact-item p {
+            color: var(--dark);
+        }
+        
+        .contact-item a {
+            color: var(--dark);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .contact-item a:hover {
+            color: var(--primary);
+        }
+        
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .contact-form input,
+        .contact-form textarea,
+        .contact-form select {
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: var(--transition);
+            background: white;
+            color: var(--dark);
+        }
+        
+        .contact-form input:focus,
+        .contact-form textarea:focus,
+        .contact-form select:focus {
+            border-color: var(--secondary);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
+        }
+        
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: #888;
+        }
+        
+        .submit-btn {
+            background: var(--primary);
+            color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            margin-top: 1rem;
+        }
+        
+        .submit-btn:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(26, 60, 52, 0.3);
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--primary);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .footer-section h3 {
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+        
+        .footer-section p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
             color: rgba(255, 255, 255, 0.8);
         }
         
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            nav ul {
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-section a:hover {
+            color: var(--secondary);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(212, 175, 55, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary);
+            transition: var(--transition);
+        }
+        
+        .social-link:hover {
+            background: var(--secondary);
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* Animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+        
+        .animate-on-scroll.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Responsive */
+        @media screen and (max-width: 768px) {
+            .nav-menu {
                 display: none;
-                flex-direction: column;
                 position: absolute;
                 top: 100%;
                 left: 0;
-                width: 100%;
-                background: linear-gradient(135deg, var(--cream) 0%, rgba(255, 255, 255, 0.98) 100%);
-                box-shadow: 0 10px 30px rgba(107, 78, 61, 0.2);
-                padding: 1.5rem 0;
-                border-radius: 0 0 20px 20px;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 1rem 0;
+                text-align: center;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             }
             
-            nav ul.show {
+            .nav-menu.active {
                 display: flex;
             }
             
-            nav ul li {
-                margin: 0;
-                padding: 1rem 2rem;
+            .mobile-menu {
+                display: flex;
             }
             
-            .menu-toggle {
-                display: block;
+            .mobile-menu.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
             }
             
-            .hero-logo {
-                width: 100px;
-                height: 100px;
+            .mobile-menu.active span:nth-child(2) {
+                opacity: 0;
             }
             
-            .hero-logo img {
-                width: 85px;
-                height: 85px;
+            .mobile-menu.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
             }
-        }
-        
-        @media (max-width: 768px) {
+            
             .hero h1 {
-                font-size: 2.2rem;
+                font-size: 2.5rem;
             }
             
             .hero p {
-                font-size: 1.1rem;
+                font-size: 1rem;
             }
             
-            .section-title h2 {
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .section-title, .category-title {
                 font-size: 2rem;
             }
             
-            .about-content {
-                flex-direction: column;
+            .services-grid-banner {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             }
             
-            .hero-logo {
-                width: 80px;
-                height: 80px;
+            .slideshow-container {
+                height: 300px;
             }
             
-            .hero-logo img {
-                width: 70px;
-                height: 70px;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .hero h1 {
-                font-size: 1.8rem;
+            .projects-grid-portfolio {
+                grid-template-columns: 1fr;
             }
             
-            .btn {
-                padding: 0.8rem 2rem;
+            .project-filter {
+                gap: 0.5rem;
+            }
+            
+            .filter-btn {
+                padding: 0.5rem 1rem;
                 font-size: 0.9rem;
             }
             
-            .product-actions {
-                flex-direction: column;
+            .team-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .team-stats {
+                grid-template-columns: repeat(2, 1fr);
+                padding: 2rem;
                 gap: 1.5rem;
-                align-items: stretch;
             }
             
-            .logo {
-                font-size: 1.4rem;
+            .team-stats .stat-number {
+                font-size: 2rem;
             }
             
-            .logo img {
-                height: 40px;
+            .team-cta {
+                padding: 2rem;
             }
             
-            .section {
-                margin: 1rem 0.5rem;
-                padding: 3rem 0;
+            .team-cta h3 {
+                font-size: 1.6rem;
             }
             
-            .hero-logo {
-                width: 70px;
-                height: 70px;
-                margin-bottom: 1.5rem;
+            .careers-grid {
+                grid-template-columns: 1fr;
             }
             
-            .hero-logo img {
-                width: 60px;
-                height: 60px;
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .project-portfolio {
+                padding: 4rem 1rem;
+            }
+            
+            .portfolio-title {
+                font-size: 2.2rem;
+            }
+            
+            .slideshow-container {
+                height: 250px;
+            }
+            
+            .slide-caption {
+                padding: 0.5rem;
+                font-size: 0.9rem;
+            }
+            
+            .team-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .member-photo {
+                height: 250px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header & Navigation -->
-    <header>
-        <div class="container header-content">
-            <div class="logo">
-                <img src="https://res.cloudinary.com/dnxtuowlp/image/upload/v1757243399/Logo_uooydv.jpg" alt="Mishy Naturals Logo">
-                MISHY NATURALS
-            </div>
-            <div class="menu-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#products">Products</a></li>
-                    <li><a href="#benefits">Benefits</a></li>
-                    <li><a href="#reviews">Reviews</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="cart-icon">
-                <i class="fas fa-shopping-cart"></i>
-                <span class="cart-count">0</span>
+
+<!-- Header -->
+<header class="header">
+    <nav class="nav-container">
+        <div class="logo">
+            <!-- Replace with your actual logo -->
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIHZpZXdCb3g9IjAgMCA1MCA1MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjUwIiBoZWlnaHQ9IjUwIiBmaWxsPSIjMUExQTFBIi8+CjxwYXRoIGQ9Ik0xMi41IDEyLjVMMzcuNSAzNy41IiBzdHJva2U9IiNENEFGMzciIHN0cm9rZS13aWR0aD0iMiIvPgo8cGF0aCBkPSJNMzcuNSAxMi41TDEyLjUgMzcuNSIgc3Ryb2tlPSIjRDRBRjM3IiBzdHJva2Utd2lkdGg9IjIiLz4KPHBhdGggZD0iTTI1IDhWNDIiIHN0cm9rZT0iI0Q0QUYzNyIgc3Ryb2tlLXdpZHRoPSIyIi8+CjxwYXRoIGQ9Ik04IDI1SDQyIiBzdHJva2U9IiNENEFGMzciIHN0cm9rZS13aWR0aD0iMiIvPgo8L3N2Zz4K" alt="Terracore Spatial Consultants Logo">
+            <div class="logo-text">
+                <span class="company-name">TERRACORE SPATIAL</span>
+                <span class="company-tagline">CONSULTANTS LTD</span>
             </div>
         </div>
-    </header>
+        <ul class="nav-menu">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#project-portfolio">Projects</a></li>
+            <li><a href="#team">Team</a></li>
+            <li><a href="#careers">Careers</a></li>
+            <li><a href="#blog">Insights</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="mobile-menu"><span></span><span></span><span></span></div>
+        <a href="#contact" class="contact-btn">Get Quote</a>
+    </nav>
+</header>
 
-    <!-- Hero Section with Video Background -->
-    <section class="hero" id="home">
-        <video class="hero-video-bg" autoplay muted loop playsinline>
-            <source src="https://res.cloudinary.com/dnxtuowlp/video/upload/v1757333999/medium-vecteezy_closeup-of-cashews-nut-texture-background_48578419_medium_do9ucw.mp4" type="video/mp4">
+<!-- Hero Section with Video Background -->
+<section id="home" class="hero">
+    <div class="video-background">
+        <video autoplay muted loop playsinline>
+            <source src="https://res.cloudinary.com/dnxtuowlp/video/upload/v1757629564/vecteezy_luxury-hotel-lobby-a-spacious-and-elegant-hotel-reception_51896071_htil1d.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
-        <div class="container hero-content">
-            <div class="hero-logo">
-                <img src="https://res.cloudinary.com/dnxtuowlp/image/upload/v1757243399/Logo_uooydv.jpg" alt="Mishy Naturals Logo">
-            </div>
-            <h1>Pure Goodness in Every Drop & Bite</h1>
-            <p>100% Natural Organic Cashews and Honey imported directly from Tanzania. Boost your immunity, aid digestion, and enjoy perfect flavor for all ages.</p>
-            <a href="#products" class="btn explore-btn">Explore Products</a>
+        <div class="video-overlay"></div>
+    </div>
+    <div class="hero-content">
+        <h1>Precision Mapping. Smart Solutions.</h1>
+        <p>Terracore Spatial Consultants delivers cutting-edge geospatial solutions for land development, environmental planning, and infrastructure projects across East Africa.</p>
+        <div class="cta-buttons">
+            <a href="#services" class="cta-btn cta-primary">Our Services</a>
+            <a href="#contact" class="cta-btn cta-secondary">Consult Our Experts</a>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Products Section with NEW Video Background - UPDATED -->
-    <section class="section products-section" id="products">
-        <video class="products-video-bg" autoplay muted loop playsinline>
-            <source src="https://res.cloudinary.com/dnxtuowlp/video/upload/v1757333998/small-vecteezy_super-slow-motion-of-a-rotating-oil-liquid_50102806_small_1_gwqfxs.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Products</h2>
-                <p>Discover our range of organic, nutrient-rich products</p>
+<!-- Services Banner -->
+<section class="services-banner">
+    <div class="services-banner-content">
+        <h2>Our Geospatial Services</h2>
+        <div class="services-grid-banner">
+            <div class="service-item" data-service="land-surveying">
+                <i class="fas fa-ruler-combined"></i>
+                <h3>Land Surveying</h3>
             </div>
-            <div class="products-grid">
-                <div class="product-card">
-                    <div class="product-badge">Bestseller</div>
-                    <div class="product-img">
-                        <img src="https://res.cloudinary.com/dnxtuowlp/image/upload/v1757243398/Cashew_nuts_r4lyk1.jpg" alt="Salted Cashews">
+            <div class="service-item" data-service="gis">
+                <i class="fas fa-map-marked-alt"></i>
+                <h3>GIS Solutions</h3>
+            </div>
+            <div class="service-item" data-service="remote-sensing">
+                <i class="fas fa-satellite"></i>
+                <h3>Remote Sensing</h3>
+            </div>
+            <div class="service-item" data-service="cadastral">
+                <i class="fas fa-draw-polygon"></i>
+                <h3>Cadastral Mapping</h3>
+            </div>
+            <div class="service-item" data-service="topographic">
+                <i class="fas fa-mountain"></i>
+                <h3>Topographic Surveys</h3>
+            </div>
+            <div class="service-item" data-service="construction">
+                <i class="fas fa-hard-hat"></i>
+                <h3>Construction Staking</h3>
+            </div>
+            <div class="service-item" data-service="drone">
+                <i class="fas fa-drone"></i>
+                <h3>Drone Mapping</h3>
+            </div>
+            <div class="service-item" data-service="consultancy">
+                <i class="fas fa-chart-line"></i>
+                <h3>Spatial Consultancy</h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Land Surveying Section -->
+<section id="land-surveying" class="service-category">
+    <div class="container">
+        <div class="category-header">
+            <h2 class="category-title animate-on-scroll">Land Surveying</h2>
+            <p class="category-description animate-on-scroll">Precision land surveying services using state-of-the-art equipment and methodologies. We provide accurate boundary surveys, subdivision plans, and legal descriptions for property development and land transactions.</p>
+        </div>
+        <div class="slideshow-container animate-on-scroll">
+            <div class="slides">
+                <div class="slide">
+                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Land Surveying 1">
+                    <div class="slide-caption">Boundary Survey with GPS Technology</div>
+                </div>
+                <div class="slide">
+                    <img src="https://images.unsplash.com/photo-1581094794358-846d6a8e6f38?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Land Surveying 2">
+                    <div class="slide-caption">Total Station Precision Measurements</div>
+                </div>
+                <div class="slide">
+                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Land Surveying 3">
+                    <div class="slide-caption">Subdivision Planning and Mapping</div>
+                </div>
+            </div>
+            <a class="prev">&#10094;</a>
+            <a class="next">&#10095;</a>
+            <div class="dots-container">
+                <span class="dot active" data-slide="0"></span>
+                <span class="dot" data-slide="1"></span>
+                <span class="dot" data-slide="2"></span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- GIS Solutions Section -->
+<section id="gis" class="service-category">
+    <div class="container">
+        <div class="category-header">
+            <h2 class="category-title animate-on-scroll">GIS Solutions</h2>
+            <p class="category-description animate-on-scroll">Comprehensive Geographic Information Systems services including spatial data analysis, custom mapping, database development, and web GIS applications for informed decision-making.</p>
+        </div>
+        <div class="slideshow-container animate-on-scroll">
+            <div class="slides">
+                <div class="slide">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="GIS Solutions 1">
+                </div>
+                <div class="slide">
+                    <img src="https://images.unsplash.com/photo-1543286386-713bdd548da4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="GIS Solutions 2">
+                </div>
+                <div class="slide">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="GIS Solutions 3">
+                </div>
+            </div>
+            <a class="prev">&#10094;</a>
+            <a class="next">&#10095;</a>
+            <div class="dots-container">
+                <span class="dot active" data-slide="0"></span>
+                <span class="dot" data-slide="1"></span>
+                <span class="dot" data-slide="2"></span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Remote Sensing Section -->
+<section id="remote-sensing" class="service-category">
+    <div class="container">
+        <div class="category-header">
+            <h2 class="category-title animate-on-scroll">Remote Sensing</h2>
+            <p class="category-description animate-on-scroll">Advanced remote sensing technologies including satellite imagery analysis, aerial photography, and LiDAR data processing for environmental monitoring, land use planning, and resource management.</p>
+        </div>
+        <div class="slideshow-container animate-on-scroll">
+            <div class="slides">
+                <div class="slide">
+                    <img src="https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Remote Sensing 1">
+                </div>
+                <div class="slide">
+                    <img src="https://images.unsplash.com/photo-1502134249126-9f3755a50d78?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Remote Sensing 2">
+                </div>
+                <div class="slide">
+                    <img src="https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Remote Sensing 3">
+                </div>
+            </div>
+            <a class="prev">&#10094;</a>
+            <a class="next">&#10095;</a>
+            <div class="dots-container">
+                <span class="dot active" data-slide="0"></span>
+                <span class="dot" data-slide="1"></span>
+                <span class="dot" data-slide="2"></span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Project Portfolio Section -->
+<section id="project-portfolio" class="project-portfolio">
+    <div class="portfolio-container">
+        <div class="portfolio-header">
+            <h2 class="portfolio-title animate-on-scroll">Our Project Portfolio</h2>
+            <p class="portfolio-description animate-on-scroll">Explore our completed geospatial projects across East Africa. Each project showcases our commitment to precision, innovation, and delivering actionable spatial intelligence.</p>
+        </div>
+        
+        <div class="project-filter">
+            <button class="filter-btn active" data-filter="all">All Projects</button>
+            
+        </div>
+        
+        <div class="projects-grid-portfolio">
+            <!-- Project 1 -->
+            <div class="project-card-portfolio animate-on-scroll" data-category="infrastructure">
+                <div class="project-media">
+                    <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Highway Alignment Project">
+                    <div class="media-indicator">
+                        <i class="fas fa-image"></i> Image
                     </div>
-                    <div class="product-content">
-                        <h3>Salted Cashews</h3>
-                        <p>Rich in flavor, lightly salted, and full of nutrients. Perfect for snacking or adding to your favorite dishes.</p>
-                        <div class="product-price">Ksh 850 / pack</div>
-                        <div class="product-actions">
-                            <div class="quantity-selector">
-                                <button class="quantity-btn minus">-</button>
-                                <input type="text" class="quantity-input" value="1" readonly>
-                                <button class="quantity-btn plus">+</button>
-                            </div>
-                            <button class="btn add-to-cart" data-product="Salted Cashews" data-price="850">Add to Cart</button>
+                </div>
+                <div class="project-info">
+                    <div class="project-category">Infrastructure</div>
+                    <h3 class="project-title">Nairobi Expressway Alignment Survey</h3>
+                    <div class="project-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Nairobi, Kenya</span>
+                    </div>
+                    <p class="project-description">Precision surveying and mapping for the 27km Nairobi Expressway project, providing critical spatial data for engineering design and construction planning.</p>
+                    <div class="project-features">
+                        <span class="feature-tag">GPS Survey</span>
+                        <span class="feature-tag">Topographic Mapping</span>
+                        <span class="feature-tag">Construction Staking</span>
+                    </div>
+                    <a href="#" class="project-link" data-project="1">View Project Details <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <!-- Project 2 -->
+            <div class="project-card-portfolio animate-on-scroll" data-category="environmental">
+                <div class="project-media">
+                    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Watershed Management">
+                    <div class="media-indicator">
+                        <i class="fas fa-image"></i> Image
+                    </div>
+                </div>
+                <div class="project-info">
+                    <div class="project-category">Environmental</div>
+                    <h3 class="project-title">Lake Victoria Watershed Mapping</h3>
+                    <div class="project-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Kisumu, Kenya</span>
+                    </div>
+                    <p class="project-description">Comprehensive watershed delineation and land use mapping to support environmental conservation and sustainable resource management around Lake Victoria.</p>
+                    <div class="project-features">
+                        <span class="feature-tag">GIS Analysis</span>
+                        <span class="feature-tag">Hydrological Modeling</span>
+                        <span class="feature-tag">Land Use Classification</span>
+                    </div>
+                    <a href="#" class="project-link" data-project="2">View Project Details <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <!-- Project 3 -->
+            <div class="project-card-portfolio animate-on-scroll" data-category="urban">
+                <div class="project-media">
+                    <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Urban Planning">
+                    <div class="media-indicator">
+                        <i class="fas fa-image"></i> Image
+                    </div>
+                </div>
+                <div class="project-info">
+                    <div class="project-category">Urban Planning</div>
+                    <h3 class="project-title">Nairobi Metropolitan Spatial Plan</h3>
+                    <div class="project-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Nairobi Metropolitan, Kenya</span>
+                    </div>
+                    <p class="project-description">Development of a comprehensive spatial planning framework for the Nairobi Metropolitan region, integrating land use, transportation, and infrastructure data.</p>
+                    <div class="project-features">
+                        <span class="feature-tag">Spatial Planning</span>
+                        <span class="feature-tag">Land Use Analysis</span>
+                        <span class="feature-tag">Transportation Modeling</span>
+                    </div>
+                    <a href="#" class="project-link" data-project="3">View Project Details <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <!-- Project 4 -->
+            <div class="project-card-portfolio animate-on-scroll" data-category="agriculture">
+                <div class="project-media">
+                    <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Agricultural Mapping">
+                    <div class="media-indicator">
+                        <i class="fas fa-image"></i> Image
+                    </div>
+                </div>
+                <div class="project-info">
+                    <div class="project-category">Agriculture</div>
+                    <h3 class="project-title">Tea Plantation Yield Optimization</h3>
+                    <div class="project-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Kericho, Kenya</span>
+                    </div>
+                    <p class="project-description">Drone-based multispectral imaging and GIS analysis to optimize tea plantation management, irrigation planning, and yield prediction.</p>
+                    <div class="project-features">
+                        <span class="feature-tag">Drone Mapping</span>
+                        <span class="feature-tag">Multispectral Analysis</span>
+                        <span class="feature-tag">Precision Agriculture</span>
+                    </div>
+                    <a href="#" class="project-link" data-project="4">View Project Details <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Team Section -->
+<section id="team" class="team-section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title animate-on-scroll">Our Expert Team</h2>
+            <p class="section-subtitle animate-on-scroll">Meet the skilled professionals behind Terracore Spatial Consultants. Our team combines technical expertise with years of experience in geospatial sciences.</p>
+        </div>
+        
+        <div class="team-grid">
+            <!-- Team Member 1 -->
+            <div class="team-member animate-on-scroll">
+                <div class="member-photo">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="David Kariuki - Lead Surveyor">
+                    <div class="member-overlay">
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
                         </div>
                     </div>
                 </div>
-                
-                <div class="product-card">
-                    <div class="product-badge">Popular</div>
-                    <div class="product-img">
-                        <img src="https://res.cloudinary.com/dnxtuowlp/image/upload/v1757243398/Cashew_nuts_r4lyk1.jpg" alt="Chilli Cashews">
-                    </div>
-                    <div class="product-content">
-                        <h3>Chilli Cashews</h3>
-                        <p>Spicy, crunchy, and packed with organic goodness. A flavorful kick for those who love heat.</p>
-                        <div class="product-price">Ksh 850 / pack</div>
-                        <div class="product-actions">
-                            <div class="quantity-selector">
-                                <button class="quantity-btn minus">-</button>
-                                <input type="text" class="quantity-input" value="1" readonly>
-                                <button class="quantity-btn plus">+</button>
-                            </div>
-                            <button class="btn add-to-cart" data-product="Chilli Cashews" data-price="850">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="product-card">
-                    <div class="product-badge">New</div>
-                    <div class="product-img">
-                        <img src="https://res.cloudinary.com/dnxtuowlp/image/upload/v1757243399/Honey_lrr93q.jpg" alt="Pure Organic Honey">
-                    </div>
-                    <div class="product-content">
-                        <h3>Pure Organic Honey</h3>
-                        <p>Golden sweetness from the heart of Tanzania. 100% natural with no additives or preservatives.</p>
-                        <div class="product-price">Ksh 950 / jar</div>
-                        <div class="product-actions">
-                            <div class="quantity-selector">
-                                <button class="quantity-btn minus">-</button>
-                                <input type="text" class="quantity-input" value="1" readonly>
-                                <button class="quantity-btn plus">+</button>
-                            </div>
-                            <button class="btn add-to-cart" data-product="Pure Organic Honey" data-price="950">Add to Cart</button>
-                        </div>
+                <div class="member-info">
+                    <h3 class="member-name">David Kariuki</h3>
+                    <p class="member-position">Lead Surveyor & GIS Specialist</p>
+                    <p class="member-bio">15+ years in land surveying and geospatial analysis. Registered surveyor with extensive experience in cadastral mapping and infrastructure projects.</p>
+                    <div class="member-expertise">
+                        <span class="expertise-tag">GPS Surveying</span>
+                        <span class="expertise-tag">Cadastral Mapping</span>
+                        <span class="expertise-tag">GIS Analysis</span>
                     </div>
                 </div>
             </div>
             
-            <div style="text-align: center; margin-top: 3rem;">
-                <!-- UPDATED: Added explore-btn class to match the explore button -->
-                <button class="btn explore-btn" id="view-cart">View Cart & Checkout</button>
+            <!-- Team Member 2 -->
+            <div class="team-member animate-on-scroll">
+                <div class="member-photo">
+                    <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Sarah Mwangi - Remote Sensing Expert">
+                    <div class="member-overlay">
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="member-info">
+                    <h3 class="member-name">Sarah Mwangi</h3>
+                    <p class="member-position">Remote Sensing & Drone Specialist</p>
+                    <p class="member-bio">PhD in Geospatial Sciences with expertise in satellite imagery analysis, LiDAR processing, and UAV mapping for environmental monitoring.</p>
+                    <div class="member-expertise">
+                        <span class="expertise-tag">Remote Sensing</span>
+                        <span class="expertise-tag">Drone Operations</span>
+                        <span class="expertise-tag">Environmental GIS</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Team Member 3 -->
+            <div class="team-member animate-on-scroll">
+                <div class="member-photo">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="James Omondi - Project Manager">
+                    <div class="member-overlay">
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="member-info">
+                    <h3 class="member-name">James Omondi</h3>
+                    <p class="member-position">Senior Project Manager</p>
+                    <p class="member-bio">Project management professional with 12+ years overseeing large-scale geospatial projects across East Africa. PMP certified with expertise in stakeholder coordination.</p>
+                    <div class="member-expertise">
+                        <span class="expertise-tag">Project Management</span>
+                        <span class="expertise-tag">Client Relations</span>
+                        <span class="expertise-tag">Quality Assurance</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Team Member 4 -->
+            <div class="team-member animate-on-scroll">
+                <div class="member-photo">
+                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Michael Otieno - Data Analyst">
+                    <div class="member-overlay">
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="member-info">
+                    <h3 class="member-name">Michael Otieno</h3>
+                    <p class="member-position">Spatial Data Analyst</p>
+                    <p class="member-bio">Specialist in spatial database management, web GIS development, and custom mapping solutions. Expertise in Python, SQL, and geospatial programming.</p>
+                    <div class="member-expertise">
+                        <span class="expertise-tag">Spatial Databases</span>
+                        <span class="expertise-tag">Web GIS</span>
+                        <span class="expertise-tag">Python Scripting</span>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
-
-    <!-- Benefits Section -->
-    <section class="section section-bg-secondary" id="benefits">
-        <div class="container">
-            <div class="section-title">
-                <h2>Health Benefits</h2>
-                <p>Why our natural products are good for you</p>
+        
+        <div class="team-stats animate-on-scroll">
+            <div class="stat-item">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Projects Completed</div>
             </div>
+            <div class="stat-item">
+                <div class="stat-number">15+</div>
+                <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">12</div>
+                <div class="stat-label">Professional Certifications</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Client Satisfaction</div>
+            </div>
+        </div>
+        
+        <div class="team-cta animate-on-scroll">
+            <h3>Join Our Team</h3>
+            <p>We're always looking for talented geospatial professionals to join our growing team.</p>
+            <a href="#careers" class="cta-btn cta-primary">View Career Opportunities</a>
+        </div>
+    </div>
+</section>
+
+<!-- Careers Section -->
+<section id="careers" class="careers-section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title animate-on-scroll">Career Opportunities</h2>
+            <p class="section-subtitle animate-on-scroll">Join our team of geospatial experts and work on cutting-edge projects that shape the future of land development and environmental management.</p>
+        </div>
+        
+        <div class="careers-intro animate-on-scroll">
+            <p>At Terracore Spatial Consultants, we believe in nurturing talent and providing opportunities for professional growth. We offer competitive packages, continuous learning opportunities, and a collaborative work environment.</p>
+        </div>
+        
+        <div class="careers-grid">
+            <!-- Career 1 -->
+            <div class="career-card animate-on-scroll">
+                <div class="career-icon">
+                    <i class="fas fa-drafting-compass"></i>
+                </div>
+                <h3>Junior Land Surveyor</h3>
+                <p>Entry-level position for surveying graduates to work with experienced professionals on field surveys and data processing.</p>
+                <ul class="career-features">
+                    <li><i class="fas fa-check"></i> Field survey experience</li>
+                    <li><i class="fas fa-check"></i> GPS and total station operation</li>
+                    <li><i class="fas fa-check"></i> Data processing and mapping</li>
+                </ul>
+                <a href="#contact" class="career-apply-btn">Apply Now</a>
+            </div>
+            
+            <!-- Career 2 -->
+            <div class="career-card animate-on-scroll">
+                <div class="career-icon">
+                    <i class="fas fa-map-marked-alt"></i>
+                </div>
+                <h3>GIS Analyst</h3>
+                <p>Mid-level position for GIS professionals to develop spatial databases, perform analysis, and create custom mapping solutions.</p>
+                <ul class="career-features">
+                    <li><i class="fas fa-check"></i> Spatial database management</li>
+                    <li><i class="fas fa-check"></i> GIS analysis and modeling</li>
+                    <li><i class="fas fa-check"></i> Web GIS development</li>
+                </ul>
+                <a href="#contact" class="career-apply-btn">Apply Now</a>
+            </div>
+            
+            <!-- Career 3 -->
+            <div class="career-card animate-on-scroll">
+                <div class="career-icon">
+                    <i class="fas fa-drone"></i>
+                </div>
+                <h3>Drone Mapping Specialist</h3>
+                <p>Specialist role for UAV operations, including flight planning, data acquisition, and processing of aerial imagery.</p>
+                <ul class="career-features">
+                    <li><i class="fas fa-check"></i> UAV flight operations</li>
+                    <li><i class="fas fa-check"></i> Aerial data processing</li>
+                    <li><i class="fas fa-check"></i> Photogrammetry and 3D modeling</li>
+                </ul>
+                <a href="#contact" class="career-apply-btn">Apply Now</a>
+            </div>
+        </div>
+        
+        <div class="benefits-section">
+            <h2 class="section-title animate-on-scroll">Why Work With Us</h2>
             <div class="benefits-grid">
-                <div class="benefit-card">
+                <div class="benefit-item animate-on-scroll">
                     <div class="benefit-icon">
-                        <i class="fas fa-shield-alt"></i>
+                        <i class="fas fa-graduation-cap"></i>
                     </div>
-                    <h3>Boosts Immunity</h3>
-                    <p>Our organic products are rich in antioxidants that help strengthen your immune system naturally.</p>
+                    <h4>Professional Development</h4>
+                    <p>Continuous training and certification opportunities to advance your career in geospatial sciences.</p>
                 </div>
                 
-                <div class="benefit-card">
+                <div class="benefit-item animate-on-scroll">
                     <div class="benefit-icon">
-                        <i class="fas fa-heartbeat"></i>
+                        <i class="fas fa-project-diagram"></i>
                     </div>
-                    <h3>Aids Digestion</h3>
-                    <p>Natural enzymes in our honey and fiber in cashews promote healthy digestion and gut wellness.</p>
+                    <h4>Diverse Projects</h4>
+                    <p>Work on a variety of projects across different sectors including infrastructure, environment, and urban planning.</p>
                 </div>
                 
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-leaf"></i>
-                    </div>
-                    <h3>100% Natural</h3>
-                    <p>No additives, preservatives, or artificial ingredients. Pure nature in every bite and drop.</p>
-                </div>
-                
-                <div class="benefit-card">
+                <div class="benefit-item animate-on-scroll">
                     <div class="benefit-icon">
                         <i class="fas fa-users"></i>
                     </div>
-                    <h3>For All Ages</h3>
-                    <p>Safe and beneficial for children and adults alike. A healthy choice for the whole family.</p>
+                    <h4>Collaborative Environment</h4>
+                    <p>Join a team of experts who value knowledge sharing, innovation, and teamwork.</p>
+                </div>
+                
+                <div class="benefit-item animate-on-scroll">
+                    <div class="benefit-icon">
+                        <i class="fas fa-map-marked"></i>
+                    </div>
+                    <h4>Cutting-Edge Technology</h4>
+                    <p>Access to the latest geospatial technology and software for professional work.</p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Reviews Section -->
-    <section class="section section-bg-primary" id="reviews">
-        <div class="container">
-            <div class="section-title">
-                <h2>Customer Reviews</h2>
-                <p>What our customers are saying about us</p>
+<!-- Blog Section -->
+<section id="blog" class="blog">
+    <div class="container">
+        <h2 class="section-title animate-on-scroll">Industry Insights</h2>
+        <p class="section-subtitle animate-on-scroll">Latest trends, technologies, and insights in geospatial science and land consultancy</p>
+        <div class="blog-grid">
+            <div class="blog-card animate-on-scroll">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=60" alt="GIS Trends">
+                <h4>The Future of GIS in Urban Development</h4>
+                <p>Exploring how Geographic Information Systems are transforming urban planning and smart city initiatives across Africa.</p>
             </div>
-            <div class="reviews-grid">
-                <div class="review-card">
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <div class="review-text">
-                        <p>The honey is absolutely divine! I've been using it in my tea every morning and my digestion has improved significantly. Will definitely order again!</p>
-                    </div>
-                    <div class="reviewer">Jane N.</div>
-                    <div class="reviewer-location">Nairobi</div>
-                </div>
-                
-                <div class="review-card">
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                    <div class="review-text">
-                        <p>The chili cashews are addictive! Perfect balance of spice and crunch. The M-Pesa payment was super convenient too.</p>
-                    </div>
-                    <div class="reviewer">Michael K.</div>
-                    <div class="reviewer-location">Mombasa</div>
-                </div>
-                
-                <div class="review-card">
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <div class="review-text">
-                        <p>I love that these products are 100% natural. My kids enjoy the cashews as a healthy snack, and I feel good about giving it to them.</p>
-                    </div>
-                    <div class="reviewer">Sarah W.</div>
-                    <div class="reviewer-location">Kisumu</div>
-                </div>
+            <div class="blog-card animate-on-scroll">
+                <img src="https://images.unsplash.com/photo-1473966968600-fa801b869a1a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=60" alt="Drone Technology">
+                <h4>Drone Technology in Land Surveying</h4>
+                <p>How unmanned aerial vehicles are revolutionizing data collection and mapping accuracy in challenging terrains.</p>
+            </div>
+            <div class="blog-card animate-on-scroll">
+                <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=60" alt="Sustainable Planning">
+                <h4>Sustainable Land Use Planning</h4>
+                <p>Integrating environmental conservation with development through advanced spatial analysis and planning methodologies.</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- About Section -->
-    <section class="section section-bg-secondary" id="about">
-        <div class="container">
-            <div class="section-title">
-                <h2>About Mishy Naturals</h2>
-                <p>Our story and commitment to quality</p>
-            </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>We are an online store specializing in purely organic cashew nuts and honey, imported directly from Tanzania. Our products represent the perfect harmony between nature's tree-grown treasures and the golden sweetness of beehives.</p>
-                    
-                    <div class="features">
-                        <div class="feature">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Very nutritious and packed with health benefits</span>
-                        </div>
-                        <div class="feature">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Available in different flavors: salted, non-salted, and chili</span>
-                        </div>
-                        <div class="feature">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Presented in elegant packaging perfect for gifts</span>
-                        </div>
-                        <div class="feature">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Sourced from trusted farmers in Tanzania</span>
-                        </div>
-                    </div>
-                    
-                    <p>At Mishy Naturals, we believe in providing our customers with the purest, most natural products while supporting sustainable farming practices. Like the strong tree that provides shelter and the busy bees that create liquid gold, we work tirelessly to bring you nature's finest.</p>
-                    
-                    <div style="margin-top: 2rem;">
-                        <a href="#contact" class="btn">Get In Touch</a>
-                    </div>
+<!-- Contact Section -->
+<section id="contact" class="contact">
+    <div class="container">
+        <h2 class="section-title animate-on-scroll">Contact Us</h2>
+        <p class="section-subtitle animate-on-scroll">Ready to discuss your geospatial project or career opportunity? Get in touch with our experts.</p>
+        <div class="contact-content">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <p>Email: <a href="mailto:info@terracorespatial.com">info@terracorespatial.com</a></p>
                 </div>
-                <div class="about-image">
-                    <!-- Updated image as requested -->
-                    <img src="https://res.cloudinary.com/dnxtuowlp/image/upload/v1757243399/mish_natural_okfakf.jpg" alt="About Mishy Naturals">
+                <div class="contact-item">
+                    <div class="contact-icon">📱</div>
+                    <p>Phone: <a href="tel:+254707435464">+254 707 435 464</a></p>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <p>Nairobi, Kenya</p>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">🕒</div>
+                    <p>Mon - Fri: 8:00 AM - 6:00 PM<br>Sat: 9:00 AM - 1:00 PM</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Order Modal -->
-    <div class="modal" id="orderModal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <h3 class="modal-title">Complete Your Order</h3>
-            
-            <form id="orderForm">
-                <div class="form-group">
-                    <label for="customerName">Full Name</label>
-                    <input type="text" id="customerName" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="customerEmail">Email Address</label>
-                    <input type="email" id="customerEmail" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="customerPhone">Phone Number</label>
-                    <input type="tel" id="customerPhone" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="customerAddress">Delivery Address</label>
-                    <textarea id="customerAddress" rows="3" required></textarea>
-                </div>
-                
-                <div class="form-group">
-                    <label for="paymentMethod">Payment Method</label>
-                    <select id="paymentMethod" required>
-                        <option value="">Select Payment Method</option>
-                        <option value="mpesa">M-Pesa</option>
-                        <option value="paypal">PayPal</option>
-                        <option value="card">Credit/Debit Card</option>
-                        <option value="cash">Cash on Delivery</option>
-                    </select>
-                </div>
-                
-                <div class="order-summary">
-                    <h4>Order Summary</h4>
-                    <div id="orderSummary">
-                        <!-- Order items will be inserted here -->
-                    </div>
-                    <div class="summary-item summary-total">
-                        <span>Total:</span>
-                        <span id="orderTotal">Ksh 0</span>
-                    </div>
-                </div>
-                
-                <button type="submit" class="btn">Place Order</button>
+            <form class="contact-form">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <input type="tel" name="phone" placeholder="Your Phone">
+                <select name="inquiry-type" required>
+                    <option value="">Select Inquiry Type</option>
+                    <option value="service">Service Inquiry</option>
+                    <option value="career">Career Opportunity</option>
+                    <option value="partnership">Partnership</option>
+                    <option value="other">Other</option>
+                </select>
+                <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                <button type="submit" class="submit-btn">Send Message</button>
             </form>
         </div>
     </div>
+</section>
 
-    <!-- Confirmation Modal -->
-    <div class="modal" id="confirmationModal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <div style="text-align: center;">
-                <i class="fas fa-check-circle" style="font-size: 4rem; color: var(--accent); margin-bottom: 1rem;"></i>
-                <h3 class="modal-title">Order Confirmed!</h3>
-                <p>Thank you for your order. We'll process it and contact you shortly for confirmation.</p>
-                <p>Your order ID: <strong>MN2023-<span id="orderId"></span></strong></p>
-                <button class="btn" id="continueShopping">Continue Shopping</button>
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>Terracore Spatial Consultants</h3>
+            <p>Precision mapping and smart geospatial solutions for a sustainable future. Your trusted partner in land consultancy across East Africa.</p>
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
             </div>
+        </div>
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#project-portfolio">Projects</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#careers">Careers</a></li>
+                <li><a href="#blog">Insights</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Services</h3>
+            <ul>
+                <li><a href="#land-surveying">Land Surveying</a></li>
+                <li><a href="#gis">GIS Solutions</a></li>
+                <li><a href="#remote-sensing">Remote Sensing</a></li>
+                <li><a href="#cadastral">Cadastral Mapping</a></li>
+                <li><a href="#topographic">Topographic Surveys</a></li>
+                <li><a href="#construction">Construction Staking</a></li>
+                <li><a href="#drone">Drone Mapping</a></li>
+                <li><a href="#consultancy">Spatial Consultancy</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Newsletter</h3>
+            <p>Subscribe to our newsletter for industry insights and company updates.</p>
+            <form>
+                <input type="email" placeholder="Your Email" required>
+                <button type="submit" class="submit-btn">Subscribe</button>
+            </form>
         </div>
     </div>
+    <div class="footer-bottom">
+        &copy; 2025 Terracore Spatial Consultants Ltd. All Rights Reserved.
+    </div>
+</footer>
 
-    <!-- Footer -->
-    <footer id="contact">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">MISHY NATURALS</div>
-                <div class="footer-tagline">Pure Goodness in Every Drop | Where Nature Meets Flavour</div>
-                
-                <div style="margin: 2rem 0;">
-                    <a href="https://wa.me/254743808612" class="btn" style="margin: 0.5rem;">
-                        <i class="fab fa-whatsapp"></i> Order via WhatsApp
-                    </a>
-                    <a href="tel:0743808612" class="btn btn-outline" style="margin: 0.5rem;">
-                        <i class="fas fa-phone"></i> Call Us
-                    </a>
-                </div>
-                
-                <div>
-                    <p><i class="fas fa-envelope"></i> info@mishynaturals.com</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2023 Mishy Naturals. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+<script>
+    // Mobile Menu Toggle
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const navMenu = document.querySelector('.nav-menu');
 
-    <script>
-        // Cart functionality
-        let cart = [];
-        const cartCount = document.querySelector('.cart-count');
-        const addToCartButtons = document.querySelectorAll('.add-to-cart');
-        const viewCartButton = document.getElementById('view-cart');
-        const orderModal = document.getElementById('orderModal');
-        const confirmationModal = document.getElementById('confirmationModal');
-        const orderSummary = document.getElementById('orderSummary');
-        const orderTotal = document.getElementById('orderTotal');
-        const orderForm = document.getElementById('orderForm');
-        const closeModalButtons = document.querySelectorAll('.close-modal');
-        const continueShoppingButton = document.getElementById('continueShopping');
+    mobileMenu.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+    });
+
+    // Scroll Animations
+    const scrollElements = document.querySelectorAll('.animate-on-scroll');
+
+    const elementInView = (el, dividend = 1) => {
+        const elementTop = el.getBoundingClientRect().top;
+        return (
+            elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend
+        );
+    };
+
+    const displayScrollElement = (element) => {
+        element.classList.add('active');
+    };
+
+    const hideScrollElement = (element) => {
+        element.classList.remove('active');
+    };
+
+    const handleScrollAnimation = () => {
+        scrollElements.forEach((el) => {
+            if (elementInView(el, 1.25)) {
+                displayScrollElement(el);
+            } else {
+                hideScrollElement(el);
+            }
+        })
+    };
+
+    window.addEventListener('scroll', () => {
+        handleScrollAnimation();
+    });
+
+    // Initialize scroll animations on page load
+    window.addEventListener('load', () => {
+        handleScrollAnimation();
+    });
+
+    // Slideshow Functionality
+    function initSlideshow(slideshowContainer) {
+        const slides = slideshowContainer.querySelector('.slides');
+        const slideCount = slides.querySelectorAll('.slide').length;
+        const prevBtn = slideshowContainer.querySelector('.prev');
+        const nextBtn = slideshowContainer.querySelector('.next');
+        const dots = slideshowContainer.querySelectorAll('.dot');
         
-        // Add to cart functionality
-        addToCartButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                const product = this.getAttribute('data-product');
-                const price = parseInt(this.getAttribute('data-price'));
-                const quantity = parseInt(this.parentElement.querySelector('.quantity-input').value);
-                
-                // Check if product already in cart
-                const existingItem = cart.find(item => item.product === product);
-                
-                if (existingItem) {
-                    existingItem.quantity += quantity;
-                } else {
-                    cart.push({
-                        product,
-                        price,
-                        quantity
-                    });
-                }
-                
-                updateCartCount();
-                
-                // Show confirmation
-                alert(`${quantity} ${product} added to cart!`);
+        let currentSlide = 0;
+        
+        function goToSlide(n) {
+            currentSlide = (n + slideCount) % slideCount;
+            slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            // Update dots
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
             });
-        });
-        
-        // Quantity buttons
-        const quantityButtons = document.querySelectorAll('.quantity-btn');
-        quantityButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                const input = this.parentElement.querySelector('.quantity-input');
-                let value = parseInt(input.value);
-                
-                if (this.classList.contains('plus')) {
-                    value++;
-                } else if (this.classList.contains('minus') && value > 1) {
-                    value--;
-                }
-                
-                input.value = value;
-            });
-        });
-        
-        // Update cart count
-        function updateCartCount() {
-            const count = cart.reduce((total, item) => total + item.quantity, 0);
-            cartCount.textContent = count;
         }
         
-        // View cart button
-        viewCartButton.addEventListener('click', function() {
-            if (cart.length === 0) {
-                alert('Your cart is empty!');
-                return;
-            }
-            
-            // Update order summary
-            orderSummary.innerHTML = '';
-            let total = 0;
-            
-            cart.forEach(item => {
-                const itemTotal = item.price * item.quantity;
-                total += itemTotal;
-                
-                const summaryItem = document.createElement('div');
-                summaryItem.classList.add('summary-item');
-                summaryItem.innerHTML = `
-                    <span>${item.product} (x${item.quantity})</span>
-                    <span>Ksh ${itemTotal}</span>
-                `;
-                
-                orderSummary.appendChild(summaryItem);
-            });
-            
-            orderTotal.textContent = `Ksh ${total}`;
-            
-            // Show order modal
-            orderModal.style.display = 'flex';
+        function nextSlide() {
+            goToSlide(currentSlide + 1);
+        }
+        
+        function prevSlide() {
+            goToSlide(currentSlide - 1);
+        }
+        
+        // Event listeners
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+        
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => goToSlide(index));
         });
         
-        // Close modals
-        closeModalButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                orderModal.style.display = 'none';
-                confirmationModal.style.display = 'none';
-            });
+        // Auto-advance slides
+        let slideInterval = setInterval(nextSlide, 5000);
+        
+        // Pause on hover
+        slideshowContainer.addEventListener('mouseenter', () => {
+            clearInterval(slideInterval);
         });
         
-        // Continue shopping button
-        continueShoppingButton.addEventListener('click', function() {
-            confirmationModal.style.display = 'none';
-            cart = [];
-            updateCartCount();
+        slideshowContainer.addEventListener('mouseleave', () => {
+            slideInterval = setInterval(nextSlide, 5000);
         });
-        
-        // Order form submission
-        orderForm.addEventListener('submit', function(e) {
+    }
+    
+    // Initialize all slideshows
+    document.addEventListener('DOMContentLoaded', () => {
+        const slideshowContainers = document.querySelectorAll('.slideshow-container');
+        slideshowContainers.forEach(initSlideshow);
+    });
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
             e.preventDefault();
             
-            // Generate random order ID
-            const orderId = Math.floor(1000 + Math.random() * 9000);
-            document.getElementById('orderId').textContent = orderId;
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
             
-            // Hide order modal and show confirmation
-            orderModal.style.display = 'none';
-            confirmationModal.style.display = 'flex';
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                // Close mobile menu if open
+                navMenu.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // Service banner items scroll to their respective sections
+    document.querySelectorAll('.service-item').forEach(item => {
+        item.addEventListener('click', function() {
+            const serviceId = this.getAttribute('data-service');
+            const targetSection = document.getElementById(serviceId);
             
-            // In a real application, you would send the order data to a server here
-            console.log('Order placed:', {
-                customer: {
-                    name: document.getElementById('customerName').value,
-                    email: document.getElementById('customerEmail').value,
-                    phone: document.getElementById('customerPhone').value,
-                    address: document.getElementById('customerAddress').value
-                },
-                paymentMethod: document.getElementById('paymentMethod').value,
-                items: cart,
-                total: orderTotal.textContent
-            });
-            
-            // Reset form
+            if (targetSection) {
+                window.scrollTo({
+                    top: targetSection.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // Form submission handling
+    const contactForm = document.querySelector('.contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
             this.reset();
         });
+    }
+
+    // Project Portfolio Functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        // Filter functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card-portfolio');
         
-        // Close modal if clicked outside
-        window.addEventListener('click', function(e) {
-            if (e.target === orderModal) {
-                orderModal.style.display = 'none';
-            }
-            if (e.target === confirmationModal) {
-                confirmationModal.style.display = 'none';
-            }
-        });
-        
-        // Mobile Menu Toggle
-        document.querySelector('.menu-toggle').addEventListener('click', function() {
-            document.querySelector('nav ul').classList.toggle('show');
-        });
-        
-        // Smooth Scrolling for Navigation Links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
                 
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
+                const filterValue = button.getAttribute('data-filter');
                 
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Close mobile menu if open
-                    document.querySelector('nav ul').classList.remove('show');
-                }
+                projectCards.forEach(card => {
+                    if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, 100);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
+                    }
+                });
             });
         });
-    </script>
+    });
+</script>
 </body>
 </html>
