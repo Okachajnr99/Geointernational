@@ -3,16 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terracore Spatial Consultants Ltd - Precision Geospatial Solutions</title>
+    <title>Geo-International | Land Survey, Design & Construction</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* Global Styles */
         :root {
-            --primary: #1a3c34;      /* Deep green - earth/land */
-            --secondary: #d4af37;    /* Gold - premium quality */
-            --accent: #2c5530;       /* Medium green */
-            --light: #f8f9fa;        /* Light background */
-            --dark: #2d3748;         /* Dark text */
-            --transition: all 0.3s ease;
+            --primary: #1a5276;
+            --secondary: #3498db;
+            --accent: #f39c12;
+            --light: #f8f9fa;
+            --dark: #2c3e50;
+            --gray: #6c757d;
+            --success: #27ae60;
+            --whatsapp: #25D366;
         }
         
         * {
@@ -24,2053 +27,1585 @@
         
         body {
             line-height: 1.6;
-            color: var(--dark);
-            background-color: var(--light);
-            overflow-x: hidden;
+            color: #333;
+            background-color: #fff;
         }
         
-        /* Header */
-        .header {
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 3px;
+            background: var(--accent);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .btn-accent {
+            background: var(--accent);
+        }
+        
+        .btn-accent:hover {
+            background: #e67e22;
+        }
+        
+        /* Header Styles */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             position: fixed;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            top: 0;
             z-index: 1000;
-            padding: 0.8rem 0;
         }
         
-        .nav-container {
+        .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
+            padding: 15px 0;
         }
         
         .logo {
             display: flex;
             align-items: center;
-            font-weight: bold;
-            font-size: 1.2rem;
-            color: var(--primary);
         }
         
         .logo img {
-            height: 50px;
-            margin-right: 10px;
+            height: 70px;
+            width: auto;
         }
         
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .company-name {
-            font-weight: 700;
-            font-size: 1.3rem;
-            line-height: 1.2;
-        }
-        
-        .company-tagline {
-            font-size: 0.8rem;
-            font-weight: 400;
-            color: var(--accent);
-        }
-        
-        .nav-menu {
+        nav ul {
             display: flex;
             list-style: none;
-            gap: 1.5rem;
         }
         
-        .nav-menu li a {
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
             text-decoration: none;
             color: var(--dark);
             font-weight: 500;
-            transition: var(--transition);
-            padding: 5px 0;
-            position: relative;
+            transition: color 0.3s ease;
         }
         
-        .nav-menu li a:after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: var(--secondary);
-            transition: var(--transition);
-        }
-        
-        .nav-menu li a:hover:after {
-            width: 100%;
-        }
-        
-        .nav-menu li a:hover {
+        nav ul li a:hover {
             color: var(--primary);
         }
         
-        .contact-btn {
-            background: var(--primary);
-            color: white;
-            padding: 0.7rem 1.5rem;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
-            border: none;
-            cursor: pointer;
-        }
-        
-        .contact-btn:hover {
-            background: var(--accent);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(26, 60, 52, 0.3);
-        }
-        
-        /* Mobile Menu */
         .mobile-menu {
             display: none;
-            flex-direction: column;
+            font-size: 1.5rem;
             cursor: pointer;
         }
         
-        .mobile-menu span {
-            height: 3px;
-            width: 25px;
+        /* Company Name Banner */
+        .company-banner {
             background: var(--primary);
-            margin-bottom: 4px;
-            border-radius: 3px;
-            transition: var(--transition);
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 80px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
         }
         
-        /* Hero Section with Video Background */
-        .hero {
-            position: relative;
-            height: 100vh;
+        /* Phone Call Icon */
+        .phone-call {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: var(--success);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            z-index: 999;
+            cursor: pointer;
+            animation: pulse 2s infinite;
+            transition: all 0.3s ease;
+        }
+        
+        .phone-call:hover {
+            transform: scale(1.1);
+            background-color: #219653;
+        }
+        
+        .phone-call i {
             color: white;
+            font-size: 24px;
+        }
+        
+        /* WhatsApp Icon */
+        .whatsapp-chat {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: var(--whatsapp);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            z-index: 999;
+            cursor: pointer;
+            animation: pulse 2s infinite;
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-chat:hover {
+            transform: scale(1.1);
+            background-color: #128C7E;
+        }
+        
+        .whatsapp-chat i {
+            color: white;
+            font-size: 28px;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(39, 174, 96, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(39, 174, 96, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(39, 174, 96, 0);
+            }
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://res.cloudinary.com/dnxtuowlp/image/upload/v1761146229/Road_design_r97qky.png');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            align-items: center;
             text-align: center;
-            overflow: hidden;
-            padding: 0 20px;
-        }
-        
-        .video-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-        
-        .video-background video {
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            object-fit: cover;
-        }
-        
-        .video-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, rgba(26, 60, 52, 0.8), rgba(26, 60, 52, 0.6));
+            color: white;
         }
         
         .hero-content {
             max-width: 800px;
-            z-index: 10;
+            margin: 0 auto;
         }
         
         .hero h1 {
             font-size: 3.5rem;
-            margin-bottom: 1rem;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            margin-bottom: 20px;
         }
         
         .hero p {
             font-size: 1.2rem;
-            margin-bottom: 1.5rem;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+            margin-bottom: 30px;
         }
         
-        .cta-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-        
-        .cta-btn {
-            padding: 0.9rem 2rem;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
-            display: inline-block;
-        }
-        
-        .cta-primary {
-            background: var(--secondary);
-            color: var(--primary);
-        }
-        
-        .cta-primary:hover {
-            background: white;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-        
-        .cta-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid var(--secondary);
-        }
-        
-        .cta-secondary:hover {
-            background: var(--secondary);
-            color: var(--primary);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-        
-        /* Services Banner */
-        .services-banner {
-            background: var(--primary);
-            color: white;
-            padding: 3rem 0;
-            text-align: center;
-        }
-        
-        .services-banner-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-        
-        .services-banner h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            color: var(--secondary);
-        }
-        
-        .services-grid-banner {
+        /* About Section */
+        .about-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
         }
         
-        .service-item {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 1.5rem;
-            border-radius: 10px;
-            transition: var(--transition);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            cursor: pointer;
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary);
         }
         
-        .service-item:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-5px);
-            border-color: var(--secondary);
+        .about-text p {
+            margin-bottom: 20px;
         }
         
-        .service-item i {
-            font-size: 2.5rem;
-            color: var(--secondary);
-            margin-bottom: 1rem;
+        .about-image {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
             display: block;
         }
         
-        .service-item h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
+        /* Departments Section */
+        .departments {
+            background: var(--light);
         }
         
-        /* Service Category Sections */
-        .service-category {
-            padding: 5rem 2rem;
-            background-color: white;
+        .departments-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
         }
         
-        .category-header {
-            text-align: center;
-            margin-bottom: 3rem;
+        .tab-btn {
+            padding: 12px 25px;
+            background: white;
+            border: none;
+            border-radius: 4px;
+            margin: 0 10px 10px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         
-        .category-title {
+        .tab-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .tab-btn:hover:not(.active) {
+            background: var(--secondary);
+            color: white;
+        }
+        
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .department-content {
+            background: white;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .department-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .department-icon {
             font-size: 2.5rem;
             color: var(--primary);
-            margin-bottom: 1rem;
-            position: relative;
+            margin-right: 20px;
         }
         
-        .category-title:after {
-            content: '';
-            position: absolute;
-            width: 80px;
-            height: 4px;
-            background-color: var(--secondary);
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
+        .department-header h3 {
+            font-size: 2rem;
+            color: var(--primary);
         }
         
-        .category-description {
-            max-width: 800px;
-            margin: 0 auto;
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .service-card {
+            background: var(--light);
+            border-radius: 8px;
+            padding: 25px;
+            transition: transform 0.3s ease;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .service-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
             color: var(--dark);
-            font-size: 1.1rem;
-            line-height: 1.6;
         }
         
-        /* Slideshow Container */
-        .slideshow-container {
-            max-width: 1000px;
-            position: relative;
-            margin: auto;
-            margin-top: 3rem;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            height: 400px;
+        .equipment-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
         }
         
-        .slides {
+        .equipment-item {
             display: flex;
-            transition: transform 0.5s ease-in-out;
-            height: 100%;
+            align-items: center;
+            background: white;
+            padding: 10px 15px;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .equipment-icon {
+            margin-right: 10px;
+            color: var(--primary);
+        }
+        
+        /* Projects Section */
+        .projects {
+            background: var(--light);
+        }
+        
+        .project-filters {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 10px 20px;
+            background: white;
+            border: none;
+            border-radius: 4px;
+            margin: 0 5px 10px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .filter-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .filter-btn:hover:not(.active) {
+            background: var(--secondary);
+            color: white;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .project-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .project-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+        
+        .project-status {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .status-completed {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .status-ongoing {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .status-upcoming {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+        
+        /* Image Slider */
+        .slider-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease;
         }
         
         .slide {
             min-width: 100%;
-            position: relative;
-            height: 100%;
         }
         
         .slide img {
             width: 100%;
-            height: 100%;
+            height: 400px;
             object-fit: cover;
+            display: block;
         }
         
-        .slide-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(26, 60, 52, 0.8);
-            color: white;
-            padding: 1rem;
-            text-align: center;
-        }
-        
-        .prev, .next {
-            cursor: pointer;
+        .slider-btn {
             position: absolute;
             top: 50%;
-            width: auto;
-            padding: 16px;
-            margin-top: -22px;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.5);
             color: white;
-            font-weight: bold;
-            font-size: 24px;
-            transition: 0.3s ease;
-            border-radius: 0 3px 3px 0;
-            user-select: none;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 10;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: background 0.3s ease;
         }
         
-        .next {
+        .slider-btn:hover {
+            background: rgba(0,0,0,0.8);
+        }
+        
+        .prev-btn {
+            left: 0;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .next-btn {
             right: 0;
-            border-radius: 3px 0 0 3px;
+            border-radius: 4px 0 0 4px;
         }
         
-        .prev:hover, .next:hover {
-            background-color: rgba(212, 175, 55, 0.8);
-        }
-        
-        .dots-container {
-            text-align: center;
-            padding: 20px;
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            margin-top: 15px;
         }
         
         .dot {
-            cursor: pointer;
-            height: 15px;
-            width: 15px;
+            width: 12px;
+            height: 12px;
+            background: #bbb;
+            border-radius: 50%;
             margin: 0 5px;
-            background-color: #bbb;
-            border-radius: 50%;
-            display: inline-block;
-            transition: background-color 0.3s ease;
-        }
-        
-        .dot.active, .dot:hover {
-            background-color: var(--secondary);
-        }
-        
-        /* Project Portfolio Section */
-        .project-portfolio {
-            padding: 6rem 2rem;
-            background-color: var(--light);
-        }
-        
-        .portfolio-container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        
-        .portfolio-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-        
-        .portfolio-title {
-            font-size: 2.8rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-            position: relative;
-        }
-        
-        .portfolio-title:after {
-            content: '';
-            position: absolute;
-            width: 100px;
-            height: 4px;
-            background-color: var(--secondary);
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        
-        .portfolio-description {
-            max-width: 800px;
-            margin: 2rem auto 0;
-            color: var(--dark);
-            font-size: 1.1rem;
-            line-height: 1.6;
-        }
-        
-        /* Project Filter */
-        .project-filter {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-bottom: 3rem;
-        }
-        
-        .filter-btn {
-            background: rgba(212, 175, 55, 0.1);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            color: var(--dark);
-            padding: 0.7rem 1.5rem;
-            border-radius: 30px;
             cursor: pointer;
-            transition: var(--transition);
-            font-weight: 500;
+            transition: background 0.3s ease;
         }
         
-        .filter-btn.active,
-        .filter-btn:hover {
-            background: var(--secondary);
-            color: var(--primary);
-            transform: translateY(-2px);
-        }
-        
-        /* Project Cards Layout */
-        .projects-grid-portfolio {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-        
-        .project-card-portfolio {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: var(--transition);
-            border: 1px solid rgba(212, 175, 55, 0.1);
-        }
-        
-        .project-card-portfolio:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(26, 60, 52, 0.2);
-            border-color: var(--secondary);
-        }
-        
-        .project-media {
-            position: relative;
-            height: 250px;
-            overflow: hidden;
-        }
-        
-        .project-media img,
-        .project-media video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-        
-        .project-card-portfolio:hover .project-media img,
-        .project-card-portfolio:hover .project-media video {
-            transform: scale(1.05);
-        }
-        
-        .media-indicator {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: rgba(26, 60, 52, 0.8);
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            display: flex;
-            align-items: center;
-            gap: 0.3rem;
-        }
-        
-        .play-btn {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: rgba(212, 175, 55, 0.9);
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary);
-            font-size: 1.5rem;
-            opacity: 0;
-            transition: var(--transition);
-            cursor: pointer;
-        }
-        
-        .project-card-portfolio:hover .play-btn {
-            opacity: 1;
-        }
-        
-        .project-info {
-            padding: 1.5rem;
-        }
-        
-        .project-category {
-            color: var(--secondary);
-            font-size: 0.9rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 0.5rem;
-        }
-        
-        .project-title {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
-        }
-        
-        .project-location {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--dark);
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-        }
-        
-        .project-location i {
-            color: var(--secondary);
-        }
-        
-        .project-description {
-            color: var(--dark);
-            font-size: 0.95rem;
-            line-height: 1.5;
-            margin-bottom: 1.5rem;
-        }
-        
-        .project-features {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .feature-tag {
-            background: rgba(212, 175, 55, 0.1);
-            color: var(--secondary);
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            border: 1px solid rgba(212, 175, 55, 0.2);
-        }
-        
-        .project-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--secondary);
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
-        }
-        
-        .project-link:hover {
-            gap: 0.8rem;
-            color: var(--primary);
+        .dot.active {
+            background: var(--primary);
         }
         
         /* Team Section */
-        .team-section {
-            padding: 6rem 2rem;
-            background-color: white;
-        }
-        
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-        
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            color: var(--primary);
-            position: relative;
-        }
-        
-        .section-title:after {
-            content: '';
-            position: absolute;
-            width: 80px;
-            height: 4px;
-            background-color: var(--secondary);
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        
-        .section-subtitle {
-            text-align: center;
-            color: var(--dark);
-            margin-bottom: 3rem;
-            font-size: 1.1rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
+        .team {
+            background: var(--light);
         }
         
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
-            margin-bottom: 4rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
         
         .team-member {
-            background: var(--light);
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: var(--transition);
-            border: 1px solid rgba(212, 175, 55, 0.1);
+            text-align: center;
+            background: white;
+            border-radius: 8px;
+            padding: 30px 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
         }
         
         .team-member:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(26, 60, 52, 0.2);
-            border-color: var(--secondary);
         }
         
-        .member-photo {
-            position: relative;
-            height: 300px;
-            overflow: hidden;
-        }
-        
-        .member-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-        
-        .team-member:hover .member-photo img {
-            transform: scale(1.05);
-        }
-        
-        .member-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(26, 60, 52, 0.8);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: var(--transition);
-        }
-        
-        .team-member:hover .member-overlay {
-            opacity: 1;
-        }
-        
-        .member-overlay .social-links {
-            display: flex;
-            gap: 1rem;
-        }
-        
-        .member-overlay .social-link {
-            width: 45px;
-            height: 45px;
+        .member-image {
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
-            background: var(--secondary);
-            color: var(--primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-        
-        .member-overlay .social-link:hover {
-            background: white;
-            transform: translateY(-3px);
-        }
-        
-        .member-info {
-            padding: 2rem;
-        }
-        
-        .member-name {
-            font-size: 1.4rem;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-        
-        .member-position {
-            color: var(--secondary);
-            font-weight: 600;
-            margin-bottom: 1rem;
-            font-size: 1rem;
-        }
-        
-        .member-bio {
-            color: var(--dark);
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-            font-size: 0.95rem;
-        }
-        
-        .member-expertise {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-        
-        .expertise-tag {
-            background: rgba(212, 175, 55, 0.1);
-            color: var(--secondary);
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            border: 1px solid rgba(212, 175, 55, 0.2);
-        }
-        
-        .team-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin: 4rem 0;
-            padding: 3rem;
+            margin: 0 auto 20px;
             background: var(--light);
-            border-radius: 15px;
-            text-align: center;
-        }
-        
-        .team-stats .stat-item {
-            padding: 1rem;
-        }
-        
-        .team-stats .stat-number {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: var(--secondary);
-            margin-bottom: 0.5rem;
-        }
-        
-        .team-stats .stat-label {
-            color: var(--primary);
-            font-weight: 600;
-        }
-        
-        .team-cta {
-            text-align: center;
-            padding: 3rem;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            border-radius: 15px;
-            color: white;
-        }
-        
-        .team-cta h3 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: white;
-        }
-        
-        .team-cta p {
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-        
-        .team-cta .cta-btn {
-            background: var(--secondary);
-            color: var(--primary);
-        }
-        
-        .team-cta .cta-btn:hover {
-            background: white;
-        }
-        
-        /* Careers Section */
-        .careers-section {
-            padding: 6rem 2rem;
-            background-color: var(--light);
-        }
-        
-        .careers-intro {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 4rem;
-        }
-        
-        .careers-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 4rem;
-        }
-        
-        .career-card {
-            background: white;
-            border-radius: 15px;
-            padding: 2rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: var(--transition);
-            border: 1px solid rgba(212, 175, 55, 0.1);
-        }
-        
-        .career-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(26, 60, 52, 0.2);
-            border-color: var(--secondary);
-        }
-        
-        .career-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--secondary);
-            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--primary);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--primary);
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
         }
         
-        .career-card h3 {
-            font-size: 1.4rem;
+        .member-image i {
+            font-size: 4rem;
             color: var(--primary);
-            margin-bottom: 1rem;
         }
         
-        .career-card p {
+        .team-member h3 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
             color: var(--dark);
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
         }
         
-        .career-features {
-            list-style: none;
-            margin-bottom: 2rem;
+        .team-member p {
+            color: var(--gray);
+            margin-bottom: 15px;
         }
         
-        .career-features li {
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .career-features i {
-            color: var(--secondary);
-        }
-        
-        .career-apply-btn {
+        .member-department {
             display: inline-block;
             background: var(--primary);
             color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
-            width: 100%;
-            text-align: center;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 15px;
         }
         
-        .career-apply-btn:hover {
-            background: var(--accent);
-            transform: translateY(-3px);
-        }
-        
-        .benefits-section {
-            margin-top: 4rem;
-        }
-        
-        .benefits-grid {
+        /* Certifications Section */
+        .certifications-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
         }
         
-        .benefit-item {
+        .cert-card {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
             text-align: center;
-            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
+            transition: transform 0.3s ease;
         }
         
-        .benefit-icon {
-            width: 80px;
-            height: 80px;
-            background: rgba(212, 175, 55, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--secondary);
-            font-size: 2rem;
-            margin: 0 auto 1.5rem;
+        .cert-card:hover {
+            transform: translateY(-5px);
         }
         
-        .benefit-item h4 {
-            font-size: 1.3rem;
+        .cert-icon {
+            font-size: 2.5rem;
             color: var(--primary);
-            margin-bottom: 1rem;
-        }
-        
-        .benefit-item p {
-            color: var(--dark);
-        }
-        
-        /* Blog Section */
-        .blog {
-            padding: 6rem 2rem;
-            background-color: white;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .blog-card {
-            background: var(--light);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: var(--transition);
-            border: 1px solid rgba(212, 175, 55, 0.1);
-        }
-        
-        .blog-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(26, 60, 52, 0.2);
-            border-color: var(--secondary);
-        }
-        
-        .blog-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-        
-        .blog-card:hover img {
-            transform: scale(1.05);
-        }
-        
-        .blog-card h4 {
-            color: var(--primary);
-            margin: 1rem 1rem 0.5rem;
-        }
-        
-        .blog-card p {
-            color: var(--dark);
-            margin: 0 1rem 1rem;
+            margin-bottom: 15px;
         }
         
         /* Contact Section */
         .contact {
-            padding: 6rem 2rem;
-            background-color: var(--light);
+            background: var(--light);
         }
         
-        .contact-content {
+        .contact-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
         }
         
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .contact-details {
+            margin-bottom: 30px;
         }
         
         .contact-item {
             display: flex;
-            align-items: center;
-            gap: 1rem;
+            margin-bottom: 15px;
         }
         
         .contact-icon {
-            width: 50px;
-            height: 50px;
-            background: var(--secondary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            margin-right: 15px;
             color: var(--primary);
-            font-size: 1.2rem;
-        }
-        
-        .contact-item p {
-            color: var(--dark);
-        }
-        
-        .contact-item a {
-            color: var(--dark);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-        
-        .contact-item a:hover {
-            color: var(--primary);
-        }
-        
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
         }
         
         .contact-form input,
         .contact-form textarea,
         .contact-form select {
-            padding: 1rem;
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 20px;
             border: 1px solid #ddd;
-            border-radius: 5px;
+            border-radius: 4px;
             font-size: 1rem;
-            transition: var(--transition);
-            background: white;
-            color: var(--dark);
         }
         
-        .contact-form input:focus,
-        .contact-form textarea:focus,
-        .contact-form select:focus {
-            border-color: var(--secondary);
-            outline: none;
-            box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
-        }
-        
-        .contact-form input::placeholder,
-        .contact-form textarea::placeholder {
-            color: #888;
-        }
-        
-        .submit-btn {
-            background: var(--primary);
-            color: white;
-            padding: 1rem;
-            border: none;
-            border-radius: 30px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: var(--transition);
-            margin-top: 1rem;
-        }
-        
-        .submit-btn:hover {
-            background: var(--accent);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(26, 60, 52, 0.3);
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
         }
         
         /* Footer */
-        .footer {
-            background: var(--primary);
+        footer {
+            background: var(--dark);
             color: white;
-            padding: 3rem 0 1rem;
+            padding: 60px 0 30px;
         }
         
-        .footer-content {
+        .footer-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
         }
         
-        .footer-section h3 {
-            color: var(--secondary);
-            margin-bottom: 1.5rem;
+        .footer-col h3 {
             font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
         }
         
-        .footer-section p {
-            margin-bottom: 1rem;
-            line-height: 1.6;
-            color: rgba(255, 255, 255, 0.8);
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--accent);
         }
         
-        .footer-section ul {
+        .footer-col ul {
             list-style: none;
         }
         
-        .footer-section li {
-            margin-bottom: 0.8rem;
+        .footer-col ul li {
+            margin-bottom: 10px;
         }
         
-        .footer-section a {
-            color: rgba(255, 255, 255, 0.8);
+        .footer-col ul li a {
+            color: #bbb;
             text-decoration: none;
-            transition: var(--transition);
+            transition: color 0.3s ease;
         }
         
-        .footer-section a:hover {
-            color: var(--secondary);
+        .footer-col ul li a:hover {
+            color: white;
         }
         
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-        
-        .social-link {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: rgba(212, 175, 55, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--secondary);
-            transition: var(--transition);
-        }
-        
-        .social-link:hover {
-            background: var(--secondary);
-            color: var(--primary);
-            transform: translateY(-3px);
-        }
-        
-        .footer-bottom {
+        .copyright {
             text-align: center;
-            margin-top: 3rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #bbb;
             font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.7);
         }
         
-        /* Animations */
-        .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease-out;
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-content,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-image {
+                order: -1;
+            }
         }
         
-        .animate-on-scroll.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        /* Responsive */
-        @media screen and (max-width: 768px) {
-            .nav-menu {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
+        @media (max-width: 768px) {
+            .mobile-menu {
+                display: block;
+            }
+            
+            nav ul {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
                 background: white;
                 flex-direction: column;
-                padding: 1rem 0;
-                text-align: center;
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 50px;
+                transition: left 0.3s ease;
             }
             
-            .nav-menu.active {
-                display: flex;
+            nav ul.active {
+                left: 0;
             }
             
-            .mobile-menu {
-                display: flex;
-            }
-            
-            .mobile-menu.active span:nth-child(1) {
-                transform: rotate(45deg) translate(5px, 5px);
-            }
-            
-            .mobile-menu.active span:nth-child(2) {
-                opacity: 0;
-            }
-            
-            .mobile-menu.active span:nth-child(3) {
-                transform: rotate(-45deg) translate(7px, -6px);
+            nav ul li {
+                margin: 15px 0;
             }
             
             .hero h1 {
                 font-size: 2.5rem;
             }
             
-            .hero p {
-                font-size: 1rem;
+            section {
+                padding: 60px 0;
             }
             
-            .cta-buttons {
+            .department-header {
                 flex-direction: column;
-                align-items: center;
+                text-align: center;
             }
             
-            .section-title, .category-title {
-                font-size: 2rem;
+            .department-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
             }
             
-            .services-grid-banner {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            .projects-grid {
+                grid-template-columns: 1fr;
             }
             
-            .slideshow-container {
+            .slide img {
                 height: 300px;
             }
             
-            .projects-grid-portfolio {
-                grid-template-columns: 1fr;
-            }
-            
-            .project-filter {
-                gap: 0.5rem;
-            }
-            
-            .filter-btn {
-                padding: 0.5rem 1rem;
-                font-size: 0.9rem;
-            }
-            
-            .team-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .team-stats {
-                grid-template-columns: repeat(2, 1fr);
-                padding: 2rem;
-                gap: 1.5rem;
-            }
-            
-            .team-stats .stat-number {
-                font-size: 2rem;
-            }
-            
-            .team-cta {
-                padding: 2rem;
-            }
-            
-            .team-cta h3 {
-                font-size: 1.6rem;
-            }
-            
-            .careers-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .benefits-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media screen and (max-width: 480px) {
-            .project-portfolio {
-                padding: 4rem 1rem;
-            }
-            
-            .portfolio-title {
-                font-size: 2.2rem;
-            }
-            
-            .slideshow-container {
-                height: 250px;
-            }
-            
-            .slide-caption {
-                padding: 0.5rem;
-                font-size: 0.9rem;
-            }
-            
-            .team-stats {
-                grid-template-columns: 1fr;
-            }
-            
-            .member-photo {
-                height: 250px;
+            .company-banner {
+                font-size: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
-
-<!-- Header -->
-<header class="header">
-    <nav class="nav-container">
-        <div class="logo">
-            <!-- Replace with your actual logo -->
-            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIHZpZXdCb3g9IjAgMCA1MCA1MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjUwIiBoZWlnaHQ9IjUwIiBmaWxsPSIjMUExQTFBIi8+CjxwYXRoIGQ9Ik0xMi41IDEyLjVMMzcuNSAzNy41IiBzdHJva2U9IiNENEFGMzciIHN0cm9rZS13aWR0aD0iMiIvPgo8cGF0aCBkPSJNMzcuNSAxMi41TDEyLjUgMzcuNSIgc3Ryb2tlPSIjRDRBRjM3IiBzdHJva2Utd2lkdGg9IjIiLz4KPHBhdGggZD0iTTI1IDhWNDIiIHN0cm9rZT0iI0Q0QUYzNyIgc3Ryb2tlLXdpZHRoPSIyIi8+CjxwYXRoIGQ9Ik04IDI1SDQyIiBzdHJva2U9IiNENEFGMzciIHN0cm9rZS13aWR0aD0iMiIvPgo8L3N2Zz4K" alt="Terracore Spatial Consultants Logo">
-            <div class="logo-text">
-                <span class="company-name">TERRACORE SPATIAL</span>
-                <span class="company-tagline">CONSULTANTS LTD</span>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="https://res.cloudinary.com/dnxtuowlp/image/upload/v1761143051/Geo_international_logo_flfhvr.png" alt="Geo International Logo">
             </div>
-        </div>
-        <ul class="nav-menu">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#project-portfolio">Projects</a></li>
-            <li><a href="#team">Team</a></li>
-            <li><a href="#careers">Careers</a></li>
-            <li><a href="#blog">Insights</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <div class="mobile-menu"><span></span><span></span><span></span></div>
-        <a href="#contact" class="contact-btn">Get Quote</a>
-    </nav>
-</header>
-
-<!-- Hero Section with Video Background -->
-<section id="home" class="hero">
-    <div class="video-background">
-        <video autoplay muted loop playsinline>
-            <source src="https://res.cloudinary.com/dnxtuowlp/video/upload/v1757629564/vecteezy_luxury-hotel-lobby-a-spacious-and-elegant-hotel-reception_51896071_htil1d.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <div class="video-overlay"></div>
-    </div>
-    <div class="hero-content">
-        <h1>Precision Mapping. Smart Solutions.</h1>
-        <p>Terracore Spatial Consultants delivers cutting-edge geospatial solutions for land development, environmental planning, and infrastructure projects across East Africa.</p>
-        <div class="cta-buttons">
-            <a href="#services" class="cta-btn cta-primary">Our Services</a>
-            <a href="#contact" class="cta-btn cta-secondary">Consult Our Experts</a>
-        </div>
-    </div>
-</section>
-
-<!-- Services Banner -->
-<section class="services-banner">
-    <div class="services-banner-content">
-        <h2>Our Geospatial Services</h2>
-        <div class="services-grid-banner">
-            <div class="service-item" data-service="land-surveying">
-                <i class="fas fa-ruler-combined"></i>
-                <h3>Land Surveying</h3>
-            </div>
-            <div class="service-item" data-service="gis">
-                <i class="fas fa-map-marked-alt"></i>
-                <h3>GIS Solutions</h3>
-            </div>
-            <div class="service-item" data-service="remote-sensing">
-                <i class="fas fa-satellite"></i>
-                <h3>Remote Sensing</h3>
-            </div>
-            <div class="service-item" data-service="cadastral">
-                <i class="fas fa-draw-polygon"></i>
-                <h3>Cadastral Mapping</h3>
-            </div>
-            <div class="service-item" data-service="topographic">
-                <i class="fas fa-mountain"></i>
-                <h3>Topographic Surveys</h3>
-            </div>
-            <div class="service-item" data-service="construction">
-                <i class="fas fa-hard-hat"></i>
-                <h3>Construction Staking</h3>
-            </div>
-            <div class="service-item" data-service="drone">
-                <i class="fas fa-drone"></i>
-                <h3>Drone Mapping</h3>
-            </div>
-            <div class="service-item" data-service="consultancy">
-                <i class="fas fa-chart-line"></i>
-                <h3>Spatial Consultancy</h3>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Land Surveying Section -->
-<section id="land-surveying" class="service-category">
-    <div class="container">
-        <div class="category-header">
-            <h2 class="category-title animate-on-scroll">Land Surveying</h2>
-            <p class="category-description animate-on-scroll">Precision land surveying services using state-of-the-art equipment and methodologies. We provide accurate boundary surveys, subdivision plans, and legal descriptions for property development and land transactions.</p>
-        </div>
-        <div class="slideshow-container animate-on-scroll">
-            <div class="slides">
-                <div class="slide">
-                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Land Surveying 1">
-                    <div class="slide-caption">Boundary Survey with GPS Technology</div>
-                </div>
-                <div class="slide">
-                    <img src="https://images.unsplash.com/photo-1581094794358-846d6a8e6f38?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Land Surveying 2">
-                    <div class="slide-caption">Total Station Precision Measurements</div>
-                </div>
-                <div class="slide">
-                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Land Surveying 3">
-                    <div class="slide-caption">Subdivision Planning and Mapping</div>
-                </div>
-            </div>
-            <a class="prev">&#10094;</a>
-            <a class="next">&#10095;</a>
-            <div class="dots-container">
-                <span class="dot active" data-slide="0"></span>
-                <span class="dot" data-slide="1"></span>
-                <span class="dot" data-slide="2"></span>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- GIS Solutions Section -->
-<section id="gis" class="service-category">
-    <div class="container">
-        <div class="category-header">
-            <h2 class="category-title animate-on-scroll">GIS Solutions</h2>
-            <p class="category-description animate-on-scroll">Comprehensive Geographic Information Systems services including spatial data analysis, custom mapping, database development, and web GIS applications for informed decision-making.</p>
-        </div>
-        <div class="slideshow-container animate-on-scroll">
-            <div class="slides">
-                <div class="slide">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="GIS Solutions 1">
-                </div>
-                <div class="slide">
-                    <img src="https://images.unsplash.com/photo-1543286386-713bdd548da4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="GIS Solutions 2">
-                </div>
-                <div class="slide">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="GIS Solutions 3">
-                </div>
-            </div>
-            <a class="prev">&#10094;</a>
-            <a class="next">&#10095;</a>
-            <div class="dots-container">
-                <span class="dot active" data-slide="0"></span>
-                <span class="dot" data-slide="1"></span>
-                <span class="dot" data-slide="2"></span>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Remote Sensing Section -->
-<section id="remote-sensing" class="service-category">
-    <div class="container">
-        <div class="category-header">
-            <h2 class="category-title animate-on-scroll">Remote Sensing</h2>
-            <p class="category-description animate-on-scroll">Advanced remote sensing technologies including satellite imagery analysis, aerial photography, and LiDAR data processing for environmental monitoring, land use planning, and resource management.</p>
-        </div>
-        <div class="slideshow-container animate-on-scroll">
-            <div class="slides">
-                <div class="slide">
-                    <img src="https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Remote Sensing 1">
-                </div>
-                <div class="slide">
-                    <img src="https://images.unsplash.com/photo-1502134249126-9f3755a50d78?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Remote Sensing 2">
-                </div>
-                <div class="slide">
-                    <img src="https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Remote Sensing 3">
-                </div>
-            </div>
-            <a class="prev">&#10094;</a>
-            <a class="next">&#10095;</a>
-            <div class="dots-container">
-                <span class="dot active" data-slide="0"></span>
-                <span class="dot" data-slide="1"></span>
-                <span class="dot" data-slide="2"></span>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Project Portfolio Section -->
-<section id="project-portfolio" class="project-portfolio">
-    <div class="portfolio-container">
-        <div class="portfolio-header">
-            <h2 class="portfolio-title animate-on-scroll">Our Project Portfolio</h2>
-            <p class="portfolio-description animate-on-scroll">Explore our completed geospatial projects across East Africa. Each project showcases our commitment to precision, innovation, and delivering actionable spatial intelligence.</p>
-        </div>
-        
-        <div class="project-filter">
-            <button class="filter-btn active" data-filter="all">All Projects</button>
-            
-        </div>
-        
-        <div class="projects-grid-portfolio">
-            <!-- Project 1 -->
-            <div class="project-card-portfolio animate-on-scroll" data-category="infrastructure">
-                <div class="project-media">
-                    <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Highway Alignment Project">
-                    <div class="media-indicator">
-                        <i class="fas fa-image"></i> Image
-                    </div>
-                </div>
-                <div class="project-info">
-                    <div class="project-category">Infrastructure</div>
-                    <h3 class="project-title">Nairobi Expressway Alignment Survey</h3>
-                    <div class="project-location">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Nairobi, Kenya</span>
-                    </div>
-                    <p class="project-description">Precision surveying and mapping for the 27km Nairobi Expressway project, providing critical spatial data for engineering design and construction planning.</p>
-                    <div class="project-features">
-                        <span class="feature-tag">GPS Survey</span>
-                        <span class="feature-tag">Topographic Mapping</span>
-                        <span class="feature-tag">Construction Staking</span>
-                    </div>
-                    <a href="#" class="project-link" data-project="1">View Project Details <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-            
-            <!-- Project 2 -->
-            <div class="project-card-portfolio animate-on-scroll" data-category="environmental">
-                <div class="project-media">
-                    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Watershed Management">
-                    <div class="media-indicator">
-                        <i class="fas fa-image"></i> Image
-                    </div>
-                </div>
-                <div class="project-info">
-                    <div class="project-category">Environmental</div>
-                    <h3 class="project-title">Lake Victoria Watershed Mapping</h3>
-                    <div class="project-location">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Kisumu, Kenya</span>
-                    </div>
-                    <p class="project-description">Comprehensive watershed delineation and land use mapping to support environmental conservation and sustainable resource management around Lake Victoria.</p>
-                    <div class="project-features">
-                        <span class="feature-tag">GIS Analysis</span>
-                        <span class="feature-tag">Hydrological Modeling</span>
-                        <span class="feature-tag">Land Use Classification</span>
-                    </div>
-                    <a href="#" class="project-link" data-project="2">View Project Details <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-            
-            <!-- Project 3 -->
-            <div class="project-card-portfolio animate-on-scroll" data-category="urban">
-                <div class="project-media">
-                    <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Urban Planning">
-                    <div class="media-indicator">
-                        <i class="fas fa-image"></i> Image
-                    </div>
-                </div>
-                <div class="project-info">
-                    <div class="project-category">Urban Planning</div>
-                    <h3 class="project-title">Nairobi Metropolitan Spatial Plan</h3>
-                    <div class="project-location">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Nairobi Metropolitan, Kenya</span>
-                    </div>
-                    <p class="project-description">Development of a comprehensive spatial planning framework for the Nairobi Metropolitan region, integrating land use, transportation, and infrastructure data.</p>
-                    <div class="project-features">
-                        <span class="feature-tag">Spatial Planning</span>
-                        <span class="feature-tag">Land Use Analysis</span>
-                        <span class="feature-tag">Transportation Modeling</span>
-                    </div>
-                    <a href="#" class="project-link" data-project="3">View Project Details <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-            
-            <!-- Project 4 -->
-            <div class="project-card-portfolio animate-on-scroll" data-category="agriculture">
-                <div class="project-media">
-                    <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Agricultural Mapping">
-                    <div class="media-indicator">
-                        <i class="fas fa-image"></i> Image
-                    </div>
-                </div>
-                <div class="project-info">
-                    <div class="project-category">Agriculture</div>
-                    <h3 class="project-title">Tea Plantation Yield Optimization</h3>
-                    <div class="project-location">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Kericho, Kenya</span>
-                    </div>
-                    <p class="project-description">Drone-based multispectral imaging and GIS analysis to optimize tea plantation management, irrigation planning, and yield prediction.</p>
-                    <div class="project-features">
-                        <span class="feature-tag">Drone Mapping</span>
-                        <span class="feature-tag">Multispectral Analysis</span>
-                        <span class="feature-tag">Precision Agriculture</span>
-                    </div>
-                    <a href="#" class="project-link" data-project="4">View Project Details <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Team Section -->
-<section id="team" class="team-section">
-    <div class="container">
-        <div class="section-header">
-            <h2 class="section-title animate-on-scroll">Our Expert Team</h2>
-            <p class="section-subtitle animate-on-scroll">Meet the skilled professionals behind Terracore Spatial Consultants. Our team combines technical expertise with years of experience in geospatial sciences.</p>
-        </div>
-        
-        <div class="team-grid">
-            <!-- Team Member 1 -->
-            <div class="team-member animate-on-scroll">
-                <div class="member-photo">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="David Kariuki - Lead Surveyor">
-                    <div class="member-overlay">
-                        <div class="social-links">
-                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="member-info">
-                    <h3 class="member-name">David Kariuki</h3>
-                    <p class="member-position">Lead Surveyor & GIS Specialist</p>
-                    <p class="member-bio">15+ years in land surveying and geospatial analysis. Registered surveyor with extensive experience in cadastral mapping and infrastructure projects.</p>
-                    <div class="member-expertise">
-                        <span class="expertise-tag">GPS Surveying</span>
-                        <span class="expertise-tag">Cadastral Mapping</span>
-                        <span class="expertise-tag">GIS Analysis</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Team Member 2 -->
-            <div class="team-member animate-on-scroll">
-                <div class="member-photo">
-                    <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Sarah Mwangi - Remote Sensing Expert">
-                    <div class="member-overlay">
-                        <div class="social-links">
-                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="member-info">
-                    <h3 class="member-name">Sarah Mwangi</h3>
-                    <p class="member-position">Remote Sensing & Drone Specialist</p>
-                    <p class="member-bio">PhD in Geospatial Sciences with expertise in satellite imagery analysis, LiDAR processing, and UAV mapping for environmental monitoring.</p>
-                    <div class="member-expertise">
-                        <span class="expertise-tag">Remote Sensing</span>
-                        <span class="expertise-tag">Drone Operations</span>
-                        <span class="expertise-tag">Environmental GIS</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Team Member 3 -->
-            <div class="team-member animate-on-scroll">
-                <div class="member-photo">
-                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="James Omondi - Project Manager">
-                    <div class="member-overlay">
-                        <div class="social-links">
-                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="member-info">
-                    <h3 class="member-name">James Omondi</h3>
-                    <p class="member-position">Senior Project Manager</p>
-                    <p class="member-bio">Project management professional with 12+ years overseeing large-scale geospatial projects across East Africa. PMP certified with expertise in stakeholder coordination.</p>
-                    <div class="member-expertise">
-                        <span class="expertise-tag">Project Management</span>
-                        <span class="expertise-tag">Client Relations</span>
-                        <span class="expertise-tag">Quality Assurance</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Team Member 4 -->
-            <div class="team-member animate-on-scroll">
-                <div class="member-photo">
-                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Michael Otieno - Data Analyst">
-                    <div class="member-overlay">
-                        <div class="social-links">
-                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="member-info">
-                    <h3 class="member-name">Michael Otieno</h3>
-                    <p class="member-position">Spatial Data Analyst</p>
-                    <p class="member-bio">Specialist in spatial database management, web GIS development, and custom mapping solutions. Expertise in Python, SQL, and geospatial programming.</p>
-                    <div class="member-expertise">
-                        <span class="expertise-tag">Spatial Databases</span>
-                        <span class="expertise-tag">Web GIS</span>
-                        <span class="expertise-tag">Python Scripting</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="team-stats animate-on-scroll">
-            <div class="stat-item">
-                <div class="stat-number">50+</div>
-                <div class="stat-label">Projects Completed</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">15+</div>
-                <div class="stat-label">Years Experience</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">12</div>
-                <div class="stat-label">Professional Certifications</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">100%</div>
-                <div class="stat-label">Client Satisfaction</div>
-            </div>
-        </div>
-        
-        <div class="team-cta animate-on-scroll">
-            <h3>Join Our Team</h3>
-            <p>We're always looking for talented geospatial professionals to join our growing team.</p>
-            <a href="#careers" class="cta-btn cta-primary">View Career Opportunities</a>
-        </div>
-    </div>
-</section>
-
-<!-- Careers Section -->
-<section id="careers" class="careers-section">
-    <div class="container">
-        <div class="section-header">
-            <h2 class="section-title animate-on-scroll">Career Opportunities</h2>
-            <p class="section-subtitle animate-on-scroll">Join our team of geospatial experts and work on cutting-edge projects that shape the future of land development and environmental management.</p>
-        </div>
-        
-        <div class="careers-intro animate-on-scroll">
-            <p>At Terracore Spatial Consultants, we believe in nurturing talent and providing opportunities for professional growth. We offer competitive packages, continuous learning opportunities, and a collaborative work environment.</p>
-        </div>
-        
-        <div class="careers-grid">
-            <!-- Career 1 -->
-            <div class="career-card animate-on-scroll">
-                <div class="career-icon">
-                    <i class="fas fa-drafting-compass"></i>
-                </div>
-                <h3>Junior Land Surveyor</h3>
-                <p>Entry-level position for surveying graduates to work with experienced professionals on field surveys and data processing.</p>
-                <ul class="career-features">
-                    <li><i class="fas fa-check"></i> Field survey experience</li>
-                    <li><i class="fas fa-check"></i> GPS and total station operation</li>
-                    <li><i class="fas fa-check"></i> Data processing and mapping</li>
+            <div class="mobile-menu">☰</div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#departments">Departments</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
-                <a href="#contact" class="career-apply-btn">Apply Now</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Company Name Banner -->
+    <div class="company-banner">
+        GEOINTERNATIONAL LIMITED
+    </div>
+
+    <!-- Phone Call Icon -->
+    <a href="tel:+254789700222" class="phone-call">
+        <i class="fas fa-phone"></i>
+    </a>
+
+    <!-- WhatsApp Icon -->
+    <a href="https://wa.me/254789700222" class="whatsapp-chat" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h1>Comprehensive Land Survey, Design & Construction Solutions</h1>
+            <p>Geo-International Limited offers integrated engineering services with precision and excellence across all project phases.</p>
+            <a href="#departments" class="btn">Explore Our Departments</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Us</h2>
+                <p>Founded to bridge the gap between quality and affordability in Kenya's construction industry</p>
             </div>
-            
-            <!-- Career 2 -->
-            <div class="career-card animate-on-scroll">
-                <div class="career-icon">
-                    <i class="fas fa-map-marked-alt"></i>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Our Story</h3>
+                    <p>Geo-International Limited was founded by Kenyan professionals who recognized the need to harmonize the gap between quality and up-to-standard service while maintaining affordability without compromising on quality.</p>
+                    <p>We boast of a highly qualified team of Engineers, Surveyors, Safeguards, Sociologists and Risk professionals with a combined 10+ years of practical experience in Construction, Land survey, Civil Works design and Risk Management.</p>
+                    <h3>Our Vision & Mission</h3>
+                    <p><strong>Vision:</strong> To be a market leader in the provision of engineering services, fostering growth and development in Engineering Construction, Land survey and related industries.</p>
+                    <p><strong>Mission:</strong> To offer tailor-made solutions to our clientele thereby contributing effectively towards growth and progress in the arena of Engineering Construction, Geospatial consultancy, development and industry.</p>
                 </div>
-                <h3>GIS Analyst</h3>
-                <p>Mid-level position for GIS professionals to develop spatial databases, perform analysis, and create custom mapping solutions.</p>
-                <ul class="career-features">
-                    <li><i class="fas fa-check"></i> Spatial database management</li>
-                    <li><i class="fas fa-check"></i> GIS analysis and modeling</li>
-                    <li><i class="fas fa-check"></i> Web GIS development</li>
-                </ul>
-                <a href="#contact" class="career-apply-btn">Apply Now</a>
-            </div>
-            
-            <!-- Career 3 -->
-            <div class="career-card animate-on-scroll">
-                <div class="career-icon">
-                    <i class="fas fa-drone"></i>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Construction Site">
                 </div>
-                <h3>Drone Mapping Specialist</h3>
-                <p>Specialist role for UAV operations, including flight planning, data acquisition, and processing of aerial imagery.</p>
-                <ul class="career-features">
-                    <li><i class="fas fa-check"></i> UAV flight operations</li>
-                    <li><i class="fas fa-check"></i> Aerial data processing</li>
-                    <li><i class="fas fa-check"></i> Photogrammetry and 3D modeling</li>
-                </ul>
-                <a href="#contact" class="career-apply-btn">Apply Now</a>
             </div>
         </div>
-        
-        <div class="benefits-section">
-            <h2 class="section-title animate-on-scroll">Why Work With Us</h2>
-            <div class="benefits-grid">
-                <div class="benefit-item animate-on-scroll">
-                    <div class="benefit-icon">
-                        <i class="fas fa-graduation-cap"></i>
+    </section>
+
+    <!-- Departments Section -->
+    <section class="departments" id="departments">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Departments</h2>
+                <p>Specialized divisions offering comprehensive engineering solutions</p>
+            </div>
+            
+            <div class="departments-tabs">
+                <button class="tab-btn active" data-tab="land-survey">Land Survey</button>
+                <button class="tab-btn" data-tab="design">Design</button>
+                <button class="tab-btn" data-tab="construction">Construction</button>
+            </div>
+            
+            <!-- Land Survey Department -->
+            <div class="tab-content active" id="land-survey">
+                <div class="department-content">
+                    <div class="department-header">
+                        <div class="department-icon">
+                            <i class="fas fa-map-marked-alt"></i>
+                        </div>
+                        <div>
+                            <h3>Land Survey Department</h3>
+                            <p>Precision surveying services using state-of-the-art technology</p>
+                        </div>
                     </div>
-                    <h4>Professional Development</h4>
-                    <p>Continuous training and certification opportunities to advance your career in geospatial sciences.</p>
+                    
+                    <p>Our Land Survey department provides accurate and reliable geospatial data essential for planning, design, and construction projects. With advanced equipment and experienced surveyors, we deliver precise measurements and mapping services.</p>
+                    
+                    <h4>Survey Services:</h4>
+                    <div class="services-grid">
+                        <div class="service-card">
+                            <h4>Topographic Surveys</h4>
+                            <p>Detailed mapping of natural and man-made features for engineering design and planning.</p>
+                        </div>
+                        <div class="service-card">
+                            <h4>Cadastral Surveys</h4>
+                            <p>Boundary determination, subdivision, and property demarcation for legal purposes.</p>
+                        </div>
+                        <div class="service-card">
+                            <h4>Engineering Surveys</h4>
+                            <p>Construction layout, alignment, and as-built surveys for infrastructure projects.</p>
+                        </div>
+                        <div class="service-card">
+                            <h4>GPS & GNSS Surveys</h4>
+                            <p>High-precision positioning using satellite technology for large-scale projects.</p>
+                        </div>
+                        <div class="service-card">
+                            <h4>Hydrographic Surveys</h4>
+                            <p>Underwater mapping for marine construction, dredging, and water resource management.</p>
+                        </div>
+                        <div class="service-card">
+                            <h4>GIS & Mapping Services</h4>
+                            <p>Spatial data analysis, digital mapping, and geographic information systems development.</p>
+                        </div>
+                    </div>
+                    
+                    <h4>Advanced Equipment:</h4>
+                    <div class="equipment-list">
+                        <div class="equipment-item">
+                            <div class="equipment-icon"><i class="fas fa-satellite-dish"></i></div>
+                            <div>Leica GPS Systems</div>
+                        </div>
+                        <div class="equipment-item">
+                            <div class="equipment-icon"><i class="fas fa-ruler-combined"></i></div>
+                            <div>Total Stations</div>
+                        </div>
+                        <div class="equipment-item">
+                            <div class="equipment-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            <div>Digital Levels</div>
+                        </div>
+                        <div class="equipment-item">
+                            <div class="equipment-icon"><i class="fas fa-drafting-compass"></i></div>
+                            <div>3D Laser Scanners</div>
+                        </div>
+                        <div class="equipment-item">
+                            <div class="equipment-icon"><i class="fas fa-laptop-code"></i></div>
+                            <div>GIS Software</div>
+                        </div>
+                        <div class="equipment-item">
+                            <div class="equipment-icon"><i class="fas fa-water"></i></div>
+                            <div>Echo Sounders</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Design Department -->
+            <div class="tab-content" id="design">
+                <div class="department-content">
+                    <div class="department-header">
+                        <div class="department-icon">
+                            <i class="fas fa-drafting-compass"></i>
+                        </div>
+                        <div>
+                            <h3>Design Department</h3>
+                            <p>Innovative engineering solutions for infrastructure development</p>
+                        </div>
+                    </div>
+                    
+                    <p>Our Design department transforms concepts into detailed engineering plans using the latest software and design methodologies. We create sustainable, efficient, and cost-effective designs for various infrastructure projects.</p>
+                    
+                    <h4>Design Services:</h4>
+                    <div class="services-grid">
+                        <div class="service-card">
+                            <h4>Road & Highway Design</h4>
+                            <p>Geometric design, pavement design, and drainage systems for road infrastructure.</p>
+                        </div>
+                        <div class="service-card">
+                            <h4>Water & Wastewater Design</h4>
+                            <p>Water supply systems, treatment plants, sewer networks, and drainage solutions.</p>
+                        </div>
+                        <div class="service-card">
+                            <h4>Structural Design</h4>
+                            <p>Building structures, bridges, retaining walls, and other civil engineering structures.</p>
+                        </div>
+                        <div class="service-card">
+                            <h4>Architectural Design</h4>
+                            <p>Building layouts, facades, and interior designs for commercial and residential projects.</p>
+                        </div>
+                        <div class="service-card">
+                            <h4>Geotechnical Design</h4>
+                            <p>Foundation design, slope stability analysis, and earthworks engineering.</p>
+                        </div>
+                        <div class="service-card">
+                            <h4>Environmental Design</h4>
+                            <p>EIA studies, waste management systems, and sustainable design solutions.</p>
+                        </div>
+                    </div>
+                    
+                    <h4>Design Software & Tools:</h4>
+                    <div class="equipment-list">
+                        <div class="equipment-item">
+                            <div class="equipment-icon"><i class="fas fa-cube"></i></div>
+                            <div>AutoCAD & Civil 3D</div>
+                        </div>
+                        <div class="equipment-item">
+                            <div class="equipment-icon"><i class="fas fa-building"></i></div>
+                            <div>Revit Architecture</div>
+                        </div>
+                        <div class="equipment-item">
+                            <div class="equipment-icon"><i class="fas fa-project-diagram"></i></div>
+                            <div>ETABS & SAP2000</div>
+                        </div>
+                        <div class="equipment-item">
+                            <div class="equipment-icon"><i class="fas fa-road"></i></div>
+                            <div>InfraWorks</div>
+                        </div>
+                        <div class="equipment-item">
+                            <div class="equipment-icon"><i class="fas fa-tint"></i></div>
+                            <div>WaterCAD</div>
+                        </div>
+                        <div class="equipment-item">
+                            <div class="equipment-icon"><i class="fas fa-leaf"></i></div>
+                            <div>ArcGIS</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Construction Department -->
+            <div class="tab-content" id="construction">
+                <div class="department-content">
+                    <div class="department-header">
+                        <div class="department-icon">
+                            <i class="fas fa-hard-hat"></i>
+                        </div>
+                        <div>
+                            <h3>Construction Department</h3>
+                            <p>Quality construction services delivered on time and within budget</p>
+                        </div>
+                    </div>
+                    
+                    <p>Our Construction department manages project execution from groundbreaking to completion. With a focus on quality, safety, and efficiency, we deliver infrastructure projects that meet client specifications and regulatory standards.</p>
+                    
+                    <h4>Construction Services:</h4>
+                    <div class="services-grid">
+                        <div class="service-card">
+                            <h4>Building Construction</h4>
+                            <p>Commercial, residential, and institutional buildings with quality finishes.</p>
+                        </div>
+                        <div class="service-card">
+                            <h4>Road Construction</h4>
+                            <p>Earthworks, pavement construction, and ancillary road furniture installation.</p>
+                        </div>
+                        <div class="service-card">
+                            <h4>Water & Sanitation Works</h4>
+                            <p>Pipeline installation, treatment plants, reservoirs, and sewer systems.</p>
+                        </div>
+                        <div class="service-card">
+                            <h4>Bridge & Culvert Construction</h4>
+                            <p>Construction of bridges, culverts, and other hydraulic structures.</p>
+                        </div>
+                        <div class="service-card">
+                            <h4>Earthworks & Site Development</h4>
+                            <p>Excavation, filling, grading, and preparation of construction sites.</p>
+                        </div>
+                        <div class="service-card">
+                            <h4>Project Management</h4>
+                            <p>Comprehensive project planning, coordination, and execution oversight.</p>
+                        </div>
+                    </div>
+                    
+                    <h4>Construction Equipment:</h4>
+                    <div class="equipment-list">
+                        <div class="equipment-item">
+                            <div class="equipment-icon"><i class="fas fa-tractor"></i></div>
+                            <div>Excavators & Bulldozers</div>
+                        </div>
+                        <div class="equipment-item">
+                            <div class="equipment-icon"><i class="fas fa-truck-pickup"></i></div>
+                            <div>Dump Trucks & Tippers</div>
+                        </div>
+                        <div class="equipment-item">
+                            <div class="equipment-icon"><i class="fas fa-compress-arrows-alt"></i></div>
+                            <div>Compaction Equipment</div>
+                        </div>
+                        <div class="equipment-item">
+                            <div class="equipment-icon"><i class="fas fa-pump-soap"></i></div>
+                            <div>Concrete Mixers & Pumps</div>
+                        </div>
+                        <div class="equipment-item">
+                            <div class="equipment-icon"><i class="fas fa-hammer"></i></div>
+                            <div>Power Tools & Equipment</div>
+                        </div>
+                        <div class="equipment-item">
+                            <div class="equipment-icon"><i class="fas fa-ruler"></i></div>
+                            <div>Survey & Testing Equipment</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Projects</h2>
+                <p>Showcasing our successful projects across Kenya and beyond</p>
+            </div>
+            
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="land-survey">Land Survey</button>
+                <button class="filter-btn" data-filter="design">Design</button>
+                <button class="filter-btn" data-filter="construction">Construction</button>
+            </div>
+            
+            <div class="projects-grid">
+                <!-- Land Survey Projects -->
+                <div class="project-card" data-category="land-survey">
+                    <div class="project-content">
+                        <h3>Rusinga Island Ring Road Survey</h3>
+                        <p>Comprehensive topographic and cadastral survey for the Rusinga Island Ring Road project in Homa Bay County.</p>
+                        <div class="project-meta">
+                            <span>Client: KURA</span>
+                            <span class="project-status status-completed">Completed</span>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="benefit-item animate-on-scroll">
-                    <div class="benefit-icon">
-                        <i class="fas fa-project-diagram"></i>
+                <div class="project-card" data-category="land-survey">
+                    <div class="project-content">
+                        <h3>Karimenu II Water Supply Survey</h3>
+                        <p>Route survey and cross-sectional mapping for the Karimenu II Water Supply Project in Kiambu County.</p>
+                        <div class="project-meta">
+                            <span>Client: Shanxi Dikuang</span>
+                            <span class="project-status status-completed">Completed</span>
+                        </div>
                     </div>
-                    <h4>Diverse Projects</h4>
-                    <p>Work on a variety of projects across different sectors including infrastructure, environment, and urban planning.</p>
                 </div>
                 
-                <div class="benefit-item animate-on-scroll">
-                    <div class="benefit-icon">
-                        <i class="fas fa-users"></i>
+                <div class="project-card" data-category="land-survey">
+                    <div class="project-content">
+                        <h3>KISIP Informal Settlements Survey</h3>
+                        <p>Physical planning, cadastral survey and detailed topographical survey of 11 selected informal settlements in Embu and Laikipia Counties.</p>
+                        <div class="project-meta">
+                            <span>Client: E & G Spatial Consultants</span>
+                            <span class="project-status status-ongoing">Ongoing</span>
+                        </div>
                     </div>
-                    <h4>Collaborative Environment</h4>
-                    <p>Join a team of experts who value knowledge sharing, innovation, and teamwork.</p>
                 </div>
                 
-                <div class="benefit-item animate-on-scroll">
-                    <div class="benefit-icon">
-                        <i class="fas fa-map-marked"></i>
+                <!-- Design Projects -->
+                <div class="project-card" data-category="design">
+                    <div class="project-content">
+                        <h3>Konza Technopolis Water Supply Design</h3>
+                        <p>Feasibility studies, preliminary and final designs for Konza Technopolis Water Supply and Wastewater Treatment Project.</p>
+                        <div class="project-meta">
+                            <span>Client: Dholwa Engineering</span>
+                            <span class="project-status status-ongoing">Ongoing</span>
+                        </div>
                     </div>
-                    <h4>Cutting-Edge Technology</h4>
-                    <p>Access to the latest geospatial technology and software for professional work.</p>
+                </div>
+                
+                <div class="project-card" data-category="design">
+                    <div class="project-content">
+                        <h3>Mosongo Chebai Water Supply Design</h3>
+                        <p>Feasibility studies, preliminary and final designs for Mosongo Chebai Water Supply Project in collaboration with LYN-WWDA.</p>
+                        <div class="project-meta">
+                            <span>Client: LYN-WWDA</span>
+                            <span class="project-status status-ongoing">Ongoing</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-category="design">
+                    <div class="project-content">
+                        <h3>Londiani Dam Project Design</h3>
+                        <p>Feasibility studies, preliminary and final designs for Londiani Dam Project including water treatment works and hydropower components.</p>
+                        <div class="project-meta">
+                            <span>Client: NWCPC</span>
+                            <span class="project-status status-completed">Completed</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Construction Projects -->
+                <div class="project-card" data-category="construction">
+                    <div class="project-content">
+                        <h3>Rusinga Island Ring Road Construction</h3>
+                        <p>Upgrading the existing 19.3 km Rusinga Island Ring Road to bitumen standards in Homa Bay County.</p>
+                        <div class="project-meta">
+                            <span>Client: KURA</span>
+                            <span class="project-status status-completed">Completed</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-category="construction">
+                    <div class="project-content">
+                        <h3>Malindi & Watamu FSTPs Construction</h3>
+                        <p>Construction of two fecal sludge treatment plants (FSTPs) in Malindi and Watamu to manage waste and improve environmental conditions.</p>
+                        <div class="project-meta">
+                            <span>Client: MAWASCO</span>
+                            <span class="project-status status-ongoing">Ongoing</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-category="construction">
+                    <div class="project-content">
+                        <h3>Wetethic Reticulation Construction</h3>
+                        <p>DN 280 Pipe laying of Wetethic reticulation to increase connection on the existing reticulation network.</p>
+                        <div class="project-meta">
+                            <span>Client: Wetethic Landlords Association</span>
+                            <span class="project-status status-completed">Completed</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-category="construction">
+                    <div class="project-content">
+                        <h3>Kiptogot Kolongolo Water Supply</h3>
+                        <p>Construction of water supply infrastructure including pipelines, reservoirs, and distribution networks in Kiptogot Kolongolo area.</p>
+                        <div class="project-meta">
+                            <span>Client: RVWSB</span>
+                            <span class="project-status status-completed">Completed</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-category="construction">
+                    <div class="project-content">
+                        <h3>WECOHAS Cancer Center Construction</h3>
+                        <p>Design and construction supervision of Western Community Health Association (WECOHAS) Cancer Center and General Hospital in Kakamega County.</p>
+                        <div class="project-meta">
+                            <span>Client: Kakamega County</span>
+                            <span class="project-status status-completed">Completed</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Image Slider -->
+            <div class="section-title">
+                <h2>Project Gallery</h2>
+                <p>A visual showcase of our completed projects</p>
+            </div>
+            
+            <div class="slider-container">
+                <div class="slider">
+                    <div class="slide">
+                        <img src="https://res.cloudinary.com/dnxtuowlp/image/upload/v1761147658/Geo2_wwm29s.jpg" alt="Project Image 1">
+                    </div>
+                    <div class="slide">
+                        <img src="https://res.cloudinary.com/dnxtuowlp/image/upload/v1761147658/Geo3_n2e4cd.jpg" alt="Project Image 2">
+                    </div>
+                    <div class="slide">
+                        <img src="https://res.cloudinary.com/dnxtuowlp/image/upload/v1761147659/Geo5_wtlkhd.jpg" alt="Project Image 3">
+                    </div>
+                    <div class="slide">
+                        <img src="https://res.cloudinary.com/dnxtuowlp/image/upload/v1761147658/Geo4_kakmxv.jpg" alt="Project Image 4">
+                    </div>
+                    <div class="slide">
+                        <img src="https://res.cloudinary.com/dnxtuowlp/image/upload/v1761147660/geo6_i6bvib.jpg" alt="Project Image 5">
+                    </div>
+                    <div class="slide">
+                        <img src="https://res.cloudinary.com/dnxtuowlp/image/upload/v1761147661/geo7_nlg3dt.jpg" alt="Project Image 6">
+                    </div>
+                    <div class="slide">
+                        <img src="https://res.cloudinary.com/dnxtuowlp/image/upload/v1761147660/geo8_p6winx.jpg" alt="Project Image 7">
+                    </div>
+                    <div class="slide">
+                        <img src="https://res.cloudinary.com/dnxtuowlp/image/upload/v1761147661/Geo9_bpbmg6.jpg" alt="Project Image 8">
+                    </div>
+                    <div class="slide">
+                        <img src="https://res.cloudinary.com/dnxtuowlp/image/upload/v1761147661/Geo10_r1y8ef.jpg" alt="Project Image 9">
+                    </div>
+                </div>
+                <button class="slider-btn prev-btn">&#10094;</button>
+                <button class="slider-btn next-btn">&#10095;</button>
+                <div class="slider-dots">
+                    <span class="dot active" data-index="0"></span>
+                    <span class="dot" data-index="1"></span>
+                    <span class="dot" data-index="2"></span>
+                    <span class="dot" data-index="3"></span>
+                    <span class="dot" data-index="4"></span>
+                    <span class="dot" data-index="5"></span>
+                    <span class="dot" data-index="6"></span>
+                    <span class="dot" data-index="7"></span>
+                    <span class="dot" data-index="8"></span>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Blog Section -->
-<section id="blog" class="blog">
-    <div class="container">
-        <h2 class="section-title animate-on-scroll">Industry Insights</h2>
-        <p class="section-subtitle animate-on-scroll">Latest trends, technologies, and insights in geospatial science and land consultancy</p>
-        <div class="blog-grid">
-            <div class="blog-card animate-on-scroll">
-                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=60" alt="GIS Trends">
-                <h4>The Future of GIS in Urban Development</h4>
-                <p>Exploring how Geographic Information Systems are transforming urban planning and smart city initiatives across Africa.</p>
+    <!-- Team Section -->
+    <section class="team" id="team">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Team</h2>
+                <p>Meet our experienced professionals dedicated to excellence</p>
             </div>
-            <div class="blog-card animate-on-scroll">
-                <img src="https://images.unsplash.com/photo-1473966968600-fa801b869a1a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=60" alt="Drone Technology">
-                <h4>Drone Technology in Land Surveying</h4>
-                <p>How unmanned aerial vehicles are revolutionizing data collection and mapping accuracy in challenging terrains.</p>
-            </div>
-            <div class="blog-card animate-on-scroll">
-                <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=60" alt="Sustainable Planning">
-                <h4>Sustainable Land Use Planning</h4>
-                <p>Integrating environmental conservation with development through advanced spatial analysis and planning methodologies.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Contact Section -->
-<section id="contact" class="contact">
-    <div class="container">
-        <h2 class="section-title animate-on-scroll">Contact Us</h2>
-        <p class="section-subtitle animate-on-scroll">Ready to discuss your geospatial project or career opportunity? Get in touch with our experts.</p>
-        <div class="contact-content">
-            <div class="contact-info">
-                <div class="contact-item">
-                    <div class="contact-icon">📧</div>
-                    <p>Email: <a href="mailto:info@terracorespatial.com">info@terracorespatial.com</a></p>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-image">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <span class="member-department">Management</span>
+                    <h3>Mr. Lawrence O. Muraya</h3>
+                    <p>Managing Director</p>
+                    <p>Lawrence is a highly motivated, goal-driven and seasoned Geospatial Engineer possessing leadership and critical thinking expertise. He has 15 years of practical experience in the execution of various geospatial and soil-project supply different provinces of Kenya. He holds a Bachelor of Technology in Land Survey and Master of Science in Geographical Information Systems from University of Nairobi.</p>
                 </div>
-                <div class="contact-item">
-                    <div class="contact-icon">📱</div>
-                    <p>Phone: <a href="tel:+254707435464">+254 707 435 464</a></p>
+                <div class="team-member">
+                    <div class="member-image">
+                        <i class="fas fa-user-cog"></i>
+                    </div>
+                    <span class="member-department">Design</span>
+                    <h3>Eng. Cicilia Kagwima</h3>
+                    <p>Engineering Design and Construction Manager</p>
+                    <p>Cicilia is a detail-oriented Engineer with over 10 years of existing experience adept at designing commercial and residential projects. She is proficient with AutoCAD, Revit, AutoCAD Civil 3D and other design software. She holds a degree in Civil and Construction Engineering from University of Nairobi, is a Registered Engineer and a full member of IEK.</p>
                 </div>
-                <div class="contact-item">
-                    <div class="contact-icon">📍</div>
-                    <p>Nairobi, Kenya</p>
+                <div class="team-member">
+                    <div class="member-image">
+                        <i class="fas fa-hard-hat"></i>
+                    </div>
+                    <span class="member-department">Construction</span>
+                    <h3>Eng. Polycarp Omolo</h3>
+                    <p>Site Engineer</p>
+                    <p>Polycarp holds a Bachelor of Engineering in Civil Engineering from Jomo Kenyatta University of Agriculture and Technology. His experience includes water supply, sanitation, water management and road construction. Projects include the Ngong sewerage treatment Plant, Ngong sewage pond. He has proven proficiency in Architectural and Structural Drawing with Computer Aided Design software packages such as AutoCAD, Revit, Civil 3D, and many others. Additionally, Polycarp has worked as a Site agent on numerous residential housing and commercial projects.</p>
                 </div>
-                <div class="contact-item">
-                    <div class="contact-icon">🕒</div>
-                    <p>Mon - Fri: 8:00 AM - 6:00 PM<br>Sat: 9:00 AM - 1:00 PM</p>
+                <div class="team-member">
+                    <div class="member-image">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <span class="member-department">Administration</span>
+                    <h3>Mrs. Adda Akinyi Ogola</h3>
+                    <p>Administration</p>
+                    <p>Ogola directs and manages the business's administrative operations and management of the Geo-International LTD team collectively. Being a Business Management professional with more than 10 years of practical experience in both Human resource management and day to day administration. She has a degree in business management from Technical University of Kenya.</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <i class="fas fa-ruler-combined"></i>
+                    </div>
+                    <span class="member-department">Survey</span>
+                    <h3>Mr. James Shikuku</h3>
+                    <p>Senior Surveyor</p>
+                    <p>James is a seasoned professional with extensive expertise in land and engineering surveying, specializing in boundary characterization, topographic mapping, construction layout, and geospatial data analysis. Proficient in using advanced surveying instruments (Total Station, GPS, GIS software) and ensuring compliance with legal and regulatory standards. Fields of space coverage with professional certification and 15 years of progressive experience managing complex survey projects. Skilled in team leadership, project coordination, and delivering precise, reliable survey data for infrastructures, land development, and construction projects.</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <span class="member-department">Survey</span>
+                    <h3>Mr. Eyanee Angila</h3>
+                    <p>Project Surveyor/Programmer</p>
+                    <p>Eyanee is experienced in supervising construction site activities, coordinating labor, materials, and equipment to ensure projects are completed safely, on time, and to required standards. Skilled in interpreting drawings, monitoring quality, and enforcing safety regulations. Holds a diploma in Land Survey, with strong practical knowledge gained through hands-on experience in site operations and team leadership.</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <span class="member-department">Environment</span>
+                    <h3>Mr. Paul Nicholas Otieno</h3>
+                    <p>Safeguard/Environmentalist</p>
+                    <p>Paul is a highly knowledgeable professional who studies and manages environmental issues. He has expertise to protect the environment and human health by analyzing data, ensuring compliance with regulations, and developing sustainable practices. He has a bachelor's degree in environmental science, environmental management, and acquired Strong analytical and critical thinking abilities that are useful to interpret scientific data and find solutions to environmental problems.</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <span class="member-department">Construction</span>
+                    <h3>Mr. Roobaye Mohamed</h3>
+                    <p>Foreman</p>
+                    <p>Roobaye holds a Diploma of Engineering in Civil Engineering from Technical University of Kenya. His experience includes the Kiptogot Kolongolo water supply, Malindi FSTP Project, Malindi Distribution water supply where he was stationed on site as a supervisor of works. He has proven proficiency in Architectural and Structural Drawing with Computer Aided Design software packages such as AutoCAD, and Civil 3D.</p>
                 </div>
             </div>
-            <form class="contact-form">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <input type="tel" name="phone" placeholder="Your Phone">
-                <select name="inquiry-type" required>
-                    <option value="">Select Inquiry Type</option>
-                    <option value="service">Service Inquiry</option>
-                    <option value="career">Career Opportunity</option>
-                    <option value="partnership">Partnership</option>
-                    <option value="other">Other</option>
-                </select>
-                <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-                <button type="submit" class="submit-btn">Send Message</button>
-            </form>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Footer -->
-<footer class="footer">
-    <div class="footer-content">
-        <div class="footer-section">
-            <h3>Terracore Spatial Consultants</h3>
-            <p>Precision mapping and smart geospatial solutions for a sustainable future. Your trusted partner in land consultancy across East Africa.</p>
-            <div class="social-links">
-                <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+    
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Get in touch with our team for your construction and engineering needs</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <div>
+                                <h4>Address</h4>
+                                <p>7th Floor – Solanex House, Moi Avenue, Nairobi</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📞</div>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>+254789700222<br>+254721732955</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">✉️</div>
+                            <div>
+                                <h4>Email</h4>
+                                <p>geointernationaltd@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <select required>
+                            <option value="">Select Department</option>
+                            <option value="land-survey">Land Survey</option>
+                            <option value="design">Design</option>
+                            <option value="construction">Construction</option>
+                            <option value="general">General Inquiry</option>
+                        </select>
+                        <input type="text" placeholder="Subject" required>
+                        <textarea placeholder="Your Message" required></textarea>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
             </div>
         </div>
-        <div class="footer-section">
-            <h3>Quick Links</h3>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#project-portfolio">Projects</a></li>
-                <li><a href="#team">Team</a></li>
-                <li><a href="#careers">Careers</a></li>
-                <li><a href="#blog">Insights</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Geo-International</h3>
+                    <p>Providing comprehensive construction, engineering, and surveying solutions with precision and excellence.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#departments">Departments</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#team">Team</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Departments</h3>
+                    <ul>
+                        <li><a href="#departments">Land Survey</a></li>
+                        <li><a href="#departments">Design</a></li>
+                        <li><a href="#departments">Construction</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li>7th Floor – Solanex House, Moi Avenue, Nairobi</li>
+                        <li>+254789700222</li>
+                        <li>+254721732955</li>
+                        <li>geointernationaltd@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Geo-International Limited. All Rights Reserved.</p>
+            </div>
         </div>
-        <div class="footer-section">
-            <h3>Services</h3>
-            <ul>
-                <li><a href="#land-surveying">Land Surveying</a></li>
-                <li><a href="#gis">GIS Solutions</a></li>
-                <li><a href="#remote-sensing">Remote Sensing</a></li>
-                <li><a href="#cadastral">Cadastral Mapping</a></li>
-                <li><a href="#topographic">Topographic Surveys</a></li>
-                <li><a href="#construction">Construction Staking</a></li>
-                <li><a href="#drone">Drone Mapping</a></li>
-                <li><a href="#consultancy">Spatial Consultancy</a></li>
-            </ul>
-        </div>
-        <div class="footer-section">
-            <h3>Newsletter</h3>
-            <p>Subscribe to our newsletter for industry insights and company updates.</p>
-            <form>
-                <input type="email" placeholder="Your Email" required>
-                <button type="submit" class="submit-btn">Subscribe</button>
-            </form>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        &copy; 2025 Terracore Spatial Consultants Ltd. All Rights Reserved.
-    </div>
-</footer>
+    </footer>
 
-<script>
-    // Mobile Menu Toggle
-    const mobileMenu = document.querySelector('.mobile-menu');
-    const navMenu = document.querySelector('.nav-menu');
-
-    mobileMenu.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-        mobileMenu.classList.toggle('active');
-    });
-
-    // Scroll Animations
-    const scrollElements = document.querySelectorAll('.animate-on-scroll');
-
-    const elementInView = (el, dividend = 1) => {
-        const elementTop = el.getBoundingClientRect().top;
-        return (
-            elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend
-        );
-    };
-
-    const displayScrollElement = (element) => {
-        element.classList.add('active');
-    };
-
-    const hideScrollElement = (element) => {
-        element.classList.remove('active');
-    };
-
-    const handleScrollAnimation = () => {
-        scrollElements.forEach((el) => {
-            if (elementInView(el, 1.25)) {
-                displayScrollElement(el);
-            } else {
-                hideScrollElement(el);
-            }
-        })
-    };
-
-    window.addEventListener('scroll', () => {
-        handleScrollAnimation();
-    });
-
-    // Initialize scroll animations on page load
-    window.addEventListener('load', () => {
-        handleScrollAnimation();
-    });
-
-    // Slideshow Functionality
-    function initSlideshow(slideshowContainer) {
-        const slides = slideshowContainer.querySelector('.slides');
-        const slideCount = slides.querySelectorAll('.slide').length;
-        const prevBtn = slideshowContainer.querySelector('.prev');
-        const nextBtn = slideshowContainer.querySelector('.next');
-        const dots = slideshowContainer.querySelectorAll('.dot');
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('active');
+        });
+        
+        // Department Tabs
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+        
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons and contents
+                tabBtns.forEach(b => b.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                // Show corresponding content
+                const tabId = btn.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+        
+        // Project Filtering
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                const filterValue = btn.getAttribute('data-filter');
+                
+                projectCards.forEach(card => {
+                    if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu after clicking a link
+                    document.querySelector('nav ul').classList.remove('active');
+                }
+            });
+        });
+        
+        // Form Submission
+        document.querySelector('.contact-form form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+        
+        // Image Slider Functionality
+        const slider = document.querySelector('.slider');
+        const slides = document.querySelectorAll('.slide');
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+        const dots = document.querySelectorAll('.dot');
         
         let currentSlide = 0;
+        const slideCount = slides.length;
         
-        function goToSlide(n) {
-            currentSlide = (n + slideCount) % slideCount;
-            slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+        function updateSlider() {
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
             
             // Update dots
             dots.forEach((dot, index) => {
@@ -2079,120 +1614,29 @@
         }
         
         function nextSlide() {
-            goToSlide(currentSlide + 1);
+            currentSlide = (currentSlide + 1) % slideCount;
+            updateSlider();
         }
         
         function prevSlide() {
-            goToSlide(currentSlide - 1);
+            currentSlide = (currentSlide - 1 + slideCount) % slideCount;
+            updateSlider();
         }
         
-        // Event listeners
+        // Event listeners for buttons
         nextBtn.addEventListener('click', nextSlide);
         prevBtn.addEventListener('click', prevSlide);
         
+        // Event listeners for dots
         dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => goToSlide(index));
-        });
-        
-        // Auto-advance slides
-        let slideInterval = setInterval(nextSlide, 5000);
-        
-        // Pause on hover
-        slideshowContainer.addEventListener('mouseenter', () => {
-            clearInterval(slideInterval);
-        });
-        
-        slideshowContainer.addEventListener('mouseleave', () => {
-            slideInterval = setInterval(nextSlide, 5000);
-        });
-    }
-    
-    // Initialize all slideshows
-    document.addEventListener('DOMContentLoaded', () => {
-        const slideshowContainers = document.querySelectorAll('.slideshow-container');
-        slideshowContainers.forEach(initSlideshow);
-    });
-
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                // Close mobile menu if open
-                navMenu.classList.remove('active');
-                mobileMenu.classList.remove('active');
-                
-                window.scrollTo({
-                    top: targetElement.offsetTop - 80,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-
-    // Service banner items scroll to their respective sections
-    document.querySelectorAll('.service-item').forEach(item => {
-        item.addEventListener('click', function() {
-            const serviceId = this.getAttribute('data-service');
-            const targetSection = document.getElementById(serviceId);
-            
-            if (targetSection) {
-                window.scrollTo({
-                    top: targetSection.offsetTop - 80,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-
-    // Form submission handling
-    const contactForm = document.querySelector('.contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your message! We will get back to you soon.');
-            this.reset();
-        });
-    }
-
-    // Project Portfolio Functionality
-    document.addEventListener('DOMContentLoaded', function() {
-        // Filter functionality
-        const filterButtons = document.querySelectorAll('.filter-btn');
-        const projectCards = document.querySelectorAll('.project-card-portfolio');
-        
-        filterButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Remove active class from all buttons
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                // Add active class to clicked button
-                button.classList.add('active');
-                
-                const filterValue = button.getAttribute('data-filter');
-                
-                projectCards.forEach(card => {
-                    if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
-                        card.style.display = 'block';
-                        setTimeout(() => {
-                            card.style.opacity = '1';
-                            card.style.transform = 'translateY(0)';
-                        }, 100);
-                    } else {
-                        card.style.opacity = '0';
-                        card.style.transform = 'translateY(20px)';
-                        setTimeout(() => {
-                            card.style.display = 'none';
-                        }, 300);
-                    }
-                });
+            dot.addEventListener('click', () => {
+                currentSlide = index;
+                updateSlider();
             });
         });
-    });
-</script>
+        
+        // Auto slide every 5 seconds
+        setInterval(nextSlide, 5000);
+    </script>
 </body>
 </html>
