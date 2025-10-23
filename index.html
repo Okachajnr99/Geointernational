@@ -117,7 +117,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 7px 05;
+            padding: 7px 0;
         }
         
         .logo {
@@ -133,7 +133,7 @@
         }
         
         .logo-image {
-            height: 100px; /* Increased globe size */
+            height: 120px; /* Increased globe size */
             width: auto;
             filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
             border: none !important; /* Ensure no border */
@@ -1188,11 +1188,9 @@
             font-size: 0.9rem;
         }
         
-        /* Chatbot Styles */
+        /* Enhanced Chatbot Styles */
         .chatbot-container {
             position: fixed;
-            bottom: 310px;
-            right: 30px;
             width: 350px;
             height: 500px;
             background: var(--light);
@@ -1207,6 +1205,8 @@
             overflow: auto; /* Handle resize overflow */
             min-width: 300px;
             min-height: 400px;
+            right: 30px;
+            bottom: 100px; /* Position above the toggle button */
         }
         
         .chatbot-header {
@@ -1470,7 +1470,7 @@
                 width: 300px;
                 height: 450px;
                 right: 20px;
-                bottom: 290px;
+                bottom: 100px;
             }
             
             .chatbot-toggle {
@@ -1519,7 +1519,7 @@
                 width: 280px;
                 height: 400px;
                 right: 10px;
-                bottom: 280px;
+                bottom: 100px;
             }
             
             .chatbot-toggle {
@@ -2020,10 +2020,11 @@
                     </div>
                 </div>
                 
-                <div class="project-card" data-category="land-survey">
+                <!-- Design Projects -->
+                <div class="project-card" data-category="design">
                     <div class="project-content">
-                        <h3>Konza Technopolis Water Supply Survey</h3>
-                        <p>Comprehensive land survey for Konza Technopolis Water Supply and Wastewater Treatment Project.</p>
+                        <h3>Konza Technopolis Water Supply Design</h3>
+                        <p>Feasibility studies, preliminary and final designs for Konza Technopolis Water Supply and Wastewater Treatment Project.</p>
                         <div class="project-meta">
                             <span>Client: Dholwa Engineering</span>
                             <span class="project-status status-completed">Completed</span>
@@ -2031,7 +2032,6 @@
                     </div>
                 </div>
                 
-                <!-- Design Projects -->
                 <div class="project-card" data-category="design">
                     <div class="project-content">
                         <h3>Mosongo Chebai Water Supply Design</h3>
@@ -2748,7 +2748,7 @@
         // Auto transition for hero slideshow every 5 seconds
         setInterval(nextHeroSlide, 5000);
         
-        // Chatbot Functionality
+        // Enhanced Chatbot Functionality
         const chatbotToggle = document.querySelector('.chatbot-toggle');
         const chatbotContainer = document.querySelector('.chatbot-container');
         const chatbotHeader = document.querySelector('.chatbot-header');
@@ -2759,9 +2759,10 @@
         const chatbotMessages = document.querySelector('.chatbot-messages');
         const chatbotMinimized = document.querySelector('.chatbot-minimized');
         
-        // Dragging functionality
+        // Enhanced dragging functionality
         let isDragging = false;
         let dragOffsetX, dragOffsetY;
+        let initialPosition = { x: 0, y: 0 };
         
         chatbotHeader.addEventListener('mousedown', startDrag);
         document.addEventListener('mousemove', drag);
@@ -2775,6 +2776,10 @@
             dragOffsetX = e.clientX - rect.left;
             dragOffsetY = e.clientY - rect.top;
             chatbotContainer.style.cursor = 'grabbing';
+            
+            // Store initial position
+            initialPosition.x = rect.left;
+            initialPosition.y = rect.top;
         }
         
         function drag(e) {
@@ -2805,8 +2810,21 @@
             
             // Set initial position if not already positioned
             if (!chatbotContainer.style.left && !chatbotContainer.style.top) {
-                chatbotContainer.style.right = '30px';
-                chatbotContainer.style.bottom = '310px';
+                // Position above the toggle button
+                const toggleRect = chatbotToggle.getBoundingClientRect();
+                const containerWidth = chatbotContainer.offsetWidth;
+                const containerHeight = chatbotContainer.offsetHeight;
+                
+                // Calculate position to place above the toggle button
+                const x = toggleRect.right - containerWidth;
+                const y = toggleRect.top - containerHeight - 20; // 20px above the toggle
+                
+                // Ensure it stays within viewport
+                const finalX = Math.max(10, Math.min(x, window.innerWidth - containerWidth - 10));
+                const finalY = Math.max(10, y);
+                
+                chatbotContainer.style.left = finalX + 'px';
+                chatbotContainer.style.top = finalY + 'px';
             }
         });
         
@@ -2814,14 +2832,37 @@
         chatbotMinimize.addEventListener('click', () => {
             chatbotContainer.style.display = 'none';
             chatbotMinimized.style.display = 'flex';
+            
+            // Position minimized version near the toggle button
+            const toggleRect = chatbotToggle.getBoundingClientRect();
+            const minimizedWidth = chatbotMinimized.offsetWidth;
+            
+            chatbotMinimized.style.right = (window.innerWidth - toggleRect.right + 10) + 'px';
+            chatbotMinimized.style.bottom = (window.innerHeight - toggleRect.bottom + 10) + 'px';
         });
         
         // Restore from minimized state
         chatbotMinimized.addEventListener('click', () => {
             chatbotContainer.style.display = 'flex';
             chatbotMinimized.style.display = 'none';
+            
+            // Position the chatbot container above the minimized version
+            const minimizedRect = chatbotMinimized.getBoundingClientRect();
+            const containerWidth = chatbotContainer.offsetWidth;
+            const containerHeight = chatbotContainer.offsetHeight;
+            
+            const x = minimizedRect.left - containerWidth + minimizedRect.width;
+            const y = minimizedRect.top - containerHeight - 10;
+            
+            // Ensure it stays within viewport
+            const finalX = Math.max(10, Math.min(x, window.innerWidth - containerWidth - 10));
+            const finalY = Math.max(10, y);
+            
+            chatbotContainer.style.left = finalX + 'px';
+            chatbotContainer.style.top = finalY + 'px';
         });
         
+        // Close chatbot
         chatbotClose.addEventListener('click', () => {
             chatbotContainer.style.display = 'none';
             chatbotMinimized.style.display = 'none';
@@ -2965,6 +3006,3 @@
     </script>
 </body>
 </html>
-
-
-
