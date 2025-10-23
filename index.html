@@ -102,20 +102,20 @@
         
         /* Header Styles */
         header {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.98);
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            transition: background 0.3s ease;
+            transition: all 0.3s ease;
         }
         
         .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 0;
+            padding: 11px 0;
         }
         
         .logo {
@@ -134,6 +134,9 @@
             height: 90px; /* Increased globe size */
             width: auto;
             filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+            border: none !important; /* Ensure no border */
+            outline: none !important; /* Ensure no outline */
+            background: transparent !important; /* Ensure transparent background */
         }
         
         .logo-text {
@@ -141,14 +144,14 @@
         }
         
         .company-name {
-            font-size: 1.5rem;
+            font-size: 1.0rem;
             font-weight: 700;
             color: var(--primary);
             letter-spacing: 1px;
         }
         
         .company-tagline {
-            font-size: 0.8rem;
+            font-size: 0.6rem;
             font-weight: 600;
             color: var(--secondary);
             letter-spacing: 0.5px;
@@ -672,11 +675,11 @@
             transition: transform 0.5s ease;
         }
         
-        .slide {
+        .slider .slide {
             min-width: 100%;
         }
         
-        .slide img {
+        .slider .slide img {
             width: 100%;
             height: 400px;
             object-fit: cover;
@@ -1193,6 +1196,11 @@
             display: none;
             flex-direction: column;
             overflow: hidden;
+            cursor: move; /* Indicate draggable */
+            resize: both; /* Allow resizing */
+            overflow: auto; /* Handle resize overflow */
+            min-width: 300px;
+            min-height: 400px;
         }
         
         .chatbot-header {
@@ -1202,6 +1210,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            cursor: move;
+            user-select: none; /* Prevent text selection while dragging */
         }
         
         .chatbot-header h3 {
@@ -1209,12 +1219,28 @@
             font-size: 1.2rem;
         }
         
-        .chatbot-close {
+        .chatbot-controls {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .chatbot-controls button {
             background: none;
             border: none;
             color: var(--light);
-            font-size: 1.2rem;
+            font-size: 1rem;
             cursor: pointer;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease;
+        }
+        
+        .chatbot-controls button:hover {
+            background: rgba(255, 255, 255, 0.2);
         }
         
         .chatbot-messages {
@@ -1280,7 +1306,7 @@
         
         .chatbot-toggle {
             position: fixed;
-            bottom: 310px;
+            bottom: 30px;
             right: 30px;
             width: 60px;
             height: 60px;
@@ -1326,6 +1352,33 @@
         
         .quick-reply:hover {
             background: var(--primary);
+        }
+        
+        /* Minimized Chatbot */
+        .chatbot-minimized {
+            position: fixed;
+            bottom: 30px;
+            right: 100px;
+            background: var(--primary);
+            color: var(--light);
+            padding: 10px 15px;
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: none; /* Hidden by default */
+        }
+        
+        .chatbot-minimized:hover {
+            background: var(--secondary);
+        }
+        
+        .chatbot-minimized span {
+            font-weight: 500;
         }
         
         /* Responsive Styles */
@@ -1389,7 +1442,7 @@
                 grid-template-columns: 1fr;
             }
             
-            .slide img {
+            .slider .slide img {
                 height: 300px;
             }
             
@@ -1402,7 +1455,12 @@
             
             .chatbot-toggle {
                 right: 20px;
-                bottom: 290px;
+                bottom: 20px;
+            }
+            
+            .chatbot-minimized {
+                right: 90px;
+                bottom: 20px;
             }
             
             .contact-icons {
@@ -1436,6 +1494,23 @@
                     transform: translateX(calc(-200px * 6 - 15px * 12));
                 }
             }
+            
+            .chatbot-container {
+                width: 280px;
+                height: 400px;
+                right: 10px;
+                bottom: 280px;
+            }
+            
+            .chatbot-toggle {
+                right: 10px;
+                bottom: 10px;
+            }
+            
+            .chatbot-minimized {
+                right: 80px;
+                bottom: 10px;
+            }
         }
     </style>
 </head>
@@ -1444,7 +1519,8 @@
     <header>
         <div class="container header-container">
             <div class="logo-container">
-                <img src="https://res.cloudinary.com/dnxtuowlp/image/upload/v1761198311/Globe_logo_ubtnl1.png" alt="Geo International Logo" class="logo-image">
+                <!-- Using the new transparent logo -->
+                <img src="https://res.cloudinary.com/dnxtuowlp/image/upload/v1761243912/Geo_Globe_logo_2_dl7xnf.png" alt="Geo International Logo" class="logo-image">
                 <div class="logo-text">
                     <div class="company-name">GEOINTERNATIONAL</div>
                     <div class="company-tagline">SURVEY.DESIGN.CONSTRUCTION</div>
@@ -1475,11 +1551,20 @@
         <i class="fas fa-comments"></i>
     </div>
 
+    <!-- Minimized Chatbot -->
+    <div class="chatbot-minimized">
+        <span>Chat with us</span>
+        <i class="fas fa-comments"></i>
+    </div>
+
     <!-- Chatbot Container -->
     <div class="chatbot-container">
         <div class="chatbot-header">
             <h3>Geo-International Assistant</h3>
-            <button class="chatbot-close"><i class="fas fa-times"></i></button>
+            <div class="chatbot-controls">
+                <button class="chatbot-minimize"><i class="fas fa-minus"></i></button>
+                <button class="chatbot-close"><i class="fas fa-times"></i></button>
+            </div>
         </div>
         <div class="chatbot-messages">
             <div class="message bot-message">
@@ -1804,7 +1889,7 @@
                             <li><i class="fas fa-check"></i> Real-time data processing</li>
                             <li><i class="fas fa-check"></i> Ideal for building documentation</li>
                         </ul>
-                        <a href="https://wa.me/254789700222?text=Hi,%20I'm%20interested%20in%20the%20Handheld%20LiDAR%20Scanning%20System" class="btn" target="_blank">Order Now</a>
+                        <a href="https://wa.me/254789700222?text=Hi,%20I'm%20interested%20in%20the%20Handheld%20LiDAR%20Scanning%20System" class="btn" target="_blank">Order via WhatsApp</a>
                     </div>
                 </div>
                 
@@ -1822,7 +1907,7 @@
                             <li><i class="fas fa-check"></i> Long flight time</li>
                             <li><i class="fas fa-check"></i> Professional-grade LiDAR sensor</li>
                         </ul>
-                        <a href="https://wa.me/254789700222?text=Hi,%20I'm%20interested%20in%20the%20Multi%20Rotor%20LiDAR%20Drone" class="btn" target="_blank">Order Now</a>
+                        <a href="https://wa.me/254789700222?text=Hi,%20I'm%20interested%20in%20the%20Multi%20Rotor%20LiDAR%20Drone" class="btn" target="_blank">Order via WhatsApp</a>
                     </div>
                 </div>
                 
@@ -1840,7 +1925,7 @@
                             <li><i class="fas fa-check"></i> Multi-constellation support</li>
                             <li><i class="fas fa-check"></i> Long battery life</li>
                         </ul>
-                        <a href="https://wa.me/254789700222?text=Hi,%20I'm%20interested%20in%20the%20K501%20Compact%20GNSS%20RTK%20Receiver" class="btn" target="_blank">Order Now</a>
+                        <a href="https://wa.me/254789700222?text=Hi,%20I'm%20interested%20in%20the%20K501%20Compact%20GNSS%20RTK%20Receiver" class="btn" target="_blank">Order via WhatsApp</a>
                     </div>
                 </div>
                 
@@ -1858,7 +1943,7 @@
                             <li><i class="fas fa-check"></i> Easy setup and operation</li>
                             <li><i class="fas fa-check"></i> Ideal for construction and surveying</li>
                         </ul>
-                        <a href="https://wa.me/254789700222?text=Hi,%20I'm%20interested%20in%20the%20Base%20%26%20Rover%20Station%20Receiver" class="btn" target="_blank">Order Now</a>
+                        <a href="https://wa.me/254789700222?text=Hi,%20I'm%20interested%20in%20the%20Base%20%26%20Rover%20Station%20Receiver" class="btn" target="_blank">Order via WhatsApp</a>
                     </div>
                 </div>
             </div>
@@ -2637,18 +2722,80 @@
         // Chatbot Functionality
         const chatbotToggle = document.querySelector('.chatbot-toggle');
         const chatbotContainer = document.querySelector('.chatbot-container');
+        const chatbotHeader = document.querySelector('.chatbot-header');
+        const chatbotMinimize = document.querySelector('.chatbot-minimize');
         const chatbotClose = document.querySelector('.chatbot-close');
         const chatbotInput = document.querySelector('.chatbot-input input');
         const chatbotSend = document.querySelector('.chatbot-input button');
         const chatbotMessages = document.querySelector('.chatbot-messages');
+        const chatbotMinimized = document.querySelector('.chatbot-minimized');
+        
+        // Dragging functionality
+        let isDragging = false;
+        let dragOffsetX, dragOffsetY;
+        
+        chatbotHeader.addEventListener('mousedown', startDrag);
+        document.addEventListener('mousemove', drag);
+        document.addEventListener('mouseup', stopDrag);
+        
+        function startDrag(e) {
+            if (e.target.closest('.chatbot-controls')) return; // Don't drag if clicking on controls
+            
+            isDragging = true;
+            const rect = chatbotContainer.getBoundingClientRect();
+            dragOffsetX = e.clientX - rect.left;
+            dragOffsetY = e.clientY - rect.top;
+            chatbotContainer.style.cursor = 'grabbing';
+        }
+        
+        function drag(e) {
+            if (!isDragging) return;
+            
+            const x = e.clientX - dragOffsetX;
+            const y = e.clientY - dragOffsetY;
+            
+            // Keep within viewport bounds
+            const maxX = window.innerWidth - chatbotContainer.offsetWidth;
+            const maxY = window.innerHeight - chatbotContainer.offsetHeight;
+            
+            chatbotContainer.style.left = Math.max(0, Math.min(x, maxX)) + 'px';
+            chatbotContainer.style.top = Math.max(0, Math.min(y, maxY)) + 'px';
+            chatbotContainer.style.right = 'auto';
+            chatbotContainer.style.bottom = 'auto';
+        }
+        
+        function stopDrag() {
+            isDragging = false;
+            chatbotContainer.style.cursor = 'move';
+        }
         
         // Toggle chatbot visibility
         chatbotToggle.addEventListener('click', () => {
             chatbotContainer.style.display = 'flex';
+            chatbotMinimized.style.display = 'none';
+            
+            // Set initial position if not already positioned
+            if (!chatbotContainer.style.left && !chatbotContainer.style.top) {
+                chatbotContainer.style.right = '30px';
+                chatbotContainer.style.bottom = '310px';
+            }
+        });
+        
+        // Minimize chatbot
+        chatbotMinimize.addEventListener('click', () => {
+            chatbotContainer.style.display = 'none';
+            chatbotMinimized.style.display = 'flex';
+        });
+        
+        // Restore from minimized state
+        chatbotMinimized.addEventListener('click', () => {
+            chatbotContainer.style.display = 'flex';
+            chatbotMinimized.style.display = 'none';
         });
         
         chatbotClose.addEventListener('click', () => {
             chatbotContainer.style.display = 'none';
+            chatbotMinimized.style.display = 'none';
         });
         
         // Chatbot responses
@@ -2756,11 +2903,10 @@
                 header.style.background = 'rgba(255, 255, 255, 0.98)';
                 header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
             } else {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
                 header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
             }
         });
     </script>
 </body>
 </html>
-
