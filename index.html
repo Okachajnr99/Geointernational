@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Geo-International | Land Survey, Design & Construction</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <style>
         /* Global Styles */
         :root {
@@ -16,6 +17,7 @@
             --gray: #6c757d;
             --whatsapp: #25D366;
             --facebook: #3b5998;
+            --youtube: #FF0000;
         }
         
         * {
@@ -115,7 +117,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 11px 0;
+            padding: 7px 0;
         }
         
         .logo {
@@ -131,7 +133,7 @@
         }
         
         .logo-image {
-            height: 90px; /* Increased globe size */
+            height: 120px; /* Increased globe size */
             width: auto;
             filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
             border: none !important; /* Ensure no border */
@@ -144,14 +146,14 @@
         }
         
         .company-name {
-            font-size: 1.0rem;
+            font-size: 0.9rem;
             font-weight: 700;
             color: var(--primary);
             letter-spacing: 1px;
         }
         
         .company-tagline {
-            font-size: 0.6rem;
+            font-size: 0.7rem;
             font-weight: 600;
             color: var(--secondary);
             letter-spacing: 0.5px;
@@ -1125,6 +1127,10 @@
             background-color: var(--secondary);
         }
         
+        .contact-youtube {
+            background-color: var(--youtube);
+        }
+        
         /* Footer */
         footer {
             background: var(--dark);
@@ -1381,6 +1387,20 @@
             font-weight: 500;
         }
         
+        /* Map Styles */
+        .map-container {
+            margin-top: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            height: 300px;
+        }
+        
+        #location-map {
+            width: 100%;
+            height: 100%;
+        }
+        
         /* Responsive Styles */
         @media (max-width: 992px) {
             .about-content,
@@ -1522,7 +1542,7 @@
                 <!-- Using the new transparent logo -->
                 <img src="https://res.cloudinary.com/dnxtuowlp/image/upload/v1761243912/Geo_Globe_logo_2_dl7xnf.png" alt="Geo International Logo" class="logo-image">
                 <div class="logo-text">
-                    <div class="company-name">GEOINTERNATIONAL</div>
+                    <div class="company-name">GEO-INTERNATIONAL</div>
                     <div class="company-tagline">SURVEY.DESIGN.CONSTRUCTION</div>
                 </div>
             </div>
@@ -1667,7 +1687,7 @@
                             <p>Detailed mapping of natural and man-made features for engineering design and planning.</p>
                         </div>
                         <div class="service-card">
-                            <h4>Cadastral Surveys</h4>
+                            <h4>Cadastral & Title Surveys</h4>
                             <p>Boundary determination, subdivision, and property demarcation for legal purposes.</p>
                         </div>
                         <div class="service-card">
@@ -1675,7 +1695,7 @@
                             <p>Construction layout, alignment, and as-built surveys for infrastructure projects.</p>
                         </div>
                         <div class="service-card">
-                            <h4>GPS & GNSS Surveys</h4>
+                            <h4>GNSS Surveys</h4>
                             <p>High-precision positioning using satellite technology for large-scale projects.</p>
                         </div>
                         <div class="service-card">
@@ -1995,7 +2015,18 @@
                         <p>Physical planning, cadastral survey and detailed topographical survey of 11 selected informal settlements in Embu and Laikipia Counties.</p>
                         <div class="project-meta">
                             <span>Client: E & G Spatial Consultants</span>
-                            <span class="project-status status-ongoing">Ongoing</span>
+                            <span class="project-status status-completed">Completed</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-category="land-survey">
+                    <div class="project-content">
+                        <h3>Konza Technopolis Water Supply Survey</h3>
+                        <p>Comprehensive land survey for Konza Technopolis Water Supply and Wastewater Treatment Project.</p>
+                        <div class="project-meta">
+                            <span>Client: Dholwa Engineering</span>
+                            <span class="project-status status-completed">Completed</span>
                         </div>
                     </div>
                 </div>
@@ -2003,22 +2034,11 @@
                 <!-- Design Projects -->
                 <div class="project-card" data-category="design">
                     <div class="project-content">
-                        <h3>Konza Technopolis Water Supply Design</h3>
-                        <p>Feasibility studies, preliminary and final designs for Konza Technopolis Water Supply and Wastewater Treatment Project.</p>
-                        <div class="project-meta">
-                            <span>Client: Dholwa Engineering</span>
-                            <span class="project-status status-ongoing">Ongoing</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="project-card" data-category="design">
-                    <div class="project-content">
                         <h3>Mosongo Chebai Water Supply Design</h3>
                         <p>Feasibility studies, preliminary and final designs for Mosongo Chebai Water Supply Project in collaboration with LYN-WWDA.</p>
                         <div class="project-meta">
                             <span>Client: LYN-WWDA</span>
-                            <span class="project-status status-ongoing">Ongoing</span>
+                            <span class="project-status status-completed">Completed</span>
                         </div>
                     </div>
                 </div>
@@ -2028,7 +2048,7 @@
                         <h3>Londiani Dam Project Design</h3>
                         <p>Feasibility studies, preliminary and final designs for Londiani Dam Project including water treatment works and hydropower components.</p>
                         <div class="project-meta">
-                            <span>Client: NWCPC</span>
+                            <span>Client: KURA</span>
                             <span class="project-status status-completed">Completed</span>
                         </div>
                     </div>
@@ -2052,17 +2072,17 @@
                         <p>Construction of two fecal sludge treatment plants (FSTPs) in Malindi and Watamu to manage waste and improve environmental conditions.</p>
                         <div class="project-meta">
                             <span>Client: MAWASCO</span>
-                            <span class="project-status status-ongoing">Ongoing</span>
+                            <span class="project-status status-completed">Completed</span>
                         </div>
                     </div>
                 </div>
                 
                 <div class="project-card" data-category="construction">
                     <div class="project-content">
-                        <h3>Wetethic Reticulation Construction</h3>
+                        <h3>Wetethie Reticulation Construction</h3>
                         <p>DN 280 Pipe laying of Wetethic reticulation to increase connection on the existing reticulation network.</p>
                         <div class="project-meta">
-                            <span>Client: Wetethic Landlords Association</span>
+                            <span>Client: Wetethie Landlords Association</span>
                             <span class="project-status status-completed">Completed</span>
                         </div>
                     </div>
@@ -2249,9 +2269,9 @@
                         <i class="fas fa-user-cog"></i>
                     </div>
                     <span class="member-department">Design</span>
-                    <h3>Eng. Cicilia Karimi</h3>
+                    <h3>Eng. Cicilia Kagwima</h3>
                     <p>Engineering Design and Construction Manager</p>
-                    <p>A seasoned civil engineer with over 10 years' experience in design and construction of residential and commercial projects. Proficient in AutoCAD, ArchiCAD, and project supervision.</p>
+                    <p>A seasoned Civil Engineer with over 10 years of hands-on experience in the design, construction, and project management of residential and commercial developments.</p>
                 </div>
                 <div class="team-member">
                     <div class="member-image">
@@ -2260,14 +2280,14 @@
                     <span class="member-department">Construction</span>
                     <h3>Eng. Polycarp Omolo</h3>
                     <p>Site Engineer</p>
-                    <p>Civil engineer experienced in construction and water supply projects. Skilled in site supervision and engineering software such as AutoCAD, Revit, Civil 3D, and ArchiCAD.</p>
+                    <p>A seasoned Civil Engineer with extensive experience in infrastructure construction, specializing in site supervision for roads, water systems, and building projects.</p>
                 </div>
                 <div class="team-member">
                     <div class="member-image">
                         <i class="fas fa-map-marked-alt"></i>
                     </div>
                     <span class="member-department">Survey</span>
-                    <h3>Mr. Evans Awalla</h3>
+                    <h3>Mr. Evance Angila</h3>
                     <p>Project Surveyor/Foreman</p>
                     <p>Experienced in supervising construction sites, coordinating labor, materials, and equipment to ensure quality and timely delivery. Skilled in surveying, interpreting plans, and maintaining safety standards.</p>
                 </div>
@@ -2483,6 +2503,11 @@
                             </div>
                         </div>
                     </div>
+                    
+                    <!-- Map Container -->
+                    <div class="map-container">
+                        <div id="location-map"></div>
+                    </div>
                 </div>
                 <div class="contact-form">
                     <form>
@@ -2516,6 +2541,9 @@
                 </a>
                 <a href="tel:+254789700222" class="contact-social-icon contact-phone">
                     <i class="fas fa-phone"></i>
+                </a>
+                <a href="https://youtube.com/@geo-internationalltd3885?si=JxD8s8TTJ4X1gKjo" class="contact-social-icon contact-youtube" target="_blank">
+                    <i class="fab fa-youtube"></i>
                 </a>
             </div>
         </div>
@@ -2566,6 +2594,7 @@
         </div>
     </footer>
 
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script>
         // Mobile Menu Toggle
         document.querySelector('.mobile-menu').addEventListener('click', function() {
@@ -2810,7 +2839,7 @@
             "partners": "We partner with industry leaders like Geosun LiDAR to provide advanced surveying solutions. Visit our Partners section to learn more.",
             "contact": "You can reach us at: Phone: +254789700222 or +254721732955, Email: geointernationaltd@gmail.com, Address: 7th Floor – Solanex House, Moi Avenue, Nairobi",
             "projects": "We've completed projects like Rusinga Island Ring Road, Karimenu II Water Supply, KISIP Informal Settlements Survey, and many more. Check our Projects section for details.",
-            "team": "Our team includes experienced professionals like Mr. Lawrence O. Muraya (Managing Director), Eng. Cicilia Karimi, Eng. Polycarp Omolo, and others with 10+ years of experience.",
+            "team": "Our team includes experienced professionals like Mr. Lawrence O. Muraya (Managing Director), Eng. Cicilia Kagwima, Eng. Polycarp Omolo, and others with 10+ years of experience.",
             "careers": "We have several career opportunities available. Check our Careers section for current openings including Survey Technician, Civil Design Engineer, Site Supervisor, and Environmental Officer positions.",
             "certifications": "We hold Certificate of Incorporation, NCA Registration, and Water Works Contractor certification.",
             "default": "I'm not sure I understand. Could you please rephrase your question? You can ask about our services, products, projects, partners, team, careers, certifications, or contact information."
@@ -2907,6 +2936,32 @@
                 header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
             }
         });
+        
+        // Initialize Map
+        function initMap() {
+            // Coordinates for Solanex House, Nairobi
+            const companyLocation = [-1.2833, 36.8167];
+            
+            // Create map
+            const map = L.map('location-map').setView(companyLocation, 15);
+            
+            // Add tile layer
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+            
+            // Add marker
+            const marker = L.marker(companyLocation).addTo(map);
+            marker.bindPopup("<b>Geo-International Limited</b><br>7th Floor – Solanex House<br>Moi Avenue, Nairobi").openPopup();
+            
+            // Add click event to open Google Maps in new tab
+            marker.on('click', function() {
+                window.open('https://maps.app.goo.gl/kkVD7FDp2s21oXCP9', '_blank');
+            });
+        }
+        
+        // Initialize map when page loads
+        document.addEventListener('DOMContentLoaded', initMap);
     </script>
 </body>
 </html>
