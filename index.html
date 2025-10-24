@@ -368,12 +368,18 @@
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .about-image img {
             width: 100%;
             height: auto;
             display: block;
+            object-fit: cover;
+            max-height: 600px;
         }
         
         /* Departments Section */
@@ -928,74 +934,32 @@
             margin: 0 auto 50px;
         }
         
-        .career-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .career-card {
+        .no-vacancies {
+            text-align: center;
+            padding: 60px 20px;
             background: var(--light);
             border-radius: 8px;
-            padding: 30px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease;
-            border-top: 4px solid var(--primary);
         }
         
-        .career-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .career-icon {
-            font-size: 2.5rem;
+        .no-vacancies-icon {
+            font-size: 4rem;
             color: var(--primary);
             margin-bottom: 20px;
         }
         
-        .career-card h3 {
-            font-size: 1.5rem;
+        .no-vacancies h3 {
+            font-size: 1.8rem;
             margin-bottom: 15px;
-            color: var(--dark);
+            color: var(--primary);
         }
         
-        .career-meta {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-            font-size: 0.9rem;
+        .no-vacancies p {
             color: var(--gray);
-        }
-        
-        .career-tag {
-            display: inline-block;
-            background: #e9ecef;
-            color: var(--dark);
-            padding: 3px 10px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            margin-right: 5px;
-        }
-        
-        .career-benefits {
-            margin-top: 25px;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
-        }
-        
-        .benefits-list {
-            list-style: none;
-        }
-        
-        .benefits-list li {
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .benefits-list li i {
-            color: var(--secondary);
-            margin-right: 10px;
+            margin-bottom: 25px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         /* Certifications Section */
@@ -1056,20 +1020,23 @@
             color: var(--primary);
         }
         
-        .contact-form input,
-        .contact-form textarea,
-        .contact-form select {
-            width: 100%;
-            padding: 12px 15px;
-            margin-bottom: 20px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 1rem;
+        .contact-direct {
+            background: var(--light);
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
         }
         
-        .contact-form textarea {
-            height: 150px;
-            resize: vertical;
+        .contact-direct h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .contact-direct p {
+            color: var(--gray);
+            margin-bottom: 30px;
         }
         
         .address-link {
@@ -1553,7 +1520,7 @@
                 <img src="https://res.cloudinary.com/dnxtuowlp/image/upload/v1761243912/Geo_Globe_logo_2_dl7xnf.png" alt="Geo International Logo" class="logo-image">
                 <div class="logo-text">
                     <div class="company-name">GEO-INTERNATIONAL</div>
-                    <div class="company-tagline">SURVEY.DESIGN.CONSTRUCTION</div>
+                    <div class="company-tagline">SURVEY . DESIGN . CONSTRUCTION</div>
                 </div>
             </div>
             <div class="mobile-menu">☰</div>
@@ -1655,7 +1622,7 @@
                     <p><strong>Mission:</strong> To offer tailor-made solutions to our clientele thereby contributing effectively towards growth and progress in the arena of Engineering Construction, Geospatial consultancy, development and industry.</p>
                 </div>
                 <div class="about-image">
-                    <img src="https://res.cloudinary.com/dnxtuowlp/image/upload/v1761328713/Geo_p2_q5fg3m.png" alt="Road Design">
+                    <img src="https://res.cloudinary.com/dnxtuowlp/image/upload/v1761331582/IMG_20220929_101130_854_p7fl7k.jpg" alt="Geo International Team">
                 </div>
             </div>
         </div>
@@ -2146,7 +2113,7 @@
                         <h3>Kiptogot Kolongolo Water Supply</h3>
                         <p>Topographical survey of water supply infrastructure including pipelines, reservoirs, and distribution networks in Kiptogot Kolongolo area.</p>
                         <div class="project-meta">
-                            <span>Client: RVWSB</span>
+                            <span>Client: DMP</span>
                             <span class="project-status status-completed">Completed</span>
                         </div>
                     </div>
@@ -2368,93 +2335,13 @@
                 <p>At Geo-International, we believe our people are our greatest asset. We offer competitive compensation, professional development opportunities, and a collaborative work environment where innovation and excellence are celebrated.</p>
             </div>
             
-            <div class="career-grid">
-                <div class="career-card">
-                    <div class="career-icon">
-                        <i class="fas fa-map-marked-alt"></i>
-                    </div>
-                    <h3>Survey Technician</h3>
-                    <div class="career-meta">
-                        <span><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</span>
-                        <span><i class="fas fa-clock"></i> Full-time</span>
-                    </div>
-                    <p>We're looking for a skilled Survey Technician to assist with field surveys, data collection, and mapping activities for our diverse range of projects.</p>
-                    <div class="career-tags">
-                        <span class="career-tag">Land Survey</span>
-                        <span class="career-tag">Field Work</span>
-                        <span class="career-tag">GNSS</span>
-                    </div>
-                    <div class="career-benefits">
-                        <h4>Requirements:</h4>
-                        <ul class="benefits-list">
-                            <li><i class="fas fa-check"></i> Diploma in Land Surveying or related field</li>
-                            <li><i class="fas fa-check"></i> 2+ years of field experience</li>
-                            <li><i class="fas fa-check"></i> Proficiency with GNSS and Total Station</li>
-                            <li><i class="fas fa-check"></i> Valid driver's license</li>
-                        </ul>
-                    </div>
-                    <a href="#contact" class="btn" style="margin-top: 20px;">Apply Now</a>
+            <div class="no-vacancies">
+                <div class="no-vacancies-icon">
+                    <i class="fas fa-briefcase"></i>
                 </div>
-                
-                <div class="career-card">
-                    <div class="career-icon">
-                        <i class="fas fa-drafting-compass"></i>
-                    </div>
-                    <h3>Civil Design Engineer</h3>
-                    <div class="career-meta">
-                        <span><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</span>
-                        <span><i class="fas fa-clock"></i> Full-time</span>
-                    </div>
-                    <p>Join our design team to create innovative solutions for infrastructure projects including roads, water systems, and building structures.</p>
-                    <div class="career-tags">
-                        <span class="career-tag">Design</span>
-                        <span class="career-tag">Engineering</span>
-                        <span class="career-tag">AutoCAD</span>
-                    </div>
-                    <div class="career-benefits">
-                        <h4>Requirements:</h4>
-                        <ul class="benefits-list">
-                            <li><i class="fas fa-check"></i> Bachelor's in Civil Engineering</li>
-                            <li><i class="fas fa-check"></i> 3+ years of design experience</li>
-                            <li><i class="fas fa-check"></i> Proficiency in AutoCAD, Civil 3D</li>
-                            <li><i class="fas fa-check"></i> Registered Engineer with EBK</li>
-                        </ul>
-                    </div>
-                    <a href="#contact" class="btn" style="margin-top: 20px;">Apply Now</a>
-                </div>
-                
-                <div class="career-card">
-                    <div class="career-icon">
-                        <i class="fas fa-leaf"></i>
-                    </div>
-                    <h3>Environmental Officer</h3>
-                    <div class="career-meta">
-                        <span><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</span>
-                        <span><i class="fas fa-clock"></i> Full-time</span>
-                    </div>
-                    <p>Join our team to ensure compliance with environmental regulations and implement sustainable practices across our projects.</p>
-                    <div class="career-tags">
-                        <span class="career-tag">Environment</span>
-                        <span class="career-tag">Compliance</span>
-                        <span class="career-tag">Sustainability</span>
-                    </div>
-                    <div class="career-benefits">
-                        <h4>Requirements:</h4>
-                        <ul class="benefits-list">
-                            <li><i class="fas fa-check"></i> Degree in Environmental Science or related</li>
-                            <li><i class="fas fa-check"></i> 2+ years of environmental compliance experience</li>
-                            <li><i class="fas fa-check"></i> Knowledge of EIA processes</li>
-                            <li><i class="fas fa-check"></i> Strong analytical and reporting skills</li>
-                        </ul>
-                    </div>
-                    <a href="#contact" class="btn" style="margin-top: 20px;">Apply Now</a>
-                </div>
-            </div>
-            
-            <div style="text-align: center; margin-top: 50px;">
-                <h3>Don't see a position that matches your skills?</h3>
-                <p>We're always looking for talented individuals to join our team. Send us your resume and we'll keep you in mind for future opportunities.</p>
-                <a href="#contact" class="btn btn-accent">Submit Your Resume</a>
+                <h3>No Vacancies at the Moment</h3>
+                <p>We currently don't have any open positions, but we're always looking for talented individuals to join our team. Please check back regularly for future opportunities.</p>
+                <p>We appreciate your interest in joining Geo-International and encourage you to follow our website and social media for updates on future career opportunities.</p>
             </div>
         </div>
     </section>
@@ -2523,42 +2410,28 @@
                         </div>
                     </div>
                 </div>
-                <div class="contact-form">
-                    <form>
-                        <input type="text" placeholder="Your Name" required>
-                        <input type="email" placeholder="Your Email" required>
-                        <select required>
-                            <option value="">Select Department</option>
-                            <option value="land-survey">Land Survey</option>
-                            <option value="design">Design</option>
-                            <option value="construction">Construction</option>
-                            <option value="products">Products</option>
-                            <option value="careers">Careers</option>
-                            <option value="general">General Inquiry</option>
-                        </select>
-                        <input type="text" placeholder="Subject" required>
-                        <textarea placeholder="Your Message" required></textarea>
-                        <button type="submit" class="btn">Send Message</button>
-                    </form>
+                <div class="contact-direct">
+                    <h3>Direct Contact</h3>
+                    <p>We're here to help with your engineering and construction needs. Please feel free to reach out to us directly via phone, email, or any of our social media channels.</p>
+                    <p>Our team is ready to assist you with land surveying, design services, construction projects, or product inquiries.</p>
+                    <div class="contact-social-icons" style="margin-top: 30px;">
+                        <a href="https://web.facebook.com/profile.php?id=100079095590042" class="contact-social-icon contact-facebook" target="_blank">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="mailto:geointernationaltd@gmail.com" class="contact-social-icon contact-email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="https://wa.me/254789700222" class="contact-social-icon contact-whatsapp" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="tel:+254789700222" class="contact-social-icon contact-phone">
+                            <i class="fas fa-phone"></i>
+                        </a>
+                        <a href="https://youtube.com/@geo-internationalltd3885?si=JxD8s8TTJ4X1gKjo" class="contact-social-icon contact-youtube" target="_blank">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <!-- Social Icons in Contact Section -->
-            <div class="contact-social-icons">
-                <a href="https://web.facebook.com/profile.php?id=100079095590042" class="contact-social-icon contact-facebook" target="_blank">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="mailto:geointernationaltd@gmail.com" class="contact-social-icon contact-email">
-                    <i class="fas fa-envelope"></i>
-                </a>
-                <a href="https://wa.me/254789700222" class="contact-social-icon contact-whatsapp" target="_blank">
-                    <i class="fab fa-whatsapp"></i>
-                </a>
-                <a href="tel:+254789700222" class="contact-social-icon contact-phone">
-                    <i class="fas fa-phone"></i>
-                </a>
-                <a href="https://youtube.com/@geo-internationalltd3885?si=JxD8s8TTJ4X1gKjo" class="contact-social-icon contact-youtube" target="_blank">
-                    <i class="fab fa-youtube"></i>
-                </a>
             </div>
         </div>
     </section>
@@ -2677,13 +2550,6 @@
                     document.querySelector('nav ul').classList.remove('active');
                 }
             });
-        });
-        
-        // Form Submission
-        document.querySelector('.contact-form form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your message! We will get back to you soon.');
-            this.reset();
         });
         
         // Image Slider Functionality
@@ -2895,7 +2761,7 @@
             "contact": "You can reach us at: Phone: +254789700222 or +254721732955, Email: geointernationaltd@gmail.com, Address: 7th Floor – Solanex House, Moi Avenue, Nairobi",
             "projects": "We've completed projects like Rusinga Island Ring Road, Karimenu II Water Supply, KISIP Informal Settlements Survey, and many more. Check our Projects section for details.",
             "team": "Our team includes experienced professionals like Mr. Lawrence O. Muraya (Managing Director), Eng. Cicilia Kagwima, Eng. Polycarp Omolo, and others with 10+ years of experience.",
-            "careers": "We have several career opportunities available. Check our Careers section for current openings including Survey Technician, Civil Design Engineer, Site Supervisor, and Environmental Officer positions.",
+            "careers": "We currently don't have any open positions, but please check our Careers section regularly for future opportunities.",
             "certifications": "We hold Certificate of Incorporation, NCA Registration, and Water Works Contractor certification.",
             "default": "I'm not sure I understand. Could you please rephrase your question? You can ask about our services, products, projects, partners, team, careers, certifications, or contact information."
         };
@@ -2994,14 +2860,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
